@@ -21,10 +21,14 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/blog/show/{slug<^[a-z0-9\-]+>}", name="blog_show", methods={"GET"})
+     *
+     * @Route("/blog/show/{slug}",
+     *     requirements={"slug"="[a-z0-9-]"},
+     *     defaults={"slug"="Article Sans Titre"},
+     *     name="blog_show")
      */
 
-    public function show($slug = "Article Sans Nom")
+    public function show($slug)
     {
         $slug = ucwords(str_replace('-', ' ', $slug), " ");
         return $this->render('blog/show.html.twig', ['slug' => $slug]);

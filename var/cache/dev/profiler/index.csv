@@ -118,3 +118,7 @@ b1dad9,127.0.0.1,GET,http://localhost:8000/show,1557756285,,404
 20c08e,127.0.0.1,GET,http://localhost:8000/show,1557756286,e9572e,200
 e9572e,127.0.0.1,GET,http://localhost:8000/show,1557756286,,404
 764e79,127.0.0.1,GET,http://localhost:8000/blog/show,1557756301,,200
+b16dc1,127.0.0.1,GET,http://localhost:8000/,1557757130,,200
+3bf403,127.0.0.1,GET,http://localhost:8000/,1557757426,,200
+2a1eba,127.0.0.1,GET,http://localhost:8000/,1557757526,,200
+f0885f,127.0.0.1,GET,http://localhost:8000/blog/show,1557757534,,200
