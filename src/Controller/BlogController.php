@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 
 class BlogController extends AbstractController
@@ -18,4 +19,16 @@ class BlogController extends AbstractController
             'owner' => 'Malika',
         ]);
     }
+
+    /**
+     * @Route("/show/{slug}", name="show_article", methods={"GET"})
+     */
+
+    public function show()
+    {
+
+        return $this->render('blog/show.html.twig');
+    }
+
+
 }
