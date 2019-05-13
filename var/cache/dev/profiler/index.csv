@@ -122,3 +122,5 @@ b16dc1,127.0.0.1,GET,http://localhost:8000/,1557757130,,200
 3bf403,127.0.0.1,GET,http://localhost:8000/,1557757426,,200
 2a1eba,127.0.0.1,GET,http://localhost:8000/,1557757526,,200
 f0885f,127.0.0.1,GET,http://localhost:8000/blog/show,1557757534,,200
+002a8a,127.0.0.1,GET,http://localhost:8000/blog/,1557763396,,301
+eff08e,127.0.0.1,GET,http://localhost:8000/blog,1557763396,,200
