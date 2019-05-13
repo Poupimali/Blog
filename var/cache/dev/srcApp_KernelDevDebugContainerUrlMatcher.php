@@ -21,7 +21,6 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
             '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
             '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
             '/blog' => [[['_route' => 'blog_index', '_controller' => 'App\\Controller\\BlogController::index'], null, null, null, false, false, null]],
-            '/blog/show' => [[['_route' => 'show_article', '_controller' => 'App\\Controller\\BlogController::show1'], null, ['GET' => 0], null, true, false, null]],
             '/' => [[['_route' => 'app_index', '_controller' => 'App\\Controller\\DefaultController::index'], null, null, null, false, false, null]],
         ];
         $this->regexpList = [
@@ -41,6 +40,7 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
                             .'|(*:159)'
                         .')'
                     .')'
+                    .'|/blog/show(?:/([a-z0-9\\-]+))?(*:198)'
                 .')/?$}sDu',
         ];
         $this->dynamicRoutes = [
@@ -51,6 +51,7 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
             136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception::showAction'], ['token'], null, null, false, false, null]],
             149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'], ['token'], null, null, false, false, null]],
             159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
+            198 => [[['_route' => 'blog_show', 'slug' => 'Article Sans Nom', '_controller' => 'App\\Controller\\BlogController::show'], ['slug'], ['GET' => 0], null, false, true, null]],
         ];
     }
 }
