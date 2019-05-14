@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @method Article|null find($id, $lockMode = null, $lockVersion = null)
@@ -18,6 +19,7 @@ class ArticleRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Article::class);
     }
+
 
     // /**
     //  * @return Article[] Returns an array of Article objects

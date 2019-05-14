@@ -63,6 +63,25 @@ class __TwigTemplate_e08d1bd6746a676abe07baa047fd4ecc2b9e0b634793f8530c898830884
 
         // line 4
         echo "<h1>Bienvenue sur mon blog</h1>
+    <a href=\"";
+        // line 5
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_show", ["slug" => "javascript-vs-php"]);
+        echo "\">
+        Testing show() method from BlogController with a real article s slug.
+    </a>
+    <br>
+    <a href=\"";
+        // line 9
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_index");
+        echo "\">
+        Testing index() method from BlogController to view all articles.
+    </a>
+    <a href=\"";
+        // line 12
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
+        echo "\">
+        Back to homepage.
+    </a>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -84,7 +103,7 @@ class __TwigTemplate_e08d1bd6746a676abe07baa047fd4ecc2b9e0b634793f8530c898830884
 
     public function getDebugInfo()
     {
-        return array (  65 => 4,  56 => 3,  34 => 1,);
+        return array (  81 => 12,  75 => 9,  68 => 5,  65 => 4,  56 => 3,  34 => 1,);
     }
 
     public function getSourceContext()
@@ -93,6 +112,16 @@ class __TwigTemplate_e08d1bd6746a676abe07baa047fd4ecc2b9e0b634793f8530c898830884
 
 {% block body %}
 <h1>Bienvenue sur mon blog</h1>
+    <a href=\"{{ path('blog_show', { 'slug': \"javascript-vs-php\" }) }}\">
+        Testing show() method from BlogController with a real article s slug.
+    </a>
+    <br>
+    <a href=\"{{ path('blog_index') }}\">
+        Testing index() method from BlogController to view all articles.
+    </a>
+    <a href=\"{{ path('index') }}\">
+        Back to homepage.
+    </a>
 {% endblock %}", "default.html.twig", "/Users/malika/Desktop/blog/templates/default.html.twig");
     }
 }
