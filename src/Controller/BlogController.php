@@ -57,7 +57,7 @@ class BlogController extends AbstractController
     {
         if (!$slug) {
             throw $this
-                ->createNotFoundException('No slug has been sent to find an article in article\'s table.');
+                ->createNotFoundException("No slug has been sent to find an article in article's table.");
         }
 
         $slug = preg_replace(
@@ -71,21 +71,24 @@ class BlogController extends AbstractController
 
         if (!$article) {
             throw $this->createNotFoundException(
-                'No article with '.$slug.' title, found in article\'s table.'
+                "No article with '.$slug.' title, found in article's table."
             );
         }
+
+        $category = $article->getCategory();
 
         return $this->render(
             'blog/show.html.twig',
             [
                 'article' => $article,
                 'slug' => $slug,
-            ]
+                'category' => $category
+             ]
         );
     }
 
     /**
-     * Getting a article with a formatted slug for title
+     * Getting category with 2 article
      *
      * @param string
      *
@@ -93,14 +96,17 @@ class BlogController extends AbstractController
      *
      * @return Response A response instance
      */
+
     public function showByCategory(string $categoryName){
         $category = $this->getDoctrine()
             ->getRepository(Category::class)
             ->findOneBy(['name' => $categoryName]);
 
-        $categoryArticle = $this->getDoctrine()
+        /*$categoryArticle = $this->getDoctrine()
             ->getRepository(Article::class)
-            ->findBy(['category' => $category], ['id' => 'DESC'], 3 );
+            ->findBy(['category' => $category], ['id' => 'DESC'], 3 );*/
+
+        $categoryArticle = $category->getArticles();
 
 
         return $this->render(

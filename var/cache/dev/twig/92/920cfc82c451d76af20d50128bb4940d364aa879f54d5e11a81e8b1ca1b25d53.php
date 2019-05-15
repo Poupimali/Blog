@@ -145,10 +145,18 @@ class __TwigTemplate_68cfd9d73a665a24455af3ecea9b3b824bf8a4e6f0601d9c212bdd17e3f
     <br>
     <a href=\"";
         // line 21
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_category", ["categoryName" => "PHP"]);
+        echo "\">
+        Voir la catégorie PHP
+    </a>
+    <br>
+    <a href=\"";
+        // line 25
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
         echo "\">
         Retour sur la page d'accueil
     </a>
+
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -170,7 +178,7 @@ class __TwigTemplate_68cfd9d73a665a24455af3ecea9b3b824bf8a4e6f0601d9c212bdd17e3f
 
     public function getDebugInfo()
     {
-        return array (  148 => 21,  140 => 17,  133 => 15,  117 => 12,  108 => 11,  105 => 9,  87 => 8,  84 => 7,  75 => 6,  57 => 4,  35 => 2,);
+        return array (  155 => 25,  148 => 21,  140 => 17,  133 => 15,  117 => 12,  108 => 11,  105 => 9,  87 => 8,  84 => 7,  75 => 6,  57 => 4,  35 => 2,);
     }
 
     public function getSourceContext()
@@ -195,9 +203,14 @@ class __TwigTemplate_68cfd9d73a665a24455af3ecea9b3b824bf8a4e6f0601d9c212bdd17e3f
     Voir l'article sur \"javascript-vs-php\".
     </a>
     <br>
+    <a href=\"{{ path('show_category', { 'categoryName': \"PHP\" }) }}\">
+        Voir la catégorie PHP
+    </a>
+    <br>
     <a href=\"{{ path('index') }}\">
         Retour sur la page d'accueil
     </a>
+
 {% endblock %}", "blog/index.html.twig", "/Users/malika/Desktop/blog/templates/blog/index.html.twig");
     }
 }

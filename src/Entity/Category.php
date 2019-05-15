@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 // pour faire appel la fonction ArrayCollection comme c'est un tableau il faudra créer une fonction add
 // et une fonction remove (pas de get et set)
 
@@ -51,6 +53,15 @@ class Category
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection|Article[]
+     */
+
+    public function getArticles() : Collection
+    {
+        return $this->articles;
     }
 
     /**

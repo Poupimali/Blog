@@ -113,7 +113,7 @@ class __TwigTemplate_06f4f75f609648e891e829839133c2c567f323a74a7c992c898d36d03f5
         // line 17
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
         echo "\">
-        Back to homepage.
+        Retour à la page d'accueil
     </a>
 
 ";
@@ -159,7 +159,7 @@ class __TwigTemplate_06f4f75f609648e891e829839133c2c567f323a74a7c992c898d36d03f5
 
 
     <a href=\"{{ path('index') }}\">
-        Back to homepage.
+        Retour à la page d'accueil
     </a>
 
 {% endblock %}", "blog/category.html.twig", "/Users/malika/Desktop/blog/templates/blog/category.html.twig");
