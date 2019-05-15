@@ -62,7 +62,7 @@ class __TwigTemplate_68cfd9d73a665a24455af3ecea9b3b824bf8a4e6f0601d9c212bdd17e3f
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "All articles";
+        echo "Tous les articles";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -81,7 +81,7 @@ class __TwigTemplate_68cfd9d73a665a24455af3ecea9b3b824bf8a4e6f0601d9c212bdd17e3f
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 7
-        echo "    <h1>All articles from articles table : </h1>
+        echo "    <h1>Tous les articles </h1>
     ";
         // line 8
         $context['_parent'] = $context;
@@ -140,20 +140,14 @@ class __TwigTemplate_68cfd9d73a665a24455af3ecea9b3b824bf8a4e6f0601d9c212bdd17e3f
         echo "    <a href=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_show", ["slug" => "javascript-vs-php"]);
         echo "\">
-        Testing show() method from BlogController with a real article s slug.
+    Voir l'article sur \"javascript-vs-php\".
     </a>
     <br>
     <a href=\"";
         // line 21
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_index");
-        echo "\">
-        Testing index() method from BlogController to view all articles.
-    </a>
-    <a href=\"";
-        // line 24
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
         echo "\">
-        Back to homepage.
+        Retour sur la page d'accueil
     </a>
 ";
         
@@ -176,7 +170,7 @@ class __TwigTemplate_68cfd9d73a665a24455af3ecea9b3b824bf8a4e6f0601d9c212bdd17e3f
 
     public function getDebugInfo()
     {
-        return array (  154 => 24,  148 => 21,  140 => 17,  133 => 15,  117 => 12,  108 => 11,  105 => 9,  87 => 8,  84 => 7,  75 => 6,  57 => 4,  35 => 2,);
+        return array (  148 => 21,  140 => 17,  133 => 15,  117 => 12,  108 => 11,  105 => 9,  87 => 8,  84 => 7,  75 => 6,  57 => 4,  35 => 2,);
     }
 
     public function getSourceContext()
@@ -184,10 +178,10 @@ class __TwigTemplate_68cfd9d73a665a24455af3ecea9b3b824bf8a4e6f0601d9c212bdd17e3f
         return new Source("{# templates/blog/index.html.twig #}
 {% extends 'base.html.twig' %}
 
-{% block title %}All articles{% endblock %}
+{% block title %}Tous les articles{% endblock %}
 
 {% block body %}
-    <h1>All articles from articles table : </h1>
+    <h1>Tous les articles </h1>
     {% for article in articles %}
         <div>
 {#            {{ loop.index }} = l’index de l’itération courant#}
@@ -198,14 +192,11 @@ class __TwigTemplate_68cfd9d73a665a24455af3ecea9b3b824bf8a4e6f0601d9c212bdd17e3f
         Aucun article trouvé.
     {% endfor %}
     <a href=\"{{ path('blog_show', { 'slug': \"javascript-vs-php\" }) }}\">
-        Testing show() method from BlogController with a real article s slug.
+    Voir l'article sur \"javascript-vs-php\".
     </a>
     <br>
-    <a href=\"{{ path('blog_index') }}\">
-        Testing index() method from BlogController to view all articles.
-    </a>
     <a href=\"{{ path('index') }}\">
-        Back to homepage.
+        Retour sur la page d'accueil
     </a>
 {% endblock %}", "blog/index.html.twig", "/Users/malika/Desktop/blog/templates/blog/index.html.twig");
     }

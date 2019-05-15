@@ -1,10 +1,10 @@
 {# templates/blog/index.html.twig #}
 {% extends 'base.html.twig' %}
 
-{% block title %}All articles{% endblock %}
+{% block title %}Tous les articles{% endblock %}
 
 {% block body %}
-    <h1>All articles from articles table : </h1>
+    <h1>Tous les articles </h1>
     {% for article in articles %}
         <div>
 {#            {{ loop.index }} = l’index de l’itération courant#}
@@ -15,13 +15,10 @@
         Aucun article trouvé.
     {% endfor %}
     <a href="{{ path('blog_show', { 'slug': "javascript-vs-php" }) }}">
-        Testing show() method from BlogController with a real article s slug.
+    Voir l'article sur "javascript-vs-php".
     </a>
     <br>
-    <a href="{{ path('blog_index') }}">
-        Testing index() method from BlogController to view all articles.
-    </a>
     <a href="{{ path('index') }}">
-        Back to homepage.
+        Retour sur la page d'accueil
     </a>
 {% endblock %}

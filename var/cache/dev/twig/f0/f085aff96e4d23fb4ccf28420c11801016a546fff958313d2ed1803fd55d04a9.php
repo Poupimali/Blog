@@ -101,7 +101,7 @@ class __TwigTemplate_44b34a70f227e54ae5311e38a039951b97673be7eb872bc2804fce03009
         // line 9
         echo "
     <div>
-        <h1>Real article s title : ";
+        <h1>";
         // line 11
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 11, $this->source); })()), "title", [], "any", false, false, false, 11), "html", null, true);
         echo "</h1>
@@ -115,11 +115,19 @@ class __TwigTemplate_44b34a70f227e54ae5311e38a039951b97673be7eb872bc2804fce03009
         echo "</p>
     </div>
 
+    <br>
     <a href=\"";
-        // line 16
+        // line 17
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_index");
+        echo "\">
+        Voir tous les articles.
+    </a>
+    <br>
+    <a href=\"";
+        // line 21
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
         echo "\">
-        Back to homepage.
+        Retour sur la page d'accueil
     </a>
 
 ";
@@ -143,7 +151,7 @@ class __TwigTemplate_44b34a70f227e54ae5311e38a039951b97673be7eb872bc2804fce03009
 
     public function getDebugInfo()
     {
-        return array (  120 => 16,  114 => 13,  110 => 12,  106 => 11,  102 => 9,  93 => 8,  76 => 6,  58 => 4,  36 => 2,);
+        return array (  128 => 21,  121 => 17,  114 => 13,  110 => 12,  106 => 11,  102 => 9,  93 => 8,  76 => 6,  58 => 4,  36 => 2,);
     }
 
     public function getSourceContext()
@@ -158,13 +166,18 @@ class __TwigTemplate_44b34a70f227e54ae5311e38a039951b97673be7eb872bc2804fce03009
 {% block body %}
 
     <div>
-        <h1>Real article s title : {{ article.title }}</h1>
+        <h1>{{ article.title }}</h1>
         <h2>Category : {{ article.category.name }}</h2>
         <p>{{ article.content }}</p>
     </div>
 
+    <br>
+    <a href=\"{{ path('blog_index') }}\">
+        Voir tous les articles.
+    </a>
+    <br>
     <a href=\"{{ path('index') }}\">
-        Back to homepage.
+        Retour sur la page d'accueil
     </a>
 
 {% endblock %}", "blog/show.html.twig", "/Users/malika/Desktop/blog/templates/blog/show.html.twig");
