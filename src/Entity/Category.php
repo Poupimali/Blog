@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+// pour faire appel la fonction ArrayCollection comme c'est un tableau il faudra créer une fonction add
+// et une fonction remove (pas de get et set)
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
@@ -37,4 +40,49 @@ class Category
 
         return $this;
     }
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="category")
+     */
+    //mappedBy="category" = l'attribut $category de la classe Article.
+
+    private $articles;
+
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
+
+    /**
+     * param Article $article
+     * @return Category
+     */
+    public function addArticle(Article $article): self
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param Article $article
+     * @return Category
+     */
+    public function removeArticle(Article $article): self
+    {
+        if ($this->articles->contains($article)) {
+            $this->articles->removeElement($article);
+            // mettre le côté propriétaire sur null (à moins qu'il n'ait déjà été modifié)
+            if ($article->getCategory() === $this) {
+                $article->setCategory(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 }
