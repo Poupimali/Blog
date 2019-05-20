@@ -4,7 +4,8 @@
 {% block title %}Tous les articles{% endblock %}
 
 {% block body %}
-    <h1>Tous les articles </h1>
+    <h1>Tous les articles du blog</h1>
+
     {% for article in articles %}
         <div>
 {#            {{ loop.index }} = l’index de l’itération courant#}
@@ -15,12 +16,33 @@
     {% else %}
         Aucun article trouvé.
     {% endfor %}
+    <br>
     <a href="{{ path('blog_show', { 'slug': "javascript-vs-php" }) }}">
-    Voir l'article sur "javascript-vs-php".
+    Voir l'article sur "javascript-vs-php"
     </a>
     <br>
     <a href="{{ path('show_category', { 'name': "PHP" }) }}">
         Voir la catégorie PHP
+    </a>
+    <br>
+    <a href="{{ path('show_category', { 'name': "Javascript" }) }}">
+        Voir la catégorie Javascript
+    </a>
+    <br>
+    <a href="{{ path('show_category', { 'name': "Java" }) }}">
+        Voir la catégorie Java
+    </a>
+    <br>
+    <a href="{{ path('show_category', { 'name': "SQL" }) }}">
+        Voir la catégorie SQL
+    </a>
+    <br>
+    <a href="{{ path('show_tag', { 'name': "PHP" }) }}">
+        Voir les articles correspondants au tag "PHP"
+    </a>
+    <br>
+    <a href="{{ path('show_tag', { 'name': "Et sinon quand est-ce qu'on mange ? " }) }}">
+        Voir les articles correspondants au tag "Et sinon quand est-ce qu'on mange" ?
     </a>
     <br>
     <a href="{{ path('index') }}">

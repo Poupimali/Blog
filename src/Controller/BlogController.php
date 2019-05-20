@@ -2,12 +2,13 @@
 // src/Controller/BlogController.php
 namespace App\Controller;
 
+use App\Entity\Tag;
+use App\Entity\Article;
+use App\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use App\Entity\Article;
-use App\Entity\Category;
 
 /**
  *
@@ -82,15 +83,13 @@ class BlogController extends AbstractController
             [
                 'article' => $article,
                 'slug' => $slug,
-                'category' => $category
+                'category' => $category,
              ]
         );
     }
 
     /**
-     * Getting category with 2 article
-     *
-     * @param string
+     * Getting category with all articles
      *
      * @Route("/category/{name}", name="show_category")
      *
@@ -117,5 +116,28 @@ class BlogController extends AbstractController
             ]
         );
     }
+
+    /**
+     * Getting tag with all articles
+     *
+     * @Route("/tag/{name}", name="show_tag")
+     *
+     * @return Response A response instance
+     */
+
+    public function showByTag(Tag $tag){
+
+        $articles = $tag->getArticles();
+
+
+        return $this->render(
+            'blog/tag.html.twig',
+            [
+                'articles' => $articles,
+                'tag' => $tag
+            ]
+        );
+    }
+
 
 }

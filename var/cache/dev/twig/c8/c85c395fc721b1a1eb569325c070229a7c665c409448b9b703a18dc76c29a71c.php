@@ -73,6 +73,34 @@ class __TwigTemplate_e08d1bd6746a676abe07baa047fd4ecc2b9e0b634793f8530c898830884
     <br>
     <a href=\"";
         // line 10
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_category", ["name" => "PHP"]);
+        echo "\">
+        Voir la catégorie PHP
+    </a>
+    <br>
+    <a href=\"";
+        // line 14
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_category", ["name" => "Javascript"]);
+        echo "\">
+        Voir la catégorie Javascript
+    </a>
+    <br>
+    <a href=\"";
+        // line 18
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_category", ["name" => "Java"]);
+        echo "\">
+        Voir la catégorie Java
+    </a>
+    <br>
+    <a href=\"";
+        // line 22
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_category", ["name" => "SQL"]);
+        echo "\">
+        Voir la catégorie SQL
+    </a>
+    <br>
+    <a href=\"";
+        // line 26
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_show", ["slug" => "javascript-vs-php"]);
         echo "\">
         Voir l'article sur \"javascript-vs-php\".
@@ -99,7 +127,7 @@ class __TwigTemplate_e08d1bd6746a676abe07baa047fd4ecc2b9e0b634793f8530c898830884
 
     public function getDebugInfo()
     {
-        return array (  76 => 10,  69 => 6,  65 => 4,  56 => 3,  34 => 1,);
+        return array (  104 => 26,  97 => 22,  90 => 18,  83 => 14,  76 => 10,  69 => 6,  65 => 4,  56 => 3,  34 => 1,);
     }
 
     public function getSourceContext()
@@ -111,6 +139,22 @@ class __TwigTemplate_e08d1bd6746a676abe07baa047fd4ecc2b9e0b634793f8530c898830884
     <br>
     <a href=\"{{ path('blog_index') }}\">
         Voir tous les articles.
+    </a>
+    <br>
+    <a href=\"{{ path('show_category', { 'name': \"PHP\" }) }}\">
+        Voir la catégorie PHP
+    </a>
+    <br>
+    <a href=\"{{ path('show_category', { 'name': \"Javascript\" }) }}\">
+        Voir la catégorie Javascript
+    </a>
+    <br>
+    <a href=\"{{ path('show_category', { 'name': \"Java\" }) }}\">
+        Voir la catégorie Java
+    </a>
+    <br>
+    <a href=\"{{ path('show_category', { 'name': \"SQL\" }) }}\">
+        Voir la catégorie SQL
     </a>
     <br>
     <a href=\"{{ path('blog_show', { 'slug': \"javascript-vs-php\" }) }}\">

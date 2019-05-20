@@ -81,29 +81,30 @@ class __TwigTemplate_06f4f75f609648e891e829839133c2c567f323a74a7c992c898d36d03f5
 
         // line 7
         echo "
-    <h1>";
+    <h1>Catégorie ";
         // line 8
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 8, $this->source); })()), "name", [], "any", false, false, false, 8), "html", null, true);
         echo "</h1>
+    <h3>Tous les articles correspondants</h3>
 
     ";
-        // line 10
+        // line 11
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 10, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 11, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 11
-            echo "    <div>
-        <h1>Real article id : ";
             // line 12
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 12), "html", null, true);
-            echo "</h1>
-        <h2>Title : ";
+            echo "    <div>
+        <h2>Real article id : ";
             // line 13
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "title", [], "any", false, false, false, 13), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 13), "html", null, true);
             echo "</h2>
-        <p> ";
+        <h3>Title : ";
             // line 14
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "content", [], "any", false, false, false, 14), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "title", [], "any", false, false, false, 14), "html", null, true);
+            echo "</h3>
+        <p> ";
+            // line 15
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "content", [], "any", false, false, false, 15), "html", null, true);
             echo "</p>
     </div>
     ";
@@ -111,11 +112,11 @@ class __TwigTemplate_06f4f75f609648e891e829839133c2c567f323a74a7c992c898d36d03f5
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 17
+        // line 18
         echo "
 
     <a href=\"";
-        // line 19
+        // line 20
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
         echo "\">
         Retour à la page d'accueil
@@ -142,7 +143,7 @@ class __TwigTemplate_06f4f75f609648e891e829839133c2c567f323a74a7c992c898d36d03f5
 
     public function getDebugInfo()
     {
-        return array (  119 => 19,  115 => 17,  106 => 14,  102 => 13,  98 => 12,  95 => 11,  91 => 10,  86 => 8,  83 => 7,  74 => 6,  57 => 4,  35 => 2,);
+        return array (  120 => 20,  116 => 18,  107 => 15,  103 => 14,  99 => 13,  96 => 12,  92 => 11,  86 => 8,  83 => 7,  74 => 6,  57 => 4,  35 => 2,);
     }
 
     public function getSourceContext()
@@ -154,12 +155,13 @@ class __TwigTemplate_06f4f75f609648e891e829839133c2c567f323a74a7c992c898d36d03f5
 
 {% block body %}
 
-    <h1>{{ category.name }}</h1>
+    <h1>Catégorie {{ category.name }}</h1>
+    <h3>Tous les articles correspondants</h3>
 
     {% for article in articles %}
     <div>
-        <h1>Real article id : {{ article.id }}</h1>
-        <h2>Title : {{ article.title }}</h2>
+        <h2>Real article id : {{ article.id }}</h2>
+        <h3>Title : {{ article.title }}</h3>
         <p> {{ article.content }}</p>
     </div>
     {% endfor %}

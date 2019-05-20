@@ -81,11 +81,12 @@ class __TwigTemplate_68cfd9d73a665a24455af3ecea9b3b824bf8a4e6f0601d9c212bdd17e3f
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 7
-        echo "    <h1>Tous les articles </h1>
+        echo "    <h1>Tous les articles du blog</h1>
+
     ";
-        // line 8
+        // line 9
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 8, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 9, $this->source); })()));
         $context['_iterated'] = false;
         $context['loop'] = [
           'parent' => $context['_parent'],
@@ -101,22 +102,22 @@ class __TwigTemplate_68cfd9d73a665a24455af3ecea9b3b824bf8a4e6f0601d9c212bdd17e3f
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 9
+            // line 10
             echo "        <div>
 ";
-            // line 11
+            // line 12
             echo "            <h2>";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 11), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 12), "html", null, true);
             echo " / ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "title", [], "any", false, false, false, 11), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "title", [], "any", false, false, false, 12), "html", null, true);
             echo "</h2>
             <h4>Category : ";
-            // line 12
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "category", [], "any", false, false, false, 12), "name", [], "any", false, false, false, 12), "html", null, true);
+            // line 13
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "category", [], "any", false, false, false, 13), "name", [], "any", false, false, false, 13), "html", null, true);
             echo "</h4>
             <p>";
-            // line 13
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "content", [], "any", false, false, false, 13), "html", null, true);
+            // line 14
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "content", [], "any", false, false, false, 14), "html", null, true);
             echo "</p>
         </div>
     ";
@@ -131,29 +132,66 @@ class __TwigTemplate_68cfd9d73a665a24455af3ecea9b3b824bf8a4e6f0601d9c212bdd17e3f
             }
         }
         if (!$context['_iterated']) {
-            // line 16
+            // line 17
             echo "        Aucun article trouvé.
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 18
-        echo "    <a href=\"";
+        // line 19
+        echo "    <br>
+    <a href=\"";
+        // line 20
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_show", ["slug" => "javascript-vs-php"]);
         echo "\">
-    Voir l'article sur \"javascript-vs-php\".
+    Voir l'article sur \"javascript-vs-php\"
     </a>
     <br>
     <a href=\"";
-        // line 22
+        // line 24
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_category", ["name" => "PHP"]);
         echo "\">
         Voir la catégorie PHP
     </a>
     <br>
     <a href=\"";
-        // line 26
+        // line 28
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_category", ["name" => "Javascript"]);
+        echo "\">
+        Voir la catégorie Javascript
+    </a>
+    <br>
+    <a href=\"";
+        // line 32
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_category", ["name" => "Java"]);
+        echo "\">
+        Voir la catégorie Java
+    </a>
+    <br>
+    <a href=\"";
+        // line 36
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_category", ["name" => "SQL"]);
+        echo "\">
+        Voir la catégorie SQL
+    </a>
+    <br>
+    <a href=\"";
+        // line 40
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_tag", ["name" => "PHP"]);
+        echo "\">
+        Voir les articles correspondants au tag \"PHP\"
+    </a>
+    <br>
+    <a href=\"";
+        // line 44
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_tag", ["name" => "Et sinon quand est-ce qu'on mange ? "]);
+        echo "\">
+        Voir les articles correspondants au tag \"Et sinon quand est-ce qu'on mange\" ?
+    </a>
+    <br>
+    <a href=\"";
+        // line 48
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
         echo "\">
         Retour sur la page d'accueil
@@ -180,7 +218,7 @@ class __TwigTemplate_68cfd9d73a665a24455af3ecea9b3b824bf8a4e6f0601d9c212bdd17e3f
 
     public function getDebugInfo()
     {
-        return array (  157 => 26,  150 => 22,  142 => 18,  135 => 16,  119 => 13,  115 => 12,  108 => 11,  105 => 9,  87 => 8,  84 => 7,  75 => 6,  57 => 4,  35 => 2,);
+        return array (  195 => 48,  188 => 44,  181 => 40,  174 => 36,  167 => 32,  160 => 28,  153 => 24,  146 => 20,  143 => 19,  136 => 17,  120 => 14,  116 => 13,  109 => 12,  106 => 10,  88 => 9,  84 => 7,  75 => 6,  57 => 4,  35 => 2,);
     }
 
     public function getSourceContext()
@@ -191,7 +229,8 @@ class __TwigTemplate_68cfd9d73a665a24455af3ecea9b3b824bf8a4e6f0601d9c212bdd17e3f
 {% block title %}Tous les articles{% endblock %}
 
 {% block body %}
-    <h1>Tous les articles </h1>
+    <h1>Tous les articles du blog</h1>
+
     {% for article in articles %}
         <div>
 {#            {{ loop.index }} = l’index de l’itération courant#}
@@ -202,12 +241,33 @@ class __TwigTemplate_68cfd9d73a665a24455af3ecea9b3b824bf8a4e6f0601d9c212bdd17e3f
     {% else %}
         Aucun article trouvé.
     {% endfor %}
+    <br>
     <a href=\"{{ path('blog_show', { 'slug': \"javascript-vs-php\" }) }}\">
-    Voir l'article sur \"javascript-vs-php\".
+    Voir l'article sur \"javascript-vs-php\"
     </a>
     <br>
     <a href=\"{{ path('show_category', { 'name': \"PHP\" }) }}\">
         Voir la catégorie PHP
+    </a>
+    <br>
+    <a href=\"{{ path('show_category', { 'name': \"Javascript\" }) }}\">
+        Voir la catégorie Javascript
+    </a>
+    <br>
+    <a href=\"{{ path('show_category', { 'name': \"Java\" }) }}\">
+        Voir la catégorie Java
+    </a>
+    <br>
+    <a href=\"{{ path('show_category', { 'name': \"SQL\" }) }}\">
+        Voir la catégorie SQL
+    </a>
+    <br>
+    <a href=\"{{ path('show_tag', { 'name': \"PHP\" }) }}\">
+        Voir les articles correspondants au tag \"PHP\"
+    </a>
+    <br>
+    <a href=\"{{ path('show_tag', { 'name': \"Et sinon quand est-ce qu'on mange ? \" }) }}\">
+        Voir les articles correspondants au tag \"Et sinon quand est-ce qu'on mange\" ?
     </a>
     <br>
     <a href=\"{{ path('index') }}\">

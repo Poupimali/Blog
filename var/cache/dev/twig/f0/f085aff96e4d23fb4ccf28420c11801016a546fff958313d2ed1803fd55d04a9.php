@@ -114,16 +114,44 @@ class __TwigTemplate_44b34a70f227e54ae5311e38a039951b97673be7eb872bc2804fce03009
         echo "</p>
     </div>
 
+    ";
+        // line 18
+        echo "    <strong>Tags correspondants:</strong>
+    <ul>
+        ";
+        // line 20
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 20, $this->source); })()), "tags", [], "any", false, false, false, 20));
+        $context['_iterated'] = false;
+        foreach ($context['_seq'] as $context["_key"] => $context["tag"]) {
+            // line 21
+            echo "            <li>";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["tag"], "name", [], "any", false, false, false, 21), "html", null, true);
+            echo "</li>
+        ";
+            $context['_iterated'] = true;
+        }
+        if (!$context['_iterated']) {
+            // line 23
+            echo "            <li>No tags for this article</li>
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tag'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 25
+        echo "    </ul>
+
     <br>
     <a href=\"";
-        // line 16
+        // line 28
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_index");
         echo "\">
-        Voir tous les articles.
+        Voir tous les articles
     </a>
     <br>
     <a href=\"";
-        // line 20
+        // line 32
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
         echo "\">
         Retour sur la page d'accueil
@@ -150,7 +178,7 @@ class __TwigTemplate_44b34a70f227e54ae5311e38a039951b97673be7eb872bc2804fce03009
 
     public function getDebugInfo()
     {
-        return array (  127 => 20,  120 => 16,  113 => 12,  109 => 11,  105 => 10,  102 => 9,  93 => 8,  76 => 6,  58 => 4,  36 => 2,);
+        return array (  155 => 32,  148 => 28,  143 => 25,  136 => 23,  128 => 21,  123 => 20,  119 => 18,  113 => 12,  109 => 11,  105 => 10,  102 => 9,  93 => 8,  76 => 6,  58 => 4,  36 => 2,);
     }
 
     public function getSourceContext()
@@ -169,9 +197,21 @@ class __TwigTemplate_44b34a70f227e54ae5311e38a039951b97673be7eb872bc2804fce03009
         <p>{{ article.content }}</p>
     </div>
 
+    {# Depuis Twig, en appelant \"article.tags\", tu fais l’équivalent en PHP de \$article->getTags().
+    Ce qui te donne le tableau des tags associés à l’article.
+    Pas besoin de le faire au niveau du controller.  #}
+    <strong>Tags correspondants:</strong>
+    <ul>
+        {% for tag in article.tags %}
+            <li>{{ tag.name }}</li>
+        {% else %}
+            <li>No tags for this article</li>
+        {% endfor %}
+    </ul>
+
     <br>
     <a href=\"{{ path('blog_index') }}\">
-        Voir tous les articles.
+        Voir tous les articles
     </a>
     <br>
     <a href=\"{{ path('index') }}\">
