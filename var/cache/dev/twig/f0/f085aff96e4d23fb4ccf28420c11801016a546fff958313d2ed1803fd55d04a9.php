@@ -99,32 +99,31 @@ class __TwigTemplate_44b34a70f227e54ae5311e38a039951b97673be7eb872bc2804fce03009
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 9
-        echo "
-    <div>
+        echo "    <div>
         <h1>";
-        // line 11
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 11, $this->source); })()), "title", [], "any", false, false, false, 11), "html", null, true);
+        // line 10
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 10, $this->source); })()), "title", [], "any", false, false, false, 10), "html", null, true);
         echo "</h1>
         <h2>Category : ";
-        // line 12
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 12, $this->source); })()), "category", [], "any", false, false, false, 12), "name", [], "any", false, false, false, 12), "html", null, true);
+        // line 11
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 11, $this->source); })()), "category", [], "any", false, false, false, 11), "name", [], "any", false, false, false, 11), "html", null, true);
         echo "</h2>
         <p>";
-        // line 13
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 13, $this->source); })()), "content", [], "any", false, false, false, 13), "html", null, true);
+        // line 12
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 12, $this->source); })()), "content", [], "any", false, false, false, 12), "html", null, true);
         echo "</p>
     </div>
 
     <br>
     <a href=\"";
-        // line 17
+        // line 16
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_index");
         echo "\">
         Voir tous les articles.
     </a>
     <br>
     <a href=\"";
-        // line 21
+        // line 20
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
         echo "\">
         Retour sur la page d'accueil
@@ -151,7 +150,7 @@ class __TwigTemplate_44b34a70f227e54ae5311e38a039951b97673be7eb872bc2804fce03009
 
     public function getDebugInfo()
     {
-        return array (  128 => 21,  121 => 17,  114 => 13,  110 => 12,  106 => 11,  102 => 9,  93 => 8,  76 => 6,  58 => 4,  36 => 2,);
+        return array (  127 => 20,  120 => 16,  113 => 12,  109 => 11,  105 => 10,  102 => 9,  93 => 8,  76 => 6,  58 => 4,  36 => 2,);
     }
 
     public function getSourceContext()
@@ -164,7 +163,6 @@ class __TwigTemplate_44b34a70f227e54ae5311e38a039951b97673be7eb872bc2804fce03009
 {% block stylesheets %}{% endblock %}
 
 {% block body %}
-
     <div>
         <h1>{{ article.title }}</h1>
         <h2>Category : {{ article.category.name }}</h2>

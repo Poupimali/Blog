@@ -5,11 +5,13 @@
 
 {% block body %}
 
-    {% for CA in categoryarticle %}
+    <h1>{{ category.name }}</h1>
+
+    {% for article in articles %}
     <div>
-        <h1>Real article id : {{ CA.id }}</h1>
-        <h2>Title : {{ CA.title }}</h2>
-        <p> {{ CA.content }}</p>
+        <h1>Real article id : {{ article.id }}</h1>
+        <h2>Title : {{ article.title }}</h2>
+        <p> {{ article.content }}</p>
     </div>
     {% endfor %}
 

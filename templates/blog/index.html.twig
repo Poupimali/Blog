@@ -8,7 +8,8 @@
     {% for article in articles %}
         <div>
 {#            {{ loop.index }} = l’index de l’itération courant#}
-            <h2>{{ loop.index }} / {{ article.title }} - Category : {{ article.category.name }}</h2>
+            <h2>{{ loop.index }} / {{ article.title }}</h2>
+            <h4>Category : {{ article.category.name }}</h4>
             <p>{{ article.content }}</p>
         </div>
     {% else %}
@@ -18,7 +19,7 @@
     Voir l'article sur "javascript-vs-php".
     </a>
     <br>
-    <a href="{{ path('show_category', { 'categoryName': "PHP" }) }}">
+    <a href="{{ path('show_category', { 'name': "PHP" }) }}">
         Voir la catégorie PHP
     </a>
     <br>
