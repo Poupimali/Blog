@@ -1,15 +1,13 @@
 {# templates/blog/show.html.twig #}
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}{% endblock %}
-
 {% block body %}
-
-    <h1>Tag {{ tag.name }}</h1>
-    <h3>Tous les articles correspondants</h3>
+<div class="container">
+    <h1 class="text-center pt-3 pb-3">Tag {{ tag.name }}</h1>
+    <h3 class="text-center pb-4">Tous les articles correspondants</h3>
 
     {% for article in articles %}
-    <div>
+    <div >
         <h2>Real article id : {{ article.id }}</h2>
         <h3>Title : {{ article.title }}</h3>
         <p> {{ article.content }}</p>
@@ -24,5 +22,6 @@
     <a href="{{ path('index') }}">
         Retour à la page d'accueil
     </a>
+</div>
 
 {% endblock %}

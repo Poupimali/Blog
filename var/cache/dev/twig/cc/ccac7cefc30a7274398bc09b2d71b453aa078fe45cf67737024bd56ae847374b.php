@@ -24,7 +24,6 @@ class __TwigTemplate_06f4f75f609648e891e829839133c2c567f323a74a7c992c898d36d03f5
         $this->source = $this->getSourceContext();
 
         $this->blocks = [
-            'stylesheets' => [$this, 'block_stylesheets'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -54,23 +53,6 @@ class __TwigTemplate_06f4f75f609648e891e829839133c2c567f323a74a7c992c898d36d03f5
     }
 
     // line 4
-    public function block_stylesheets($context, array $blocks = [])
-    {
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
-
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
-    // line 6
     public function block_body($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -79,48 +61,51 @@ class __TwigTemplate_06f4f75f609648e891e829839133c2c567f323a74a7c992c898d36d03f5
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 7
+        // line 5
         echo "
-    <h1>Catégorie ";
-        // line 8
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 8, $this->source); })()), "name", [], "any", false, false, false, 8), "html", null, true);
+    <h1 class = \"text-center pt-3 pb-3\" > Catégorie : ";
+        // line 6
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 6, $this->source); })()), "name", [], "any", false, false, false, 6), "html", null, true);
         echo "</h1>
-    <h3>Tous les articles correspondants</h3>
+    <h3 class = \"text-center pb-4\" >Tous les articles correspondants</h3>
+
 
     ";
-        // line 11
+        // line 10
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 11, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 10, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
+            // line 11
+            echo "        <div class=\"container mb-5\">
+            <h2>Real article id : ";
             // line 12
-            echo "    <div>
-        <h2>Real article id : ";
-            // line 13
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 13), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 12), "html", null, true);
             echo "</h2>
-        <h3>Title : ";
-            // line 14
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "title", [], "any", false, false, false, 14), "html", null, true);
+            <h3>Title : ";
+            // line 13
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "title", [], "any", false, false, false, 13), "html", null, true);
             echo "</h3>
-        <p> ";
-            // line 15
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "content", [], "any", false, false, false, 15), "html", null, true);
+            <p> ";
+            // line 14
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "content", [], "any", false, false, false, 14), "html", null, true);
             echo "</p>
-    </div>
+        </div>
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 18
+        // line 17
         echo "
-
-    <a href=\"";
-        // line 20
+    <div class=\"container\">
+        <a href=\"";
+        // line 19
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
         echo "\">
-        Retour à la page d'accueil
-    </a>
+            Retour à la page d'accueil
+        </a>
+
+    </div>
 
 ";
         
@@ -143,7 +128,7 @@ class __TwigTemplate_06f4f75f609648e891e829839133c2c567f323a74a7c992c898d36d03f5
 
     public function getDebugInfo()
     {
-        return array (  120 => 20,  116 => 18,  107 => 15,  103 => 14,  99 => 13,  96 => 12,  92 => 11,  86 => 8,  83 => 7,  74 => 6,  57 => 4,  35 => 2,);
+        return array (  103 => 19,  99 => 17,  90 => 14,  86 => 13,  82 => 12,  79 => 11,  75 => 10,  68 => 6,  65 => 5,  56 => 4,  34 => 2,);
     }
 
     public function getSourceContext()
@@ -151,26 +136,27 @@ class __TwigTemplate_06f4f75f609648e891e829839133c2c567f323a74a7c992c898d36d03f5
         return new Source("{# templates/blog/show.html.twig #}
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}{% endblock %}
-
 {% block body %}
 
-    <h1>Catégorie {{ category.name }}</h1>
-    <h3>Tous les articles correspondants</h3>
+    <h1 class = \"text-center pt-3 pb-3\" > Catégorie : {{ category.name }}</h1>
+    <h3 class = \"text-center pb-4\" >Tous les articles correspondants</h3>
+
 
     {% for article in articles %}
-    <div>
-        <h2>Real article id : {{ article.id }}</h2>
-        <h3>Title : {{ article.title }}</h3>
-        <p> {{ article.content }}</p>
-    </div>
+        <div class=\"container mb-5\">
+            <h2>Real article id : {{ article.id }}</h2>
+            <h3>Title : {{ article.title }}</h3>
+            <p> {{ article.content }}</p>
+        </div>
     {% endfor %}
 
+    <div class=\"container\">
+        <a href=\"{{ path('index') }}\">
+            Retour à la page d'accueil
+        </a>
 
-    <a href=\"{{ path('index') }}\">
-        Retour à la page d'accueil
-    </a>
+    </div>
 
-{% endblock %}", "blog/category.html.twig", "/Users/malika/Desktop/blog/templates/blog/category.html.twig");
+{% endblock %}", "blog/category.html.twig", "/Users/malika/Desktop/Blog/templates/blog/category.html.twig");
     }
 }

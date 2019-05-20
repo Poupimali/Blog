@@ -4,11 +4,22 @@
 {% block title %}Tous les articles{% endblock %}
 
 {% block body %}
-    <h1>Tous les articles du blog</h1>
+    <h1 class ="text-center pt-3 pb-3">Tous les articles du blog</h1>
+
+    <div class="container mb-4">
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col">
+                {{ form_row(form.searchField) }}
+            </div>
+        </div>
+        <button type="submit" name="btnSearch">Rechercher</button>
+        {{ form_end(form) }}
+    </div>
 
     {% for article in articles %}
-        <div>
-{#            {{ loop.index }} = l’index de l’itération courant#}
+        <div class="container mb-5">
+            {# {{ loop.index }} = l’index de l’itération courant#}
             <h2>{{ loop.index }} / {{ article.title }}</h2>
             <h4>Category : {{ article.category.name }}</h4>
             <p>{{ article.content }}</p>
@@ -16,37 +27,40 @@
     {% else %}
         Aucun article trouvé.
     {% endfor %}
-    <br>
-    <a href="{{ path('blog_show', { 'slug': "javascript-vs-php" }) }}">
-    Voir l'article sur "javascript-vs-php"
-    </a>
-    <br>
-    <a href="{{ path('show_category', { 'name': "PHP" }) }}">
-        Voir la catégorie PHP
-    </a>
-    <br>
-    <a href="{{ path('show_category', { 'name': "Javascript" }) }}">
-        Voir la catégorie Javascript
-    </a>
-    <br>
-    <a href="{{ path('show_category', { 'name': "Java" }) }}">
-        Voir la catégorie Java
-    </a>
-    <br>
-    <a href="{{ path('show_category', { 'name': "SQL" }) }}">
-        Voir la catégorie SQL
-    </a>
-    <br>
-    <a href="{{ path('show_tag', { 'name': "PHP" }) }}">
-        Voir les articles correspondants au tag "PHP"
-    </a>
-    <br>
-    <a href="{{ path('show_tag', { 'name': "Et sinon quand est-ce qu'on mange ? " }) }}">
-        Voir les articles correspondants au tag "Et sinon quand est-ce qu'on mange" ?
-    </a>
-    <br>
-    <a href="{{ path('index') }}">
-        Retour sur la page d'accueil
-    </a>
+
+    <div class="container pb-5">
+        <a href="{{ path('blog_show', { 'slug': "javascript-vs-php" }) }}">
+            Voir l'article sur "javascript-vs-php"
+        </a>
+        <br>
+        <a href="{{ path('show_category', { 'name': "PHP" }) }}">
+            Voir la catégorie PHP
+        </a>
+        <br>
+        <a href="{{ path('show_category', { 'name': "Javascript" }) }}">
+            Voir la catégorie Javascript
+        </a>
+        <br>
+        <a href="{{ path('show_category', { 'name': "Java" }) }}">
+            Voir la catégorie Java
+        </a>
+        <br>
+        <a href="{{ path('show_category', { 'name': "SQL" }) }}">
+            Voir la catégorie SQL
+        </a>
+        <br>
+        <a href="{{ path('show_tag', { 'name': "PHP" }) }}">
+            Voir les articles correspondants au tag "PHP"
+        </a>
+        <br>
+        <a href="{{ path('show_tag', { 'name': "Et sinon quand est-ce qu'on mange ? " }) }}">
+            Voir les articles correspondants au tag "Et sinon quand est-ce qu'on mange" ?
+        </a>
+        <br>
+        <a href="{{ path('index') }}">
+            Retour sur la page d'accueil
+        </a>
+
+    </div>
 
 {% endblock %}

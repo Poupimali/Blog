@@ -8,7 +8,8 @@ use App\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
+use App\Form\ArticleSearchType;
 
 /**
  *
@@ -38,9 +39,18 @@ class BlogController extends AbstractController
             );
         }
 
+        $form = $this->createForm(
+            ArticleSearchType::class,
+            null,
+            ['method' => Request::METHOD_GET]
+        );
+
         return $this->render(
             'blog/index.html.twig',
-            ['articles' => $articles]
+            [
+                'articles' => $articles,
+                'form' => $form->createView()
+            ]
         );
     }
 

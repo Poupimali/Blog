@@ -1,24 +1,25 @@
 {# templates/blog/show.html.twig #}
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}{% endblock %}
-
 {% block body %}
 
-    <h1>Catégorie {{ category.name }}</h1>
-    <h3>Tous les articles correspondants</h3>
+    <h1 class = "text-center pt-3 pb-3" > Catégorie : {{ category.name }}</h1>
+    <h3 class = "text-center pb-4" >Tous les articles correspondants</h3>
+
 
     {% for article in articles %}
-    <div>
-        <h2>Real article id : {{ article.id }}</h2>
-        <h3>Title : {{ article.title }}</h3>
-        <p> {{ article.content }}</p>
-    </div>
+        <div class="container mb-5">
+            <h2>Real article id : {{ article.id }}</h2>
+            <h3>Title : {{ article.title }}</h3>
+            <p> {{ article.content }}</p>
+        </div>
     {% endfor %}
 
+    <div class="container">
+        <a href="{{ path('index') }}">
+            Retour à la page d'accueil
+        </a>
 
-    <a href="{{ path('index') }}">
-        Retour à la page d'accueil
-    </a>
+    </div>
 
 {% endblock %}

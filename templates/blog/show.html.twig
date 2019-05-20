@@ -6,8 +6,8 @@
 {% block stylesheets %}{% endblock %}
 
 {% block body %}
-    <div>
-        <h1>{{ article.title }}</h1>
+    <div class="container">
+        <h1 class = "text-center pt-3 pb-3">{{ article.title }}</h1>
         <h2>Category : {{ article.category.name }}</h2>
         <p>{{ article.content }}</p>
     </div>
@@ -15,22 +15,24 @@
     {# Depuis Twig, en appelant "article.tags", tu fais l’équivalent en PHP de $article->getTags().
     Ce qui te donne le tableau des tags associés à l’article.
     Pas besoin de le faire au niveau du controller.  #}
-    <strong>Tags correspondants:</strong>
-    <ul>
-        {% for tag in article.tags %}
-            <li>{{ tag.name }}</li>
-        {% else %}
-            <li>No tags for this article</li>
-        {% endfor %}
-    </ul>
+    <div class="container mb-3 pb-4">
+        <strong>Tags correspondants:</strong>
+        <ul>
+            {% for tag in article.tags %}
+                <li>{{ tag.name }}</li>
+            {% else %}
+                <li>No tags for this article</li>
+            {% endfor %}
+        </ul>
 
-    <br>
-    <a href="{{ path('blog_index') }}">
-        Voir tous les articles
-    </a>
-    <br>
-    <a href="{{ path('index') }}">
-        Retour sur la page d'accueil
-    </a>
+        <br>
+        <a href="{{ path('blog_index') }}">
+            Voir tous les articles
+        </a>
+        <br>
+        <a href="{{ path('index') }}">
+            Retour sur la page d'accueil
+        </a>
+    </div>
 
 {% endblock %}

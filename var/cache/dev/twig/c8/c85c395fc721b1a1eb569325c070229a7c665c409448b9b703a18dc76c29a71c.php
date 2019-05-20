@@ -62,8 +62,8 @@ class __TwigTemplate_e08d1bd6746a676abe07baa047fd4ecc2b9e0b634793f8530c898830884
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
-        echo "<h1>Bienvenue sur mon blog</h1>
-    <br>
+        echo "<h1 class =\"text-center  pt-3 pb-3\">Bienvenue sur mon blog</h1>
+    <div class=\"container\">
     <a href=\"";
         // line 6
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_index");
@@ -105,6 +105,7 @@ class __TwigTemplate_e08d1bd6746a676abe07baa047fd4ecc2b9e0b634793f8530c898830884
         echo "\">
         Voir l'article sur \"javascript-vs-php\".
     </a>
+    </div>
 
 ";
         
@@ -135,8 +136,8 @@ class __TwigTemplate_e08d1bd6746a676abe07baa047fd4ecc2b9e0b634793f8530c898830884
         return new Source("{% extends 'base.html.twig' %}
 
 {% block body %}
-<h1>Bienvenue sur mon blog</h1>
-    <br>
+<h1 class =\"text-center  pt-3 pb-3\">Bienvenue sur mon blog</h1>
+    <div class=\"container\">
     <a href=\"{{ path('blog_index') }}\">
         Voir tous les articles.
     </a>
@@ -160,7 +161,8 @@ class __TwigTemplate_e08d1bd6746a676abe07baa047fd4ecc2b9e0b634793f8530c898830884
     <a href=\"{{ path('blog_show', { 'slug': \"javascript-vs-php\" }) }}\">
         Voir l'article sur \"javascript-vs-php\".
     </a>
+    </div>
 
-{% endblock %}", "default.html.twig", "/Users/malika/Desktop/blog/templates/default.html.twig");
+{% endblock %}", "default.html.twig", "/Users/malika/Desktop/Blog/templates/default.html.twig");
     }
 }
