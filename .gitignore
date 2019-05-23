@@ -5,6 +5,7 @@
 /.env.*.local
 /public/bundles/
 /vendor/
+
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###

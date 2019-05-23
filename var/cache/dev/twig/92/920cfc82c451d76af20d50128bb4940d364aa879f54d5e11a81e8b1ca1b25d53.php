@@ -135,9 +135,30 @@ class __TwigTemplate_68cfd9d73a665a24455af3ecea9b3b824bf8a4e6f0601d9c212bdd17e3f
             // line 24
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "category", [], "any", false, false, false, 24), "name", [], "any", false, false, false, 24), "html", null, true);
             echo "</h4>
-            <p>";
+            ";
             // line 25
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "content", [], "any", false, false, false, 25), "html", null, true);
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["article"], "tags", [], "any", false, false, false, 25));
+            $context['_iterated'] = false;
+            foreach ($context['_seq'] as $context["_key"] => $context["tag"]) {
+                // line 26
+                echo "                <h5>Tag : ";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["tag"], "name", [], "any", false, false, false, 26), "html", null, true);
+                echo "</h5>
+            ";
+                $context['_iterated'] = true;
+            }
+            if (!$context['_iterated']) {
+                // line 28
+                echo "            <li>No tags for this article</li>
+            ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tag'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 30
+            echo "            <p>";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "content", [], "any", false, false, false, 30), "html", null, true);
             echo "</p>
         </div>
     ";
@@ -152,67 +173,67 @@ class __TwigTemplate_68cfd9d73a665a24455af3ecea9b3b824bf8a4e6f0601d9c212bdd17e3f
             }
         }
         if (!$context['_iterated']) {
-            // line 28
+            // line 33
             echo "        Aucun article trouvé.
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 30
+        // line 35
         echo "
     <div class=\"container pb-5\">
         <a href=\"";
-        // line 32
+        // line 37
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_show", ["slug" => "javascript-vs-php"]);
         echo "\">
             Voir l'article sur \"javascript-vs-php\"
         </a>
         <br>
         <a href=\"";
-        // line 36
+        // line 41
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_category", ["name" => "PHP"]);
         echo "\">
             Voir la catégorie PHP
         </a>
         <br>
         <a href=\"";
-        // line 40
+        // line 45
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_category", ["name" => "Javascript"]);
         echo "\">
             Voir la catégorie Javascript
         </a>
         <br>
         <a href=\"";
-        // line 44
+        // line 49
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_category", ["name" => "Java"]);
         echo "\">
             Voir la catégorie Java
         </a>
         <br>
         <a href=\"";
-        // line 48
+        // line 53
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_category", ["name" => "SQL"]);
         echo "\">
             Voir la catégorie SQL
         </a>
         <br>
         <a href=\"";
-        // line 52
+        // line 57
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_tag", ["name" => "PHP"]);
         echo "\">
             Voir les articles correspondants au tag \"PHP\"
         </a>
         <br>
         <a href=\"";
-        // line 56
+        // line 61
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_tag", ["name" => "Et sinon quand est-ce qu'on mange ? "]);
         echo "\">
             Voir les articles correspondants au tag \"Et sinon quand est-ce qu'on mange\" ?
         </a>
         <br>
         <a href=\"";
-        // line 60
+        // line 65
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
         echo "\">
             Retour sur la page d'accueil
@@ -241,7 +262,7 @@ class __TwigTemplate_68cfd9d73a665a24455af3ecea9b3b824bf8a4e6f0601d9c212bdd17e3f
 
     public function getDebugInfo()
     {
-        return array (  216 => 60,  209 => 56,  202 => 52,  195 => 48,  188 => 44,  181 => 40,  174 => 36,  167 => 32,  163 => 30,  156 => 28,  140 => 25,  136 => 24,  129 => 23,  126 => 21,  108 => 20,  102 => 17,  95 => 13,  89 => 10,  84 => 7,  75 => 6,  57 => 4,  35 => 2,);
+        return array (  237 => 65,  230 => 61,  223 => 57,  216 => 53,  209 => 49,  202 => 45,  195 => 41,  188 => 37,  184 => 35,  177 => 33,  160 => 30,  153 => 28,  145 => 26,  140 => 25,  136 => 24,  129 => 23,  126 => 21,  108 => 20,  102 => 17,  95 => 13,  89 => 10,  84 => 7,  75 => 6,  57 => 4,  35 => 2,);
     }
 
     public function getSourceContext()
@@ -270,6 +291,11 @@ class __TwigTemplate_68cfd9d73a665a24455af3ecea9b3b824bf8a4e6f0601d9c212bdd17e3f
             {# {{ loop.index }} = l’index de l’itération courant#}
             <h2>{{ loop.index }} / {{ article.title }}</h2>
             <h4>Category : {{ article.category.name }}</h4>
+            {% for tag in article.tags %}
+                <h5>Tag : {{ tag.name }}</h5>
+            {% else %}
+            <li>No tags for this article</li>
+            {% endfor %}
             <p>{{ article.content }}</p>
         </div>
     {% else %}
@@ -311,6 +337,6 @@ class __TwigTemplate_68cfd9d73a665a24455af3ecea9b3b824bf8a4e6f0601d9c212bdd17e3f
 
     </div>
 
-{% endblock %}", "blog/index.html.twig", "/Users/malika/Desktop/Blog/templates/blog/index.html.twig");
+{% endblock %}", "blog/index.html.twig", "/Users/malika/Desktop/Blog 2/templates/blog/index.html.twig");
     }
 }
