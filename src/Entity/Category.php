@@ -44,9 +44,9 @@ class Category
     }
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="article")
      */
-    //mappedBy="category" = l'attribut $category de la classe Article.
+    //mappedBy="article" = l'attribut $category de la classe Article.
 
     private $articles;
 

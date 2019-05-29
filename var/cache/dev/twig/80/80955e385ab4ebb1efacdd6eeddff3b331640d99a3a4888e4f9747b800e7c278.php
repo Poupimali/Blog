@@ -142,21 +142,6 @@ class __TwigTemplate_19dfce6db212adf3d4f5a2b0f0163eaf59dac94b5344ba5e3688ca02b6d
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 26
         echo "        </ul>
-
-        <br>
-        <a href=\"";
-        // line 29
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_index");
-        echo "\">
-            Voir tous les articles
-        </a>
-        <br>
-        <a href=\"";
-        // line 33
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
-        echo "\">
-            Retour sur la page d'accueil
-        </a>
     </div>
 
 ";
@@ -180,7 +165,7 @@ class __TwigTemplate_19dfce6db212adf3d4f5a2b0f0163eaf59dac94b5344ba5e3688ca02b6d
 
     public function getDebugInfo()
     {
-        return array (  156 => 33,  149 => 29,  144 => 26,  137 => 24,  129 => 22,  124 => 21,  119 => 18,  113 => 12,  109 => 11,  105 => 10,  102 => 9,  93 => 8,  76 => 6,  58 => 4,  36 => 2,);
+        return array (  144 => 26,  137 => 24,  129 => 22,  124 => 21,  119 => 18,  113 => 12,  109 => 11,  105 => 10,  102 => 9,  93 => 8,  76 => 6,  58 => 4,  36 => 2,);
     }
 
     public function getSourceContext()
@@ -211,15 +196,6 @@ class __TwigTemplate_19dfce6db212adf3d4f5a2b0f0163eaf59dac94b5344ba5e3688ca02b6d
                 <li>No tags for this article</li>
             {% endfor %}
         </ul>
-
-        <br>
-        <a href=\"{{ path('blog_index') }}\">
-            Voir tous les articles
-        </a>
-        <br>
-        <a href=\"{{ path('index') }}\">
-            Retour sur la page d'accueil
-        </a>
     </div>
 
 {% endblock %}", "blog/show.html.twig", "/Users/malika/Desktop/Blog 2/templates/blog/show.html.twig");
