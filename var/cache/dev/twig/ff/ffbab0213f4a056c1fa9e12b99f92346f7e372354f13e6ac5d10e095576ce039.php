@@ -64,7 +64,7 @@ class __TwigTemplate_bd85f91817df88bed95ddc8bf5b231cd0494c4def8ba444e23199e728ee
         ";
         // line 14
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 19
+        // line 17
         echo "    </body>
 </html>
 ";
@@ -104,7 +104,7 @@ class __TwigTemplate_bd85f91817df88bed95ddc8bf5b231cd0494c4def8ba444e23199e728ee
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 7
-        echo "            <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">
+        echo "
         ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -143,9 +143,7 @@ class __TwigTemplate_bd85f91817df88bed95ddc8bf5b231cd0494c4def8ba444e23199e728ee
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
         // line 15
-        echo "            <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>
-            <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\" integrity=\"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\" crossorigin=\"anonymous\"></script>
-            <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script>
+        echo "
         ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -162,7 +160,7 @@ class __TwigTemplate_bd85f91817df88bed95ddc8bf5b231cd0494c4def8ba444e23199e728ee
 
     public function getDebugInfo()
     {
-        return array (  146 => 15,  137 => 14,  127 => 12,  118 => 11,  107 => 7,  98 => 6,  80 => 5,  68 => 19,  66 => 14,  63 => 13,  61 => 11,  57 => 9,  55 => 6,  51 => 5,  45 => 1,);
+        return array (  146 => 15,  137 => 14,  127 => 12,  118 => 11,  107 => 7,  98 => 6,  80 => 5,  68 => 17,  66 => 14,  63 => 13,  61 => 11,  57 => 9,  55 => 6,  51 => 5,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -173,7 +171,7 @@ class __TwigTemplate_bd85f91817df88bed95ddc8bf5b231cd0494c4def8ba444e23199e728ee
         <meta charset=\"UTF-8\">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
-            <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">
+
         {% endblock %}
     </head>
     <body>
@@ -181,12 +179,10 @@ class __TwigTemplate_bd85f91817df88bed95ddc8bf5b231cd0494c4def8ba444e23199e728ee
         {% endblock %}
 
         {% block javascripts %}
-            <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>
-            <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\" integrity=\"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\" crossorigin=\"anonymous\"></script>
-            <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script>
+
         {% endblock %}
     </body>
 </html>
-", "base.html.twig", "/Users/malika/Desktop/Blog/templates/base.html.twig");
+", "base.html.twig", "/Users/malika/Desktop/Blog 2/templates/base.html.twig");
     }
 }
