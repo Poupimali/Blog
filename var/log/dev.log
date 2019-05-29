@@ -2849,3 +2849,6 @@
 [2019-05-29 17:31:33] request.INFO: Matched route "index". {"route":"index","route_parameters":{"_route":"index","_controller":"App\\Controller\\DefaultController::index"},"request_uri":"http://localhost:8000/","method":"GET"} []
 [2019-05-29 17:31:33] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
 [2019-05-29 17:31:33] request.INFO: Matched route "_wdt". {"route":"_wdt","route_parameters":{"_route":"_wdt","_controller":"web_profiler.controller.profiler::toolbarAction","token":"dcdab7"},"request_uri":"http://localhost:8000/_wdt/dcdab7","method":"GET"} []
+[2019-05-29 17:33:59] request.INFO: Matched route "index". {"route":"index","route_parameters":{"_route":"index","_controller":"App\\Controller\\DefaultController::index"},"request_uri":"http://localhost:8000/","method":"GET"} []
+[2019-05-29 17:33:59] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
+[2019-05-29 17:33:59] request.INFO: Matched route "_wdt". {"route":"_wdt","route_parameters":{"_route":"_wdt","_controller":"web_profiler.controller.profiler::toolbarAction","token":"413bec"},"request_uri":"http://localhost:8000/_wdt/413bec","method":"GET"} []
