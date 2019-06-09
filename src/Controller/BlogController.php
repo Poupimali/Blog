@@ -5,11 +5,12 @@ namespace App\Controller;
 use App\Entity\Tag;
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Form\ArticleSearchType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Response; // Objet inclus dans symfony, va gérer les requetes
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use App\Form\ArticleSearchType;
+
 
 /**
  *
@@ -41,7 +42,7 @@ class BlogController extends AbstractController
 
         $form = $this->createForm(
             ArticleSearchType::class,
-            null,
+            null,  // objet à hydrater null, car pour la recherche, utiliser une entité est inutile
             ['method' => Request::METHOD_GET]
         );
 
@@ -49,7 +50,7 @@ class BlogController extends AbstractController
             'blog/index.html.twig',
             [
                 'articles' => $articles,
-                'form' => $form->createView()
+                'form' => $form->createView(),
             ]
         );
     }
@@ -148,6 +149,5 @@ class BlogController extends AbstractController
             ]
         );
     }
-
 
 }

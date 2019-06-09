@@ -271,6 +271,7 @@
     <parameter key="twig.exception_listener.controller">twig.controller.exception::showAction</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
+      <parameter>bootstrap_4_layout.html.twig</parameter>
     </parameter>
     <parameter key="twig.default_path">/Users/malika/Desktop/Blog 2/templates</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
@@ -407,9 +408,6 @@
     <service id="App\Form\ArticleSearchType" class="App\Form\ArticleSearchType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\CategoryType" class="App\Form\CategoryType" autowire="true" autoconfigure="true">
-      <tag name="form.type"/>
-    </service>
     <service id="App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -510,6 +508,7 @@
         <argument key="profiler" type="service" id="profiler" on-invalid="ignore_uninitialized"/>
         <argument key="debug.validator" type="service" id="debug.validator" on-invalid="ignore_uninitialized"/>
         <argument key="debug.stopwatch" type="service" id="debug.stopwatch" on-invalid="ignore_uninitialized"/>
+        <argument key="form.type.entity" type="service" id="form.type.entity" on-invalid="ignore_uninitialized"/>
         <argument key="security.token_storage" type="service" id="security.token_storage" on-invalid="ignore_uninitialized"/>
         <argument key="swiftmailer.email_sender.listener" type="service" id="swiftmailer.email_sender.listener" on-invalid="ignore_uninitialized"/>
       </argument>
@@ -519,6 +518,7 @@
         <argument key="profiler">reset</argument>
         <argument key="debug.validator">reset</argument>
         <argument key="debug.stopwatch">reset</argument>
+        <argument key="form.type.entity">reset</argument>
         <argument key="security.token_storage">setToken</argument>
         <argument key="swiftmailer.email_sender.listener">reset</argument>
       </argument>
@@ -680,7 +680,6 @@
       </argument>
       <argument type="collection">
         <argument>App\Form\ArticleSearchType</argument>
-        <argument>App\Form\CategoryType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type\EntityType</argument>
@@ -926,7 +925,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.oGO2KmK"/>
+      <argument type="service" id=".service_locator.B4FkeXM"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -1160,6 +1159,11 @@
             <argument>/Users/malika/Desktop/Blog 2/vendor/symfony/validator/Resources/translations/validators.az.xlf</argument>
             <argument>/Users/malika/Desktop/Blog 2/vendor/symfony/form/Resources/translations/validators.az.xlf</argument>
             <argument>/Users/malika/Desktop/Blog 2/vendor/symfony/security-core/Resources/translations/security.az.xlf</argument>
+          </argument>
+          <argument key="be" type="collection">
+            <argument>/Users/malika/Desktop/Blog 2/vendor/symfony/validator/Resources/translations/validators.be.xlf</argument>
+            <argument>/Users/malika/Desktop/Blog 2/vendor/symfony/form/Resources/translations/validators.be.xlf</argument>
+            <argument>/Users/malika/Desktop/Blog 2/vendor/symfony/security-core/Resources/translations/security.be.xlf</argument>
           </argument>
           <argument key="bg" type="collection">
             <argument>/Users/malika/Desktop/Blog 2/vendor/symfony/validator/Resources/translations/validators.bg.xlf</argument>
@@ -1988,14 +1992,6 @@
         <argument>2048</argument>
       </call>
       <call method="addListener">
-        <argument>console.command</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
         <argument>kernel.request</argument>
         <argument type="collection">
           <argument type="service" id="router_listener"/>
@@ -2295,7 +2291,7 @@
     <service id="router.default" class="Symfony\Bundle\FrameworkBundle\Routing\Router" public="false">
       <tag name="monolog.logger" channel="router"/>
       <tag name="container.service_subscriber" id="routing.loader"/>
-      <argument type="service" id=".service_locator.MAfdX1A.router.default"/>
+      <argument type="service" id=".service_locator.aLnEVbk.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
         <argument key="cache_dir">/Users/malika/Desktop/Blog 2/var/cache/dev</argument>
@@ -2481,7 +2477,7 @@
       </argument>
       <argument>/Users/malika/Desktop/Blog 2/var/cache/dev/serialization.php</argument>
     </service>
-    <service id="serializer.mapping.cache.symfony" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
+    <service id="serializer.mapping.cache.symfony" class="Psr\Cache\CacheItemPoolInterface" public="false">
       <argument>/Users/malika/Desktop/Blog 2/var/cache/dev/serialization.php</argument>
       <argument type="service" id="cache.serializer"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
@@ -2763,6 +2759,7 @@
     </service>
     <service id="form.type.entity" class="Symfony\Bridge\Doctrine\Form\Type\EntityType">
       <tag name="form.type" alias="entity"/>
+      <tag name="kernel.reset" method="reset"/>
       <argument type="service" id="doctrine"/>
     </service>
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" public="false" abstract="true"/>
@@ -3668,10 +3665,11 @@
         <argument key="default_path">/Users/malika/Desktop/Blog 2/templates</argument>
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
-        <argument key="exception_controller">twig.controller.exception::showAction</argument>
         <argument key="form_themes" type="collection">
           <argument>form_div_layout.html.twig</argument>
+          <argument>bootstrap_4_layout.html.twig</argument>
         </argument>
+        <argument key="exception_controller">twig.controller.exception::showAction</argument>
         <argument key="autoescape">name</argument>
         <argument key="cache">/Users/malika/Desktop/Blog 2/var/cache/dev/twig</argument>
         <argument key="charset">UTF-8</argument>
@@ -4369,8 +4367,6 @@
     <service id=".abstract.instanceof.App\Controller\DefaultController" class="App\Controller\DefaultController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ArticleSearchType" class="App\Form\ArticleSearchType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ArticleSearchType" class="App\Form\ArticleSearchType" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategoryType" class="App\Form\CategoryType" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\CategoryType" class="App\Form\CategoryType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" abstract="true"/>
@@ -4629,11 +4625,10 @@
       <argument type="service" id="debug.argument_resolver.variadic.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.oGO2KmK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.B4FkeXM" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\ArticleSearchType" type="service" id="App\Form\ArticleSearchType"/>
-        <argument key="App\Form\CategoryType" type="service" id="App\Form\CategoryType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="service" id="form.type.form"/>
@@ -4849,17 +4844,17 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator._pu.0Tb" method="withContext"/>
     </service>
-    <service id=".service_locator.MAfdX1A" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.aLnEVbk" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="routing.loader" type="service" id="routing.loader"/>
       </argument>
     </service>
-    <service id=".service_locator.MAfdX1A.router.default" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.aLnEVbk.router.default" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="router.default"/>
       <argument>router.default</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.MAfdX1A" method="withContext"/>
+      <factory service=".service_locator.aLnEVbk" method="withContext"/>
     </service>
     <service id=".service_locator.m8PwGkX" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
