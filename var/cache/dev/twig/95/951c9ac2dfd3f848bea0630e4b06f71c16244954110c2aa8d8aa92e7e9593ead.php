@@ -89,6 +89,12 @@ class __TwigTemplate_8f51bb124ea580c6e0534ccc90ef0d1a29b80853983d9e33a7c4b6d28d3
             Voir les articles correspondants au tag \"Et sinon quand est-ce qu'on mange\" ?
         </a>
         <br>
+        <a href=\"";
+        // line 19
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_category");
+        echo "\">
+            Ajouter une nouvelle catégorie
+        </a>
     </div>
 
 ";
@@ -112,7 +118,7 @@ class __TwigTemplate_8f51bb124ea580c6e0534ccc90ef0d1a29b80853983d9e33a7c4b6d28d3
 
     public function getDebugInfo()
     {
-        return array (  87 => 15,  80 => 11,  73 => 7,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  94 => 19,  87 => 15,  80 => 11,  73 => 7,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -135,6 +141,9 @@ class __TwigTemplate_8f51bb124ea580c6e0534ccc90ef0d1a29b80853983d9e33a7c4b6d28d3
             Voir les articles correspondants au tag \"Et sinon quand est-ce qu'on mange\" ?
         </a>
         <br>
+        <a href=\"{{ path('add_category') }}\">
+            Ajouter une nouvelle catégorie
+        </a>
     </div>
 
 {% endblock %}", "default.html.twig", "/Users/malika/Desktop/Blog 2/templates/default.html.twig");

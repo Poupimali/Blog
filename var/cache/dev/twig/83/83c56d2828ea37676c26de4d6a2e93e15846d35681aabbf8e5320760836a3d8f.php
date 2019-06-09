@@ -88,29 +88,28 @@ class __TwigTemplate_41716ace017eea79c114f200a75f3ffcb5a03304372ed51775e493da8af
         echo "    <h1 class=\"text-center pt-3 pb-3\">Tous les articles du blog</h1>
     <div class=\"row\">
         <div class=\"container mb-5 col-3\">
-
             ";
-        // line 12
+        // line 11
         echo "            ";
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 12, $this->source); })()), 'form_start');
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 11, $this->source); })()), 'form_start');
         echo "
             ";
-        // line 13
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 13, $this->source); })()), "searchField", [], "any", false, false, false, 13), 'row');
+        // line 12
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 12, $this->source); })()), "searchField", [], "any", false, false, false, 12), 'row');
         echo "
             <button type=\"submit\" name=\"btnSearch\">Rechercher</button>
             ";
-        // line 15
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 15, $this->source); })()), 'form_end');
+        // line 14
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 14, $this->source); })()), 'form_end');
         echo "
 
         </div>
     </div>
 
     ";
-        // line 20
+        // line 19
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 20, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 19, $this->source); })()));
         $context['_iterated'] = false;
         $context['loop'] = [
           'parent' => $context['_parent'],
@@ -126,43 +125,43 @@ class __TwigTemplate_41716ace017eea79c114f200a75f3ffcb5a03304372ed51775e493da8af
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 21
+            // line 20
             echo "        <div class=\"container mb-5\">
             ";
-            // line 23
+            // line 22
             echo "            <h2>";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 23), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 22), "html", null, true);
             echo " / ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "title", [], "any", false, false, false, 23), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "title", [], "any", false, false, false, 22), "html", null, true);
             echo "</h2>
             <h4>Category : ";
-            // line 24
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "category", [], "any", false, false, false, 24), "name", [], "any", false, false, false, 24), "html", null, true);
+            // line 23
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "category", [], "any", false, false, false, 23), "name", [], "any", false, false, false, 23), "html", null, true);
             echo "</h4>
             ";
-            // line 25
+            // line 24
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["article"], "tags", [], "any", false, false, false, 25));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["article"], "tags", [], "any", false, false, false, 24));
             $context['_iterated'] = false;
             foreach ($context['_seq'] as $context["_key"] => $context["tag"]) {
-                // line 26
+                // line 25
                 echo "                <h5>Tag : ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["tag"], "name", [], "any", false, false, false, 26), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["tag"], "name", [], "any", false, false, false, 25), "html", null, true);
                 echo "</h5>
             ";
                 $context['_iterated'] = true;
             }
             if (!$context['_iterated']) {
-                // line 28
+                // line 27
                 echo "                <li>No tags for this article</li>
             ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tag'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 30
+            // line 29
             echo "            <p>";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "content", [], "any", false, false, false, 30), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "content", [], "any", false, false, false, 29), "html", null, true);
             echo "</p>
         </div>
     ";
@@ -177,14 +176,14 @@ class __TwigTemplate_41716ace017eea79c114f200a75f3ffcb5a03304372ed51775e493da8af
             }
         }
         if (!$context['_iterated']) {
-            // line 33
+            // line 32
             echo "        Aucun article trouvé.
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 35
+        // line 34
         echo "
 ";
         
@@ -207,7 +206,7 @@ class __TwigTemplate_41716ace017eea79c114f200a75f3ffcb5a03304372ed51775e493da8af
 
     public function getDebugInfo()
     {
-        return array (  188 => 35,  181 => 33,  164 => 30,  157 => 28,  149 => 26,  144 => 25,  140 => 24,  133 => 23,  130 => 21,  112 => 20,  104 => 15,  99 => 13,  94 => 12,  88 => 7,  78 => 6,  59 => 4,  36 => 2,);
+        return array (  187 => 34,  180 => 32,  163 => 29,  156 => 27,  148 => 25,  143 => 24,  139 => 23,  132 => 22,  129 => 20,  111 => 19,  103 => 14,  98 => 12,  93 => 11,  88 => 7,  78 => 6,  59 => 4,  36 => 2,);
     }
 
     public function getSourceContext()
@@ -221,7 +220,6 @@ class __TwigTemplate_41716ace017eea79c114f200a75f3ffcb5a03304372ed51775e493da8af
     <h1 class=\"text-center pt-3 pb-3\">Tous les articles du blog</h1>
     <div class=\"row\">
         <div class=\"container mb-5 col-3\">
-
             {# création d'un formulaire de recherche #}
             {{ form_start(form) }}
             {{ form_row(form.searchField) }}
