@@ -32,7 +32,7 @@ class ArticleController extends AbstractController
     {
         $article = new Article();
         $form = $this->createForm(ArticleType::class, $article);
-        $form->handleRequest($request);
+        $form->handleRequest($request); // hydrate automatiquement l'objet Article = le met à jour
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();

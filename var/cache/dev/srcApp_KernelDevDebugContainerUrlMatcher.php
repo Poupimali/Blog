@@ -55,6 +55,7 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
                             .'|tag/([^/]++)(*:294)'
                         .')'
                     .')'
+                    .'|/tag/([^/]++)(*:317)'
                 .')/?$}sDu',
         ];
         $this->dynamicRoutes = [
@@ -71,6 +72,7 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
             245 => [[['_route' => 'blog_show', 'slug' => null, '_controller' => 'App\\Controller\\BlogController::show'], ['slug'], null, null, false, true, null]],
             274 => [[['_route' => 'show_category', '_controller' => 'App\\Controller\\BlogController::showByCategory'], ['name'], null, null, false, true, null]],
             294 => [[['_route' => 'show_tag', '_controller' => 'App\\Controller\\BlogController::showByTag'], ['name'], null, null, false, true, null]],
+            317 => [[['_route' => 'tag_show', '_controller' => 'App\\Controller\\TagController::show'], ['name'], ['GET' => 0], null, false, true, null]],
         ];
     }
 }

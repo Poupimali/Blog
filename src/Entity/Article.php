@@ -90,8 +90,14 @@ class Article
 
     /**
      * @return Collection|Tag[]
+     *
      */
     public function getTags(): Collection
+    {
+        return $this->tags;
+    }
+
+    public function setTags(): Collection
     {
         return $this->tags;
     }
@@ -102,7 +108,6 @@ class Article
             $this->tags[] = $tag;
             $tag->addArticle($this);
         }
-
         return $this;
     }
 
