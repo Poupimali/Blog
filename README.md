@@ -98,4 +98,11 @@ Lorsque l’on ajoute un tag à un article, celui-ci est bien relié à l’arti
 Le tag s’affiche sur la page de l’article.
 
 
+Webpack Encore 
+
+Symfony Encore est bien intégré dans le projet.
+Bootstrap et JQuery sont bien chargés dans tes pages (regarde les sources HTML).
+La navbar de Bootstrap s'affiche correctement sur tes pages
+
+
 
