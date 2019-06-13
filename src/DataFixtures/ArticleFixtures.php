@@ -13,14 +13,18 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager) //methode appellée lors du chargement des Fixtures
     {
-        $article = new Article();
+
         $faker  =  Faker\Factory::create('fr_FR');
 
-        $article->setTitle(mb_strtolower($faker->sentence());
-        $article->setContent($faker->text());
-        $manager->persist($article);
-        $article->setCategory($this->getReference('categorie_0'));
-        // categorie_0 fait reference à la premiere categorie générée.
+        for ($i = 0; $i < 50; $i++) {
+            $article = new Article();
+            $article->setTitle(mb_strtolower($faker->sentence()));
+            $article->setContent($faker->text());
+            $manager->persist($article);
+            $article->setCategory($this->getReference('categorie_0'));
+            // categorie_0 fait reference à la premiere categorie générée.
+            $manager->persist($article);
+        }
 
         $manager->flush();
     }

@@ -3,19 +3,14 @@
 {% block body %}
     <h1 class="text-center  pt-3 pb-3">Bienvenue sur mon blog</h1>
     <div class="container">
-        <br>
+        {#<br>
         <a href="{{ path('blog_show', { 'slug': "javascript-vs-php" }) }}">
             Voir l'article sur "javascript-vs-php".
-        </a>
+        </a>#}
         <br>
         <a href="{{ path('show_tag', { 'name': "PHP" }) }}">
             Voir les articles correspondants au tag "PHP"
         </a>
-        <br>
-        <a href="{{ path('show_tag', { 'name': "Et sinon quand est-ce qu'on mange ? " }) }}">
-            Voir les articles correspondants au tag "Et sinon quand est-ce qu'on mange" ?
-        </a>
-        <br>
         <a href="{{ path('add_category') }}">
             Ajouter une nouvelle catégorie
         </a>
