@@ -51,7 +51,58 @@ L'URL http://localhost:8000/blog/category/javascript est fonctionnelle et renvoi
 Ton code devra être disponible sur un repository GitHub
 
 Critères de validation n°8 : Créer une relation bidirectionnelle entre tes articles et tes catégories. 
+
 Avoir les deux classes Article et Category
 Les annotations inversedBy et mappedBy sont présentes
 Les méthodes addArticle() et removeArticle() sont présentes dans la classe Category
 Utiliser les méthodes getArticles() et getCategory()
+
+Critères de validation n°9 : Param Convert
+
+Dans BlogController, la méthode showByCategory() permet de récupérer un objet Category via le param converter, à partir d'un name en paramètre de route,
+Dans showByCategory(), les articles associés à la categorie sont toujours récupérés par l’appel à $category->getArticles();,
+La méthode rend une vue affichant le nom de la catégorie et ses articles associés.
+
+Critères de validation n°10 : Form
+
+La classe App\Form\CategoryType est présente dans le dossier src/Form.
+La route /category affiche bien le formulaire de création de catégorie.
+Le formulaire fonctionne (il crée une catégorie).
+Ton code est présent sur le même dépot github que tes précédentes quêtes Symfony.
+
+Critères de validation n°11 : CRUD
+
+Le CRUD est généré pour l’entité Article.
+L’entité Article dispose des actions de lecture, écriture et suppression.
+Les routes sont cohérentes et fonctionnelles.
+Le CRUD agit bien avec la BDD (exemple : insérer un article depuis http://localhost:8000/article/new).
+Le code est disponible sur un dépot GitHub
+
+Critères de validation n°12 : ManyToMany
+
+Ton code est disponible sur github,
+Ton entité App\Entity\Tag est bien présente,
+Ta classe de migration générant les 2 nouvelles tables et les contraintes d'intégrité fonctionnent,
+La route vers la page de tag est fonctionnelle,
+Sur la page du tag, la liste des articles associés s'affiche.
+Sur la page des articles, la liste des tags associés s'affiche.
+BONUS NON FAITS
+Bonus : Sur la page de tag, lors du clic sur un article de la liste, l'utilisateur est redirigé vers la page de l'article sélectionné.
+Bonus II : Sur la page d'article, lors du clic sur un tag de la liste, l'utilisateur est redirigé vers la page du tag sélectionné.
+
+Critères de validation n°13 : EntityType
+
+Le formulaire d’ajout d’un article affiche un champ tags (EntityType),
+Ce champ apparaît sous la forme de cases à cocher.
+Lorsque l’on ajoute un tag à un article, celui-ci est bien relié à l’article en BDD.
+Le tag s’affiche sur la page de l’article.
+
+
+Webpack Encore 
+
+Symfony Encore est bien intégré dans le projet.
+Bootstrap et JQuery sont bien chargés dans tes pages (regarde les sources HTML).
+La navbar de Bootstrap s'affiche correctement sur tes pages
+
+
+
