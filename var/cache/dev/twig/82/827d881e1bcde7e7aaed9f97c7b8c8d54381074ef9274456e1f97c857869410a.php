@@ -68,8 +68,8 @@ class __TwigTemplate_9767ccd33e0989ed75e52b5b2d78e007bc0c247834e34d86829fb97b206
         echo "\">Catégorie Java</a>
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"";
         // line 9
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_category", ["name" => "SQL"]);
-        echo "\">Catégorie SQL</a>
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_category", ["name" => "DevOps"]);
+        echo "\">Catégorie DevOps</a>
     </nav>
  </header>
 ";
@@ -106,7 +106,7 @@ class __TwigTemplate_9767ccd33e0989ed75e52b5b2d78e007bc0c247834e34d86829fb97b206
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('show_category', { 'name': \"PHP\" }) }}\">Catégorie PHP</a>
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('show_category', { 'name': \"Javascript\" }) }}\">Catégorie Javascript</a>
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('show_category', { 'name': \"Java\" }) }}\">Catégorie Java</a>
-        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('show_category', { 'name': \"SQL\" }) }}\">Catégorie SQL</a>
+        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('show_category', { 'name': \"DevOps\" }) }}\">Catégorie DevOps</a>
     </nav>
  </header>
 ", "navbar.html.twig", "/Users/malika/Desktop/Blog 2/templates/navbar.html.twig");

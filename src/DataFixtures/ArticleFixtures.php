@@ -21,8 +21,8 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
             $article->setTitle(mb_strtolower($faker->sentence()));
             $article->setContent($faker->text());
             $manager->persist($article);
-            $article->setCategory($this->getReference('categorie_0'));
-            // categorie_0 fait reference à la premiere categorie générée.
+            $article->setCategory($this->getReference('categorie_' . rand(0,4)));
+            // categorie_ . rand fait reference à la premiere categorie générée.
             $manager->persist($article);
         }
 
