@@ -433,6 +433,7 @@
     </service>
     <service id="App\DataFixtures\ArticleFixtures" class="App\DataFixtures\ArticleFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
+      <argument type="service" id="App\Service\Slugify"/>
     </service>
     <service id="App\DataFixtures\CategoryFixtures" class="App\DataFixtures\CategoryFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
@@ -457,10 +458,15 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\SlugRepository" class="App\Repository\SlugRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\TagRepository" class="App\Repository\TagRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Service\Slugify" class="App\Service\Slugify" autowire="true" autoconfigure="true"/>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
       <argument type="service" id="kernel"/>
@@ -2036,14 +2042,6 @@
         <argument>2048</argument>
       </call>
       <call method="addListener">
-        <argument>console.command</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
         <argument>kernel.request</argument>
         <argument type="collection">
           <argument type="service" id="router_listener"/>
@@ -2819,7 +2817,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.ttLt0SY"/>
+      <argument type="service" id=".service_locator.zHGpOmz"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4465,6 +4463,8 @@
     <service id=".abstract.instanceof.App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\SlugRepository" class="App\Repository\SlugRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\SlugRepository" class="App\Repository\SlugRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TagRepository" class="App\Repository\TagRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\TagRepository" class="App\Repository\TagRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="maker.auto_command.make_auth" class="Symfony\Bundle\MakerBundle\Command\MakerCommand" public="false">
@@ -4635,10 +4635,23 @@
         <argument key="articleRepository" type="service" id="App\Repository\ArticleRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.cypIcSv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="slugify" type="service" id="App\Service\Slugify"/>
+      </argument>
+    </service>
     <service id=".service_locator.NUP9Hmn" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="article" type="service" id=".errored..service_locator.NUP9Hmn.App\Entity\Article"/>
+      </argument>
+    </service>
+    <service id=".service_locator.fWA5iP6" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="article" type="service" id=".errored..service_locator.fWA5iP6.App\Entity\Article"/>
+        <argument key="slugify" type="service" id="App\Service\Slugify"/>
       </argument>
     </service>
     <service id=".service_locator..JzDQIR" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -4653,19 +4666,21 @@
         <argument key="tag" type="service" id=".errored..service_locator.s.PIIJ0.App\Entity\Tag"/>
       </argument>
     </service>
-    <service id=".service_locator.xDk8PcE" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.qYcF.iG" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ArticleController::delete" type="service" id=".service_locator.NUP9Hmn"/>
-        <argument key="App\Controller\ArticleController::edit" type="service" id=".service_locator.NUP9Hmn"/>
+        <argument key="App\Controller\ArticleController::edit" type="service" id=".service_locator.fWA5iP6"/>
         <argument key="App\Controller\ArticleController::index" type="service" id=".service_locator.eusJIZx"/>
+        <argument key="App\Controller\ArticleController::new" type="service" id=".service_locator.cypIcSv"/>
         <argument key="App\Controller\ArticleController::show" type="service" id=".service_locator.NUP9Hmn"/>
         <argument key="App\Controller\BlogController::showByCategory" type="service" id=".service_locator..JzDQIR"/>
         <argument key="App\Controller\BlogController::showByTag" type="service" id=".service_locator.s.PIIJ0"/>
         <argument key="App\Controller\TagController::show" type="service" id=".service_locator.s.PIIJ0"/>
         <argument key="App\Controller\ArticleController:delete" type="service" id=".service_locator.NUP9Hmn"/>
-        <argument key="App\Controller\ArticleController:edit" type="service" id=".service_locator.NUP9Hmn"/>
+        <argument key="App\Controller\ArticleController:edit" type="service" id=".service_locator.fWA5iP6"/>
         <argument key="App\Controller\ArticleController:index" type="service" id=".service_locator.eusJIZx"/>
+        <argument key="App\Controller\ArticleController:new" type="service" id=".service_locator.cypIcSv"/>
         <argument key="App\Controller\ArticleController:show" type="service" id=".service_locator.NUP9Hmn"/>
         <argument key="App\Controller\BlogController:showByCategory" type="service" id=".service_locator..JzDQIR"/>
         <argument key="App\Controller\BlogController:showByTag" type="service" id=".service_locator.s.PIIJ0"/>
@@ -4759,11 +4774,12 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.ttLt0SY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.zHGpOmz" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ArticleRepository" type="service" id="App\Repository\ArticleRepository"/>
         <argument key="App\Repository\CategoryRepository" type="service" id="App\Repository\CategoryRepository"/>
+        <argument key="App\Repository\SlugRepository" type="service" id="App\Repository\SlugRepository"/>
         <argument key="App\Repository\TagRepository" type="service" id="App\Repository\TagRepository"/>
       </argument>
     </service>
@@ -5061,11 +5077,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.xDk8PcE"/>
+      <argument type="service" id=".service_locator.qYcF.iG"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id=".errored..service_locator.NUP9Hmn.App\Entity\Article" class="App\Entity\Article"/>
+    <service id=".errored..service_locator.fWA5iP6.App\Entity\Article" class="App\Entity\Article"/>
     <service id=".errored..service_locator..JzDQIR.App\Entity\Category" class="App\Entity\Category"/>
     <service id=".errored..service_locator.s.PIIJ0.App\Entity\Tag" class="App\Entity\Tag"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
@@ -5407,7 +5424,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollectionInterface" alias="webpack_encore.entrypoint_lookup_collection" public="false"/>
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.xDk8PcE"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.qYcF.iG"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id=".service_locator.tSKDlY7" alias=".1_ServiceLocator~V6.97Lo" public="false"/>

@@ -71,8 +71,7 @@ class __TwigTemplate_9767ccd33e0989ed75e52b5b2d78e007bc0c247834e34d86829fb97b206
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_category", ["name" => "DevOps"]);
         echo "\">Catégorie DevOps</a>
     </nav>
- </header>
-";
+ </header>";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -108,7 +107,6 @@ class __TwigTemplate_9767ccd33e0989ed75e52b5b2d78e007bc0c247834e34d86829fb97b206
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('show_category', { 'name': \"Java\" }) }}\">Catégorie Java</a>
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('show_category', { 'name': \"DevOps\" }) }}\">Catégorie DevOps</a>
     </nav>
- </header>
-", "navbar.html.twig", "/Users/malika/Desktop/Blog 2/templates/navbar.html.twig");
+ </header>", "navbar.html.twig", "/Users/malika/Desktop/Blog 2/templates/navbar.html.twig");
     }
 }

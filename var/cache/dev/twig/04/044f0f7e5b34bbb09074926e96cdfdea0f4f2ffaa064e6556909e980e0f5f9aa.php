@@ -105,37 +105,44 @@ class __TwigTemplate_d29715b5c1fd75966e98ca510a344b2962ab4ee3ed9a2143161cc6b7e44
         echo "</td>
                 </tr>
                 <tr>
-                    <th>Content</th>
+                    <th>Slug</th>
                     <td>";
         // line 21
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 21, $this->source); })()), "content", [], "any", false, false, false, 21), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 21, $this->source); })()), "slug", [], "any", false, false, false, 21), "html", null, true);
+        echo "</td>
+                </tr>
+                <tr>
+                    <th>Content</th>
+                    <td>";
+        // line 25
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 25, $this->source); })()), "content", [], "any", false, false, false, 25), "html", null, true);
         echo "</td>
                 </tr>
                 <tr>
                     <th>Tag</th>
                     <td>
                         ";
-        // line 26
+        // line 30
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 26, $this->source); })()), "tags", [], "any", false, false, false, 26));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 30, $this->source); })()), "tags", [], "any", false, false, false, 30));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["tag"]) {
-            // line 27
+            // line 31
             echo "                        ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["tag"], "name", [], "any", false, false, false, 27), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["tag"], "name", [], "any", false, false, false, 31), "html", null, true);
             echo "
                         ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 29
+            // line 33
             echo "                        No tags for this article
                         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tag'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 31
+        // line 35
         echo "                    </td>
                 </tr>
                 </tbody>
@@ -144,17 +151,17 @@ class __TwigTemplate_d29715b5c1fd75966e98ca510a344b2962ab4ee3ed9a2143161cc6b7e44
     </div>
 <div class=\"container mb-5 col-4 d-flex flex-column justify-content-center\">
     <a class=\"btn text-light bg-dark m-1 col-6\" href=\"";
-        // line 38
+        // line 42
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_index");
         echo "\">Retour à la liste des articles</a>
 
     <a class=\"btn text-light bg-dark m-1 col-3\" href=\"";
-        // line 40
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 40, $this->source); })()), "id", [], "any", false, false, false, 40)]), "html", null, true);
+        // line 44
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 44, $this->source); })()), "id", [], "any", false, false, false, 44)]), "html", null, true);
         echo "\">Editer</a>
 
     ";
-        // line 42
+        // line 46
         echo twig_include($this->env, $context, "article/_delete_form.html.twig");
         echo "
 </div>
@@ -181,7 +188,7 @@ class __TwigTemplate_d29715b5c1fd75966e98ca510a344b2962ab4ee3ed9a2143161cc6b7e44
 
     public function getDebugInfo()
     {
-        return array (  158 => 42,  153 => 40,  148 => 38,  139 => 31,  132 => 29,  124 => 27,  119 => 26,  111 => 21,  104 => 17,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  165 => 46,  160 => 44,  155 => 42,  146 => 35,  139 => 33,  131 => 31,  126 => 30,  118 => 25,  111 => 21,  104 => 17,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -203,6 +210,10 @@ class __TwigTemplate_d29715b5c1fd75966e98ca510a344b2962ab4ee3ed9a2143161cc6b7e44
                 <tr>
                     <th>Title</th>
                     <td>{{ article.title }}</td>
+                </tr>
+                <tr>
+                    <th>Slug</th>
+                    <td>{{ article.slug }}</td>
                 </tr>
                 <tr>
                     <th>Content</th>

@@ -126,7 +126,7 @@ class __TwigTemplate_68ec43546214d8344d6ac60d04c5a762c0d609e7ff092ce8ba004fe5e4a
                         <td>
                             <a class=\"nav-item nav-link text-light bg-dark m-1\" href=\"";
             // line 27
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_show", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 27)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_show", ["slug" => twig_get_attribute($this->env, $this->source, $context["article"], "slug", [], "any", false, false, false, 27)]), "html", null, true);
             echo "\">Voir</a>
                             <a class=\"nav-item nav-link text-light bg-dark m-1\" href=\"";
             // line 28
@@ -205,7 +205,7 @@ class __TwigTemplate_68ec43546214d8344d6ac60d04c5a762c0d609e7ff092ce8ba004fe5e4a
                         <td>{{ article.title }}</td>
                         <td>{{ article.content }}</td>
                         <td>
-                            <a class=\"nav-item nav-link text-light bg-dark m-1\" href=\"{{ path('article_show', {'id': article.id}) }}\">Voir</a>
+                            <a class=\"nav-item nav-link text-light bg-dark m-1\" href=\"{{ path('article_show', {'slug': article.slug}) }}\">Voir</a>
                             <a class=\"nav-item nav-link text-light bg-dark m-1\" href=\"{{ path('article_edit', {'id': article.id}) }}\">Editer</a>
                         </td>
                     </tr>

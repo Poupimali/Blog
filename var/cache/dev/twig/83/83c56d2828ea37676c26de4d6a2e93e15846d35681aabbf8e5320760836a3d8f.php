@@ -129,11 +129,13 @@ class __TwigTemplate_41716ace017eea79c114f200a75f3ffcb5a03304372ed51775e493da8af
             echo "        <div class=\"container mb-5\">
             ";
             // line 22
-            echo "            <h2>";
+            echo "            <a href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_show", ["slug" => twig_get_attribute($this->env, $this->source, $context["article"], "slug", [], "any", false, false, false, 22)]), "html", null, true);
+            echo "\"><h2>";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 22), "html", null, true);
             echo " / ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "title", [], "any", false, false, false, 22), "html", null, true);
-            echo "</h2>
+            echo "</h2></a>
             <h4>Category : ";
             // line 23
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "category", [], "any", false, false, false, 23), "name", [], "any", false, false, false, 23), "html", null, true);
@@ -206,7 +208,7 @@ class __TwigTemplate_41716ace017eea79c114f200a75f3ffcb5a03304372ed51775e493da8af
 
     public function getDebugInfo()
     {
-        return array (  187 => 34,  180 => 32,  163 => 29,  156 => 27,  148 => 25,  143 => 24,  139 => 23,  132 => 22,  129 => 20,  111 => 19,  103 => 14,  98 => 12,  93 => 11,  88 => 7,  78 => 6,  59 => 4,  36 => 2,);
+        return array (  189 => 34,  182 => 32,  165 => 29,  158 => 27,  150 => 25,  145 => 24,  141 => 23,  132 => 22,  129 => 20,  111 => 19,  103 => 14,  98 => 12,  93 => 11,  88 => 7,  78 => 6,  59 => 4,  36 => 2,);
     }
 
     public function getSourceContext()
@@ -232,7 +234,7 @@ class __TwigTemplate_41716ace017eea79c114f200a75f3ffcb5a03304372ed51775e493da8af
     {% for article in articles %}
         <div class=\"container mb-5\">
             {# {{ loop.index }} = l’index de l’itération courant#}
-            <h2>{{ loop.index }} / {{ article.title }}</h2>
+            <a href=\"{{ path('article_show', {'slug': article.slug}) }}\"><h2>{{ loop.index }} / {{ article.title }}</h2></a>
             <h4>Category : {{ article.category.name }}</h4>
             {% for tag in article.tags %}
                 <h5>Tag : {{ tag.name }}</h5>
