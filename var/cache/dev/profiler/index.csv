@@ -1278,3 +1278,6 @@ d1f14e,127.0.0.1,DELETE,http://localhost:8000/article/179,1560931018,,302
 4c4b66,127.0.0.1,GET,http://localhost:8000/article/180/edit,1560931030,,200
 9d01fe,127.0.0.1,POST,http://localhost:8000/article/180/edit,1560931073,,302
 cef901,127.0.0.1,GET,http://localhost:8000/article/?slug=test-concluant-envoi-email-modif,1560931073,,200
+068b2a,127.0.0.1,GET,http://127.0.0.1:8001/,1560938455,,200
+a7ef2a,127.0.0.1,GET,http://127.0.0.1:8001/favicon.ico,1560938455,7fab3b,200
+7fab3b,127.0.0.1,GET,http://127.0.0.1:8001/favicon.ico,1560938455,,404

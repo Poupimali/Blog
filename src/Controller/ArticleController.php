@@ -57,7 +57,11 @@ class ArticleController extends AbstractController
                     'text/html'
                 );
             $mailer->send($message);
+
+            return $this->redirectToRoute('article_show',
+                [ 'id' => $article->getId()]);
         }
+
 
         return $this->render('article/new.html.twig', [
             'article' => $article,
