@@ -46,7 +46,7 @@ class Category
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="category")
      */
-    //mappedBy="category" = l'attribut $category de la classe Article.
+    //mappedBy="category" = dépend de la classe Article.
 
     private $articles;
 

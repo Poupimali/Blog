@@ -108,15 +108,6 @@ class __TwigTemplate_2819b273a41cc2cb66bb8f16a06f1ea2dd520dd1fb321357188f5893640
         </div>
     </div>
 
-    <div class=\"container\">
-    <a href=\"";
-        // line 18
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
-        echo "\">
-        Retour à la page d'accueil
-    </a>
-    </div>
-
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -138,7 +129,7 @@ class __TwigTemplate_2819b273a41cc2cb66bb8f16a06f1ea2dd520dd1fb321357188f5893640
 
     public function getDebugInfo()
     {
-        return array (  114 => 18,  106 => 13,  102 => 12,  98 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  106 => 13,  102 => 12,  98 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -157,12 +148,6 @@ class __TwigTemplate_2819b273a41cc2cb66bb8f16a06f1ea2dd520dd1fb321357188f5893640
             <button class=\"btn btn-info\">{{  button_label|default('Save') }}</button>
             {{ form_end(form) }}
         </div>
-    </div>
-
-    <div class=\"container\">
-    <a href=\"{{ path('index') }}\">
-        Retour à la page d'accueil
-    </a>
     </div>
 
 {% endblock %}", "category/add.html.twig", "/Users/malika/Desktop/Blog 2/templates/category/add.html.twig");

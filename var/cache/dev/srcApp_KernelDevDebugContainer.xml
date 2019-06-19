@@ -91,6 +91,7 @@
     <parameter key="kernel.container_class">srcApp_KernelDevDebugContainer</parameter>
     <parameter key="container.dumper.inline_class_loader">true</parameter>
     <parameter key="env(DATABASE_URL)"></parameter>
+    <parameter key="mailer_from">%env(resolve:MAILER_FROM_ADDRESS)%</parameter>
     <parameter key="locale">en</parameter>
     <parameter key="fragment.renderer.hinclude.global_template"></parameter>
     <parameter key="fragment.path">/_fragment</parameter>
@@ -263,12 +264,17 @@
     <parameter key="swiftmailer.mailer.default.transport.name">dynamic</parameter>
     <parameter key="swiftmailer.spool.default.memory.path">/Users/malika/Desktop/Blog 2/var/cache/dev/swiftmailer/spool/default</parameter>
     <parameter key="swiftmailer.mailer.default.spool.enabled">true</parameter>
-    <parameter key="swiftmailer.mailer.default.plugin.impersonate">null</parameter>
-    <parameter key="swiftmailer.mailer.default.single_address">null</parameter>
+    <parameter key="swiftmailer.mailer.default.sender_address">%env(resolve:MAILER_FROM_ADDRESS)%</parameter>
+    <parameter key="swiftmailer.sender_address">%env(resolve:MAILER_FROM_ADDRESS)%</parameter>
+    <parameter key="swiftmailer.mailer.default.single_address">poupimali@gmail.com</parameter>
+    <parameter key="swiftmailer.mailer.default.delivery_addresses" type="collection">
+      <parameter>poupimali@gmail.com</parameter>
+    </parameter>
+    <parameter key="swiftmailer.mailer.default.delivery_whitelist" type="collection"/>
     <parameter key="swiftmailer.mailer.default.delivery.enabled">true</parameter>
     <parameter key="swiftmailer.spool.enabled">true</parameter>
     <parameter key="swiftmailer.delivery.enabled">true</parameter>
-    <parameter key="swiftmailer.single_address">null</parameter>
+    <parameter key="swiftmailer.single_address">poupimali@gmail.com</parameter>
     <parameter key="swiftmailer.mailers" type="collection">
       <parameter key="default">swiftmailer.mailer.default</parameter>
     </parameter>
@@ -3703,8 +3709,23 @@
       <argument type="service" id="swiftmailer.mailer.default.transport.eventdispatcher"/>
       <argument type="service" id="swiftmailer.mailer.default.spool.memory"/>
       <call method="registerPlugin">
+        <argument type="service" id="swiftmailer.mailer.default.plugin.impersonate"/>
+      </call>
+      <call method="registerPlugin">
+        <argument type="service" id="swiftmailer.mailer.default.plugin.redirecting"/>
+      </call>
+      <call method="registerPlugin">
         <argument type="service" id="swiftmailer.mailer.default.plugin.messagelogger"/>
       </call>
+    </service>
+    <service id="swiftmailer.mailer.default.plugin.impersonate" class="Swift_Plugins_ImpersonatePlugin" public="false">
+      <tag name="swiftmailer.default.plugin"/>
+      <argument>%env(resolve:MAILER_FROM_ADDRESS)%</argument>
+    </service>
+    <service id="swiftmailer.mailer.default.plugin.redirecting" class="Swift_Plugins_RedirectingPlugin" public="false">
+      <tag name="swiftmailer.default.plugin"/>
+      <argument>%swiftmailer.mailer.default.delivery_addresses%</argument>
+      <argument type="collection"/>
     </service>
     <service id="swiftmailer.mailer.default.plugin.messagelogger" class="Swift_Plugins_MessageLogger" public="true">
       <tag name="swiftmailer.default.plugin"/>
@@ -4635,9 +4656,10 @@
         <argument key="articleRepository" type="service" id="App\Repository\ArticleRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.cypIcSv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.hJ9Ectk" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="mailer" type="service" id="swiftmailer.mailer.default"/>
         <argument key="slugify" type="service" id="App\Service\Slugify"/>
       </argument>
     </service>
@@ -4666,24 +4688,34 @@
         <argument key="tag" type="service" id=".errored..service_locator.s.PIIJ0.App\Entity\Tag"/>
       </argument>
     </service>
-    <service id=".service_locator.qYcF.iG" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.a.laFVK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="categoryRepository" type="service" id="App\Repository\CategoryRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.Nk1JNZe" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ArticleController::delete" type="service" id=".service_locator.NUP9Hmn"/>
         <argument key="App\Controller\ArticleController::edit" type="service" id=".service_locator.fWA5iP6"/>
         <argument key="App\Controller\ArticleController::index" type="service" id=".service_locator.eusJIZx"/>
-        <argument key="App\Controller\ArticleController::new" type="service" id=".service_locator.cypIcSv"/>
+        <argument key="App\Controller\ArticleController::new" type="service" id=".service_locator.hJ9Ectk"/>
         <argument key="App\Controller\ArticleController::show" type="service" id=".service_locator.NUP9Hmn"/>
         <argument key="App\Controller\BlogController::showByCategory" type="service" id=".service_locator..JzDQIR"/>
         <argument key="App\Controller\BlogController::showByTag" type="service" id=".service_locator.s.PIIJ0"/>
+        <argument key="App\Controller\CategoryController::index" type="service" id=".service_locator.a.laFVK"/>
+        <argument key="App\Controller\CategoryController::showCategory" type="service" id=".service_locator..JzDQIR"/>
         <argument key="App\Controller\TagController::show" type="service" id=".service_locator.s.PIIJ0"/>
         <argument key="App\Controller\ArticleController:delete" type="service" id=".service_locator.NUP9Hmn"/>
         <argument key="App\Controller\ArticleController:edit" type="service" id=".service_locator.fWA5iP6"/>
         <argument key="App\Controller\ArticleController:index" type="service" id=".service_locator.eusJIZx"/>
-        <argument key="App\Controller\ArticleController:new" type="service" id=".service_locator.cypIcSv"/>
+        <argument key="App\Controller\ArticleController:new" type="service" id=".service_locator.hJ9Ectk"/>
         <argument key="App\Controller\ArticleController:show" type="service" id=".service_locator.NUP9Hmn"/>
         <argument key="App\Controller\BlogController:showByCategory" type="service" id=".service_locator..JzDQIR"/>
         <argument key="App\Controller\BlogController:showByTag" type="service" id=".service_locator.s.PIIJ0"/>
+        <argument key="App\Controller\CategoryController:index" type="service" id=".service_locator.a.laFVK"/>
+        <argument key="App\Controller\CategoryController:showCategory" type="service" id=".service_locator..JzDQIR"/>
         <argument key="App\Controller\TagController:show" type="service" id=".service_locator.s.PIIJ0"/>
       </argument>
     </service>
@@ -5077,7 +5109,7 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.qYcF.iG"/>
+      <argument type="service" id=".service_locator.Nk1JNZe"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
@@ -5412,6 +5444,8 @@
     <service id="swiftmailer.spool" alias="swiftmailer.mailer.default.spool.memory"/>
     <service id="swiftmailer.transport.real" alias="swiftmailer.mailer.default.transport.dynamic"/>
     <service id="Swift_Spool" alias="swiftmailer.mailer.default.spool.memory" public="false"/>
+    <service id="swiftmailer.plugin.impersonate" alias="swiftmailer.mailer.default.plugin.impersonate"/>
+    <service id="swiftmailer.plugin.redirecting" alias="swiftmailer.mailer.default.plugin.redirecting"/>
     <service id="swiftmailer.plugin.messagelogger" alias="swiftmailer.mailer.default.plugin.messagelogger"/>
     <service id="swiftmailer.mailer" alias="swiftmailer.mailer.default"/>
     <service id="swiftmailer.transport" alias="swiftmailer.mailer.default.transport.spool" public="true"/>
@@ -5424,7 +5458,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollectionInterface" alias="webpack_encore.entrypoint_lookup_collection" public="false"/>
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.qYcF.iG"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.Nk1JNZe"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id=".service_locator.tSKDlY7" alias=".1_ServiceLocator~V6.97Lo" public="false"/>

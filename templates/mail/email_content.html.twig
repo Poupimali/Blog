@@ -1,0 +1,13 @@
+{% extends 'mail/layout.html.twig' %}
+
+{% block body %}
+    <h1> Un article a été ajouté au blog !</h1>
+    <p>Envoyé par : {{ name }}</p>
+    <br>
+    Titre de l'article : {{ article.title }}
+    <br>
+    <br>
+    <br>
+    <a href="{{ url('article_show', {'slug': article.slug}) }}">Consultez l'article !</a>
+
+{% endblock %}

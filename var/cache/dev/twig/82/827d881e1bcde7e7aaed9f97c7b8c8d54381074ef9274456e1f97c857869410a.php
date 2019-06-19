@@ -44,32 +44,24 @@ class __TwigTemplate_9767ccd33e0989ed75e52b5b2d78e007bc0c247834e34d86829fb97b206
     <nav class=\"nav nav-pills nav-fill\">
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"";
         // line 3
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_index");
         echo "\">Home</a>
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"";
         // line 4
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_index");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_index");
         echo "\">Articles</a>
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"";
         // line 5
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_index");
-        echo "\">Nouvel Article</a>
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_index");
+        echo "\">Catégories</a>
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"";
         // line 6
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_category", ["name" => "PHP"]);
-        echo "\">Catégorie PHP</a>
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_new");
+        echo "\">Nouvel Article</a>
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"";
         // line 7
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_category", ["name" => "Javascript"]);
-        echo "\">Catégorie Javascript</a>
-        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"";
-        // line 8
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_category", ["name" => "Java"]);
-        echo "\">Catégorie Java</a>
-        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"";
-        // line 9
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_category", ["name" => "DevOps"]);
-        echo "\">Catégorie DevOps</a>
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_category");
+        echo "\">Nouvelle Catégorie</a>
     </nav>
  </header>";
         
@@ -92,20 +84,18 @@ class __TwigTemplate_9767ccd33e0989ed75e52b5b2d78e007bc0c247834e34d86829fb97b206
 
     public function getDebugInfo()
     {
-        return array (  71 => 9,  67 => 8,  63 => 7,  59 => 6,  55 => 5,  51 => 4,  47 => 3,  43 => 1,);
+        return array (  63 => 7,  59 => 6,  55 => 5,  51 => 4,  47 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source(" <header class=\"container pt-3 pb-3\">
     <nav class=\"nav nav-pills nav-fill\">
-        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('index') }}\">Home</a>
-        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('blog_index') }}\">Articles</a>
-        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('article_index') }}\">Nouvel Article</a>
-        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('show_category', { 'name': \"PHP\" }) }}\">Catégorie PHP</a>
-        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('show_category', { 'name': \"Javascript\" }) }}\">Catégorie Javascript</a>
-        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('show_category', { 'name': \"Java\" }) }}\">Catégorie Java</a>
-        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('show_category', { 'name': \"DevOps\" }) }}\">Catégorie DevOps</a>
+        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('blog_index') }}\">Home</a>
+        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('article_index') }}\">Articles</a>
+        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('category_index') }}\">Catégories</a>
+        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('article_new') }}\">Nouvel Article</a>
+        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('add_category') }}\">Nouvelle Catégorie</a>
     </nav>
  </header>", "navbar.html.twig", "/Users/malika/Desktop/Blog 2/templates/navbar.html.twig");
     }

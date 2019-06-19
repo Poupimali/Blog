@@ -37,9 +37,11 @@ class BlogController extends AbstractController
             $form->getData();
         }
 
+        //afficher les 5 derniers par ordre decroissant
         $articles = $this->getDoctrine()
+            ->getManager()
             ->getRepository(Article::class)
-            ->findAll();
+            ->findBy([],['id'=>'DESC'],5,0);
 
         if (!$articles) {
             throw $this->createNotFoundException(

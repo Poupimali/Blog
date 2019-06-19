@@ -1,0 +1,19 @@
+{# templates/blog/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Toutes les catégories{% endblock %}
+
+{% block body %}
+    <h1 class="text-center pt-3 pb-3">Toutes les catégories</h1>
+
+    {% for category in categories %}
+        <div class="container mb-5">
+            <a href="{{ path('category_show',{'id': category.id}) }}">
+            <h3>Category : {{ category.name }}</h3>
+            </a>
+        </div>
+    {% else %}
+        Aucune catégorie trouvée.
+    {% endfor %}
+
+{% endblock %}

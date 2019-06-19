@@ -33,7 +33,8 @@ class Article
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="articles")
      * @ORM\JoinColumn(nullable=false)
      */
-    //inversedBy="article" = c'est celui qui contient la foreign key liée à Category.
+    //inversedBy="article" = c'est celui qui contient la foreign key liée à Category, c'est celui dont il dépend
+
     private $category;
 
     /**

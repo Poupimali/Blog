@@ -23,7 +23,8 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
             '/article' => [[['_route' => 'article_index', '_controller' => 'App\\Controller\\ArticleController::index'], null, ['GET' => 0], null, true, false, null]],
             '/article/new' => [[['_route' => 'article_new', '_controller' => 'App\\Controller\\ArticleController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
             '/blog' => [[['_route' => 'blog_index', '_controller' => 'App\\Controller\\BlogController::index'], null, null, null, true, false, null]],
-            '/category' => [[['_route' => 'add_category', '_controller' => 'App\\Controller\\CategoryController::add'], null, null, null, false, false, null]],
+            '/category' => [[['_route' => 'category_index', '_controller' => 'App\\Controller\\CategoryController::index'], null, null, null, false, false, null]],
+            '/add' => [[['_route' => 'add_category', '_controller' => 'App\\Controller\\CategoryController::add'], null, null, null, false, false, null]],
             '/' => [[['_route' => 'index', '_controller' => 'App\\Controller\\DefaultController::index'], null, null, null, false, false, null]],
         ];
         $this->regexpList = [
@@ -55,7 +56,8 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
                             .'|tag/([^/]++)(*:294)'
                         .')'
                     .')'
-                    .'|/tag/([^/]++)(*:317)'
+                    .'|/category/([^/]++)(*:322)'
+                    .'|/tag/([^/]++)(*:343)'
                 .')/?$}sDu',
         ];
         $this->dynamicRoutes = [
@@ -72,7 +74,8 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
             245 => [[['_route' => 'blog_show', 'slug' => null, '_controller' => 'App\\Controller\\BlogController::show'], ['slug'], null, null, false, true, null]],
             274 => [[['_route' => 'show_category', '_controller' => 'App\\Controller\\BlogController::showByCategory'], ['name'], null, null, false, true, null]],
             294 => [[['_route' => 'show_tag', '_controller' => 'App\\Controller\\BlogController::showByTag'], ['name'], null, null, false, true, null]],
-            317 => [[['_route' => 'tag_show', '_controller' => 'App\\Controller\\TagController::show'], ['name'], ['GET' => 0], null, false, true, null]],
+            322 => [[['_route' => 'category_show', '_controller' => 'App\\Controller\\CategoryController::showCategory'], ['id'], null, null, false, true, null]],
+            343 => [[['_route' => 'tag_show', '_controller' => 'App\\Controller\\TagController::show'], ['name'], ['GET' => 0], null, false, true, null]],
         ];
     }
 }
