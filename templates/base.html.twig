@@ -9,7 +9,11 @@
 </head>
 <body>
 {% include 'navbar.html.twig' %}
+{% if app.user %}
+    Bonjour {{ app.user.email }} !
+{% endif %}
 {% block body %}
+
 {% endblock %}
 
 {% block javascripts %}

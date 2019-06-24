@@ -62,11 +62,23 @@ class __TwigTemplate_ad20eebb33e09497470cf12048085ef9ddee4198b7619e2344345c9657d
         // line 7
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_category");
         echo "\">Nouvelle Catégorie</a>
-        <a class=\"nav-item nav-link text-light btn-secondary m-2\" href=\"";
+        ";
         // line 8
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
-        echo "\">Connexion</a>
-    </nav>
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 8, $this->source); })()), "user", [], "any", false, false, false, 8)) {
+            // line 9
+            echo "            <a class=\"nav-item nav-link text-light btn-secondary m-2\" href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+            echo "\">Déconnexion</a>
+        ";
+        } else {
+            // line 11
+            echo "            <a class=\"nav-item nav-link text-light btn-secondary m-2\" href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+            echo "\">Connexion</a>
+        ";
+        }
+        // line 13
+        echo "    </nav>
  </header>";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -88,7 +100,7 @@ class __TwigTemplate_ad20eebb33e09497470cf12048085ef9ddee4198b7619e2344345c9657d
 
     public function getDebugInfo()
     {
-        return array (  67 => 8,  63 => 7,  59 => 6,  55 => 5,  51 => 4,  47 => 3,  43 => 1,);
+        return array (  81 => 13,  75 => 11,  69 => 9,  67 => 8,  63 => 7,  59 => 6,  55 => 5,  51 => 4,  47 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -100,7 +112,11 @@ class __TwigTemplate_ad20eebb33e09497470cf12048085ef9ddee4198b7619e2344345c9657d
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('category_index') }}\">Catégories</a>
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('article_new') }}\">Nouvel Article</a>
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('add_category') }}\">Nouvelle Catégorie</a>
-        <a class=\"nav-item nav-link text-light btn-secondary m-2\" href=\"{{ path('app_login') }}\">Connexion</a>
+        {% if app.user %}
+            <a class=\"nav-item nav-link text-light btn-secondary m-2\" href=\"{{ path('app_logout') }}\">Déconnexion</a>
+        {% else %}
+            <a class=\"nav-item nav-link text-light btn-secondary m-2\" href=\"{{ path('app_login') }}\">Connexion</a>
+        {% endif %}
     </nav>
  </header>", "navbar.html.twig", "/Users/malika/Desktop/Blog 2/templates/navbar.html.twig");
     }

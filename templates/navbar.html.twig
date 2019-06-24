@@ -5,6 +5,10 @@
         <a class="nav-item nav-link text-light bg-info m-2" href="{{ path('category_index') }}">Catégories</a>
         <a class="nav-item nav-link text-light bg-info m-2" href="{{ path('article_new') }}">Nouvel Article</a>
         <a class="nav-item nav-link text-light bg-info m-2" href="{{ path('add_category') }}">Nouvelle Catégorie</a>
-        <a class="nav-item nav-link text-light btn-secondary m-2" href="{{ path('app_login') }}">Connexion</a>
+        {% if app.user %}
+            <a class="nav-item nav-link text-light btn-secondary m-2" href="{{ path('app_logout') }}">Déconnexion</a>
+        {% else %}
+            <a class="nav-item nav-link text-light btn-secondary m-2" href="{{ path('app_login') }}">Connexion</a>
+        {% endif %}
     </nav>
  </header>
