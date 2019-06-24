@@ -10,7 +10,7 @@
 <body>
 {% include 'navbar.html.twig' %}
 {% if app.user %}
-    Bonjour {{ app.user.email }} !
+<h2 class = "text-center pt-3 pb-3 text-dark">Bonjour {{ app.user.email }} !<h2>
 {% endif %}
 {% block body %}
 

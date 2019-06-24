@@ -64,9 +64,9 @@ class __TwigTemplate_8e58ed221562e79ddf60a4ecd6ccfd672111b6a8624f7c8c932b829361a
         // line 12
         if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 12, $this->source); })()), "user", [], "any", false, false, false, 12)) {
             // line 13
-            echo "    Bonjour ";
+            echo "<h2 class = \"text-center pt-3 pb-3 text-dark\">Bonjour ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 13, $this->source); })()), "user", [], "any", false, false, false, 13), "email", [], "any", false, false, false, 13), "html", null, true);
-            echo " !
+            echo " !<h2>
 ";
         }
         // line 15
@@ -203,7 +203,7 @@ class __TwigTemplate_8e58ed221562e79ddf60a4ecd6ccfd672111b6a8624f7c8c932b829361a
 <body>
 {% include 'navbar.html.twig' %}
 {% if app.user %}
-    Bonjour {{ app.user.email }} !
+<h2 class = \"text-center pt-3 pb-3 text-dark\">Bonjour {{ app.user.email }} !<h2>
 {% endif %}
 {% block body %}
 

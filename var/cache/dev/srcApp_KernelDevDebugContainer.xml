@@ -3658,7 +3658,7 @@
     </service>
     <service id="security.logout.success_handler.main" class="Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler" public="false">
       <argument type="service" id="security.http_utils"/>
-      <argument>/</argument>
+      <argument>blog_index</argument>
     </service>
     <service id="security.authentication.provider.guard.main" class="Symfony\Component\Security\Guard\Provider\GuardAuthenticationProvider" public="false">
       <argument type="iterator">
