@@ -62,6 +62,10 @@ class __TwigTemplate_ad20eebb33e09497470cf12048085ef9ddee4198b7619e2344345c9657d
         // line 7
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_category");
         echo "\">Nouvelle Catégorie</a>
+        <a class=\"nav-item nav-link text-light btn-secondary m-2\" href=\"";
+        // line 8
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+        echo "\">Connexion</a>
     </nav>
  </header>";
         
@@ -84,7 +88,7 @@ class __TwigTemplate_ad20eebb33e09497470cf12048085ef9ddee4198b7619e2344345c9657d
 
     public function getDebugInfo()
     {
-        return array (  63 => 7,  59 => 6,  55 => 5,  51 => 4,  47 => 3,  43 => 1,);
+        return array (  67 => 8,  63 => 7,  59 => 6,  55 => 5,  51 => 4,  47 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -96,6 +100,7 @@ class __TwigTemplate_ad20eebb33e09497470cf12048085ef9ddee4198b7619e2344345c9657d
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('category_index') }}\">Catégories</a>
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('article_new') }}\">Nouvel Article</a>
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('add_category') }}\">Nouvelle Catégorie</a>
+        <a class=\"nav-item nav-link text-light btn-secondary m-2\" href=\"{{ path('app_login') }}\">Connexion</a>
     </nav>
  </header>", "navbar.html.twig", "/Users/malika/Desktop/Blog 2/templates/navbar.html.twig");
     }
