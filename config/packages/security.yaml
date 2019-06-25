@@ -39,10 +39,12 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # IS_AUTHENTICATED_ANONYMOUSLY > tout utilisateur non connecté à l’application dispose de ce rôle.
+        # IS_AUTHENTICATED_REMEMBERED: tout utilisateur connecté à l’application, qu’il vienne de s’identifier ou qu’il soit connecté automatiquement à l’aide d’un cookie “se souvenir de moi”.
+        # IS_AUTHENTICATED_FULLY: uniquement un utilisateur identifié lors de la session en cours. Cela peut être utile lors d’actions critiques pour lesquelles tu souhaites que l’utilisateur reprécise son mot de passe.
         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-
-        - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^/profile, roles: ROLE_USER }
+#        - { path: ^/article, roles: ROLE_AUTHOR }
+#        - { path: ^/admin, roles: ROLE_ADMIN }
+#        - { path: ^/profile, roles: ROLE_USER }
 
     role_hierarchy:
         ROLE_AUTHOR:    ROLE_USER

@@ -10,6 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * @Route("/article")
@@ -33,12 +35,14 @@ class ArticleController extends AbstractController
      * @param Slugify $slugify
      * @param \Swift_Mailer $mailer
      * @return Response
+     * @IsGranted("ROLE_AUTHOR", statusCode=404, message="Vous n'avez pas accés à cette partie du site")
      */
     public function new(Request $request, Slugify $slugify, \Swift_Mailer $mailer): Response
     {
         $article = new Article();
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request); // hydrate automatiquement l'objet Article = le met à jour
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -93,13 +97,18 @@ class ArticleController extends AbstractController
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $article->setSlug($slugify->generate($article->getTitle()));
-            $this->getDoctrine()->getManager()->flush();
+        if ($this->isGranted('ROLE_ADMIN') or ($article->getAuthor() === $this->getUser())) {
 
-            return $this->redirectToRoute('article_index', [
-                'slug' => $article->getSlug(),
-            ]);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $article->setSlug($slugify->generate($article->getTitle()));
+                $this->getDoctrine()->getManager()->flush();
+
+                return $this->redirectToRoute('article_index', [
+                    'slug' => $article->getSlug(),
+                ]);
+            }
+        } else {
+            throw $this->createAccessDeniedException();
         }
 
         return $this->render('article/edit.html.twig', [

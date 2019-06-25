@@ -14,7 +14,7 @@ class DefaultController extends AbstractController
      */
     public function index()
     {
-        return $this->render('default.html.twig');
+        return $this->redirectToRoute('blog_index');
     }
 
 }

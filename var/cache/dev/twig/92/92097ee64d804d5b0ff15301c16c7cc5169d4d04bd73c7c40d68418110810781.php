@@ -154,15 +154,20 @@ class __TwigTemplate_5e75a3d76ecade2e40ff6f2de30fc42d2f585ab556f821168bd39e00921
         // line 42
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_index");
         echo "\">Retour à la liste des articles</a>
-
-    <a class=\"btn text-light bg-dark m-1 col-3\" href=\"";
-        // line 44
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 44, $this->source); })()), "id", [], "any", false, false, false, 44)]), "html", null, true);
-        echo "\">Editer</a>
-
     ";
-        // line 46
-        echo twig_include($this->env, $context, "article/_delete_form.html.twig");
+        // line 43
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_AUTHOR")) {
+            // line 44
+            echo "        <a class=\"btn text-light bg-dark m-1 col-3\" href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 44, $this->source); })()), "id", [], "any", false, false, false, 44)]), "html", null, true);
+            echo "\">Editer</a>
+        ";
+            // line 45
+            echo twig_include($this->env, $context, "article/_delete_form.html.twig");
+            echo "
+    ";
+        }
+        // line 47
         echo "
 </div>
 
@@ -188,7 +193,7 @@ class __TwigTemplate_5e75a3d76ecade2e40ff6f2de30fc42d2f585ab556f821168bd39e00921
 
     public function getDebugInfo()
     {
-        return array (  165 => 46,  160 => 44,  155 => 42,  146 => 35,  139 => 33,  131 => 31,  126 => 30,  118 => 25,  111 => 21,  104 => 17,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  171 => 47,  166 => 45,  161 => 44,  159 => 43,  155 => 42,  146 => 35,  139 => 33,  131 => 31,  126 => 30,  118 => 25,  111 => 21,  104 => 17,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -235,10 +240,11 @@ class __TwigTemplate_5e75a3d76ecade2e40ff6f2de30fc42d2f585ab556f821168bd39e00921
     </div>
 <div class=\"container mb-5 col-4 d-flex flex-column justify-content-center\">
     <a class=\"btn text-light bg-dark m-1 col-6\" href=\"{{ path('article_index') }}\">Retour à la liste des articles</a>
+    {% if is_granted('ROLE_AUTHOR') %}
+        <a class=\"btn text-light bg-dark m-1 col-3\" href=\"{{ path('article_edit', {'id': article.id}) }}\">Editer</a>
+        {{ include('article/_delete_form.html.twig') }}
+    {%endif%}
 
-    <a class=\"btn text-light bg-dark m-1 col-3\" href=\"{{ path('article_edit', {'id': article.id}) }}\">Editer</a>
-
-    {{ include('article/_delete_form.html.twig') }}
 </div>
 
 

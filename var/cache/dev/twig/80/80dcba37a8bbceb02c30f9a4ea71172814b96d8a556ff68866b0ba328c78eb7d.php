@@ -123,17 +123,23 @@ class __TwigTemplate_b587fe3ecec93f9352f7085070a1d5858a4c8b156e67e8662633eb9dabd
             // line 25
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_show", ["slug" => twig_get_attribute($this->env, $this->source, $context["article"], "slug", [], "any", false, false, false, 25)]), "html", null, true);
             echo "\">Voir</a>
-                            <a class=\"nav-item nav-link text-light bg-dark m-1\" href=\"";
+                            ";
             // line 26
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 26)]), "html", null, true);
-            echo "\">Editer</a>
-                        </td>
+            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_AUTHOR")) {
+                // line 27
+                echo "                                <a class=\"nav-item nav-link text-light bg-dark m-1\" href=\"";
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 27)]), "html", null, true);
+                echo "\">Editer</a>
+                            ";
+            }
+            // line 29
+            echo "                        </td>
                     </tr>
                 ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 30
+            // line 32
             echo "                    <tr>
                         <td colspan=\"4\">Pas d'article trouvé</td>
                     </tr>
@@ -142,7 +148,7 @@ class __TwigTemplate_b587fe3ecec93f9352f7085070a1d5858a4c8b156e67e8662633eb9dabd
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 34
+        // line 36
         echo "                </tbody>
             </table>
 
@@ -169,7 +175,7 @@ class __TwigTemplate_b587fe3ecec93f9352f7085070a1d5858a4c8b156e67e8662633eb9dabd
 
     public function getDebugInfo()
     {
-        return array (  146 => 34,  137 => 30,  128 => 26,  124 => 25,  119 => 23,  115 => 22,  111 => 21,  108 => 20,  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  152 => 36,  143 => 32,  136 => 29,  130 => 27,  128 => 26,  124 => 25,  119 => 23,  115 => 22,  111 => 21,  108 => 20,  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -199,7 +205,9 @@ class __TwigTemplate_b587fe3ecec93f9352f7085070a1d5858a4c8b156e67e8662633eb9dabd
                         <td>{{ article.content }}</td>
                         <td>
                             <a class=\"nav-item nav-link text-light bg-dark m-1\" href=\"{{ path('article_show', {'slug': article.slug}) }}\">Voir</a>
-                            <a class=\"nav-item nav-link text-light bg-dark m-1\" href=\"{{ path('article_edit', {'id': article.id}) }}\">Editer</a>
+                            {% if is_granted('ROLE_AUTHOR') %}
+                                <a class=\"nav-item nav-link text-light bg-dark m-1\" href=\"{{ path('article_edit', {'id': article.id}) }}\">Editer</a>
+                            {%endif%}
                         </td>
                     </tr>
                 {% else %}
