@@ -6,9 +6,14 @@ use App\Service\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
+ * @UniqueEntity(
+ *     fields={"title"},
+ *     message="ce titre existe déjà")
  */
 class Article
 {
@@ -21,11 +26,19 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(max="255",
+     *     maxMessage=" Votre titre ne peut pas dépasser 255 caractères.")
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Le contenu de l'article ne doit pas être vide")
+     * @Assert\Regex(
+     *      pattern="/\b(digital)\b/i",
+     *      match=false,
+     *      message="Votre texte ne peut pas contenir le mot 'digital'. En français, il faut dire numérique")
      */
     private $content;
 

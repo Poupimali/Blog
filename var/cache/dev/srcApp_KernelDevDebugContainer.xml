@@ -524,15 +524,6 @@
       <argument>en</argument>
       <argument type="service" id="router.default" on-invalid="ignore"/>
     </service>
-    <service id="http_exception_listener" class="Symfony\Component\HttpKernel\EventListener\ExceptionListener" public="false">
-      <tag name="kernel.event_listener" event="kernel.exception" method="onKernelException" priority="-2048"/>
-      <tag name="kernel.reset" method="reset"/>
-      <argument>null</argument>
-      <argument>null</argument>
-      <argument>true</argument>
-      <argument>UTF-8</argument>
-      <argument>null</argument>
-    </service>
     <service id="validate_request_listener" class="Symfony\Component\HttpKernel\EventListener\ValidateRequestListener" public="false">
       <tag name="kernel.event_subscriber"/>
       <tag name="container.hot_path"/>
@@ -585,7 +576,6 @@
     </service>
     <service id="services_resetter" class="Symfony\Component\HttpKernel\DependencyInjection\ServicesResetter" public="true">
       <argument type="iterator">
-        <argument key="http_exception_listener" type="service" id="http_exception_listener" on-invalid="ignore_uninitialized"/>
         <argument key="form.choice_list_factory.cached" type="service" id="form.choice_list_factory.cached" on-invalid="ignore_uninitialized"/>
         <argument key="profiler" type="service" id="profiler" on-invalid="ignore_uninitialized"/>
         <argument key="debug.validator" type="service" id="debug.validator" on-invalid="ignore_uninitialized"/>
@@ -597,7 +587,6 @@
         <argument key="monolog.handler.console" type="service" id="monolog.handler.console" on-invalid="ignore_uninitialized"/>
       </argument>
       <argument type="collection">
-        <argument key="http_exception_listener">reset</argument>
         <argument key="form.choice_list_factory.cached">reset</argument>
         <argument key="profiler">reset</argument>
         <argument key="debug.validator">reset</argument>
@@ -771,6 +760,7 @@
         <argument>App\Form\TagType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
+        <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type\EntityType</argument>
       </argument>
       <argument type="collection">
@@ -1014,7 +1004,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.rMTNsdt"/>
+      <argument type="service" id=".service_locator.3pnJUEl"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -1058,6 +1048,7 @@
       <argument type="service" id="form.choice_list_factory.cached"/>
     </service>
     <service id="form.type.file" class="Symfony\Component\Form\Extension\Core\Type\FileType" public="true">
+      <tag name="form.type"/>
       <argument type="service" id="translator.data_collector" on-invalid="ignore"/>
     </service>
     <service id="form.type_extension.form.transformation_failure_handling" class="Symfony\Component\Form\Extension\Core\Type\TransformationFailureExtension" public="false">
@@ -1461,6 +1452,7 @@
           </argument>
           <argument key="tr" type="collection">
             <argument>/Users/malika/Desktop/Blog 2/vendor/symfony/validator/Resources/translations/validators.tr.xlf</argument>
+            <argument>/Users/malika/Desktop/Blog 2/vendor/symfony/form/Resources/translations/validators.tr.xlf</argument>
             <argument>/Users/malika/Desktop/Blog 2/vendor/symfony/security-core/Resources/translations/security.tr.xlf</argument>
           </argument>
           <argument key="uk" type="collection">
@@ -1895,6 +1887,7 @@
       <argument>true</argument>
       <argument type="service" id="debug.file_link_formatter"/>
       <argument>true</argument>
+      <argument>UTF-8</argument>
     </service>
     <service id="debug.file_link_formatter" class="Symfony\Component\HttpKernel\Debug\FileLinkFormatter" public="false">
       <argument>null</argument>
@@ -1912,14 +1905,6 @@
       <argument type="service" id="debug.event_dispatcher.inner"/>
       <argument type="service" id="debug.stopwatch"/>
       <argument type="service" id="monolog.logger.event" on-invalid="null"/>
-      <call method="addListener">
-        <argument>kernel.exception</argument>
-        <argument type="collection">
-          <argument type="service" id="http_exception_listener"/>
-          <argument>onKernelException</argument>
-        </argument>
-        <argument>-2048</argument>
-      </call>
       <call method="addListener">
         <argument>kernel.controller</argument>
         <argument type="collection">
@@ -2079,6 +2064,22 @@
           <argument>configure</argument>
         </argument>
         <argument>2048</argument>
+      </call>
+      <call method="addListener">
+        <argument>console.command</argument>
+        <argument type="collection">
+          <argument type="service" id="debug.debug_handlers_listener"/>
+          <argument>configure</argument>
+        </argument>
+        <argument>2048</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.exception</argument>
+        <argument type="collection">
+          <argument type="service" id="debug.debug_handlers_listener"/>
+          <argument>onKernelException</argument>
+        </argument>
+        <argument>-2048</argument>
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
@@ -4917,7 +4918,7 @@
       <argument type="service" id="debug.argument_resolver.variadic.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.rMTNsdt" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.3pnJUEl" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\ArticleSearchType" type="service" id="App\Form\ArticleSearchType"/>
@@ -4926,6 +4927,7 @@
         <argument key="App\Form\TagType" type="service" id="App\Form\TagType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
+        <argument key="Symfony\Component\Form\Extension\Core\Type\FileType" type="service" id="form.type.file"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="service" id="form.type.form"/>
       </argument>
     </service>
