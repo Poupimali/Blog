@@ -12,6 +12,8 @@
                     <th>Id</th>
                     <th>Titre</th>
                     <th>Contenu</th>
+                    <th>Catégorie</th>
+                    <th>Tags</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -21,6 +23,12 @@
                         <td>{{ article.id }}</td>
                         <td>{{ article.title }}</td>
                         <td>{{ article.content }}</td>
+                        <td>{{ article.category.name }}</td>
+                        <td>
+                            {% for tag in article.tags %}
+                                {{ tag.name }}
+                            {% endfor %}
+                        </td>
                         <td>
                             <a class="nav-item nav-link text-light bg-dark m-1" href="{{ path('article_show', {'slug': article.slug}) }}">Voir</a>
                             {% if is_granted('ROLE_AUTHOR') %}

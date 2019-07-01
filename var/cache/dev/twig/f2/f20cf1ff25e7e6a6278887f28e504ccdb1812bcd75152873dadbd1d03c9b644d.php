@@ -99,10 +99,10 @@ class __TwigTemplate_f912124179f4609a75a301a7481725d17e65113ca8c17f492b2cf1d9adf
             // line 11
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_show", ["id" => twig_get_attribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 11)]), "html", null, true);
             echo "\">
-            <h3>Category : ";
+            <h5> * Categorie : ";
             // line 12
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 12), "html", null, true);
-            echo "</h3>
+            echo "</h5>
             </a>
         </div>
     ";
@@ -155,7 +155,7 @@ class __TwigTemplate_f912124179f4609a75a301a7481725d17e65113ca8c17f492b2cf1d9adf
     {% for category in categories %}
         <div class=\"container mb-5\">
             <a href=\"{{ path('category_show',{'id': category.id}) }}\">
-            <h3>Category : {{ category.name }}</h3>
+            <h5> * Categorie : {{ category.name }}</h5>
             </a>
         </div>
     {% else %}

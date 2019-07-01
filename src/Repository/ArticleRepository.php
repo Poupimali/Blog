@@ -1,12 +1,9 @@
 <?php
-
 namespace App\Repository;
-
 use App\Entity\Article;
+use App\Entity\Category;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-use Symfony\Component\HttpFoundation\Response;
-
 /**
  * @method Article|null find($id, $lockMode = null, $lockVersion = null)
  * @method Article|null findOneBy(array $criteria, array $orderBy = null)
@@ -15,13 +12,46 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class ArticleRepository extends ServiceEntityRepository
 {
-    public function __construct(RegistryInterface $registry)
+    public function __construct ( RegistryInterface $registry )
     {
         parent::__construct($registry, Article::class);
     }
 
+    public function findAllWithCategories()
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->innerJoin('a.category', 'c' )
+            ->addSelect('c')
+            ->getQuery();
 
-    // /**
+        return $qb->execute();
+    }
+
+    public function findAllWithCategoriesAndTags()
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('SELECT a, c, t 
+        FROM App\Entity\Article a 
+        INNER JOIN a.category c 
+        INNER JOIN a.tags t');
+
+        return $query->execute();
+    }
+
+    public function findAllWithCategoriesAndTagsAndAuthors()
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('SELECT a, c, b, t FROM App\Entity\Article a 
+        INNER JOIN a.category c 
+        INNER JOIN a.author b
+        LEFT JOIN a.tags t'
+        );
+        return $query->execute();
+    }
+}
+
+
+// /**
     //  * @return Article[] Returns an array of Article objects
     //  */
     /*
@@ -49,4 +79,3 @@ class ArticleRepository extends ServiceEntityRepository
         ;
     }
     */
-}

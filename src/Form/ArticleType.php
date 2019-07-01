@@ -23,8 +23,8 @@ class ArticleType extends AbstractType
                 [
                     'class' => Tag::class,
                     'by_reference' => false, // appelle la methode set
-                    'multiple' => true, // = used to render check boxes
-                    'expanded' => true, // and radio box
+                    'multiple' => true, // = used to render check boxes and radio box
+                    'expanded' => true, //
                     'choice_label' => 'name',
                 ]);
             //'choice_label' => 'name' = c'est le getter getName qui est appelé

@@ -94,52 +94,75 @@ class __TwigTemplate_b587fe3ecec93f9352f7085070a1d5858a4c8b156e67e8662633eb9dabd
                     <th>Id</th>
                     <th>Titre</th>
                     <th>Contenu</th>
+                    <th>Catégorie</th>
+                    <th>Tags</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 ";
-        // line 19
+        // line 21
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 19, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 21, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 20
+            // line 22
             echo "                    <tr>
                         <td>";
-            // line 21
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 21), "html", null, true);
-            echo "</td>
-                        <td>";
-            // line 22
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "title", [], "any", false, false, false, 22), "html", null, true);
-            echo "</td>
-                        <td>";
             // line 23
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "content", [], "any", false, false, false, 23), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 23), "html", null, true);
+            echo "</td>
+                        <td>";
+            // line 24
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "title", [], "any", false, false, false, 24), "html", null, true);
+            echo "</td>
+                        <td>";
+            // line 25
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "content", [], "any", false, false, false, 25), "html", null, true);
+            echo "</td>
+                        <td>";
+            // line 26
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "category", [], "any", false, false, false, 26), "name", [], "any", false, false, false, 26), "html", null, true);
             echo "</td>
                         <td>
+                            ";
+            // line 28
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["article"], "tags", [], "any", false, false, false, 28));
+            foreach ($context['_seq'] as $context["_key"] => $context["tag"]) {
+                // line 29
+                echo "                                ";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["tag"], "name", [], "any", false, false, false, 29), "html", null, true);
+                echo "
+                            ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tag'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 31
+            echo "                        </td>
+                        <td>
                             <a class=\"nav-item nav-link text-light bg-dark m-1\" href=\"";
-            // line 25
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_show", ["slug" => twig_get_attribute($this->env, $this->source, $context["article"], "slug", [], "any", false, false, false, 25)]), "html", null, true);
+            // line 33
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_show", ["slug" => twig_get_attribute($this->env, $this->source, $context["article"], "slug", [], "any", false, false, false, 33)]), "html", null, true);
             echo "\">Voir</a>
                             ";
-            // line 26
+            // line 34
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_AUTHOR")) {
-                // line 27
+                // line 35
                 echo "                                <a class=\"nav-item nav-link text-light bg-dark m-1\" href=\"";
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 27)]), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 35)]), "html", null, true);
                 echo "\">Editer</a>
                             ";
             }
-            // line 29
+            // line 37
             echo "                        </td>
                     </tr>
                 ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 32
+            // line 40
             echo "                    <tr>
                         <td colspan=\"4\">Pas d'article trouvé</td>
                     </tr>
@@ -148,7 +171,7 @@ class __TwigTemplate_b587fe3ecec93f9352f7085070a1d5858a4c8b156e67e8662633eb9dabd
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 36
+        // line 44
         echo "                </tbody>
             </table>
 
@@ -175,7 +198,7 @@ class __TwigTemplate_b587fe3ecec93f9352f7085070a1d5858a4c8b156e67e8662633eb9dabd
 
     public function getDebugInfo()
     {
-        return array (  152 => 36,  143 => 32,  136 => 29,  130 => 27,  128 => 26,  124 => 25,  119 => 23,  115 => 22,  111 => 21,  108 => 20,  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  175 => 44,  166 => 40,  159 => 37,  153 => 35,  151 => 34,  147 => 33,  143 => 31,  134 => 29,  130 => 28,  125 => 26,  121 => 25,  117 => 24,  113 => 23,  110 => 22,  105 => 21,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -194,6 +217,8 @@ class __TwigTemplate_b587fe3ecec93f9352f7085070a1d5858a4c8b156e67e8662633eb9dabd
                     <th>Id</th>
                     <th>Titre</th>
                     <th>Contenu</th>
+                    <th>Catégorie</th>
+                    <th>Tags</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -203,6 +228,12 @@ class __TwigTemplate_b587fe3ecec93f9352f7085070a1d5858a4c8b156e67e8662633eb9dabd
                         <td>{{ article.id }}</td>
                         <td>{{ article.title }}</td>
                         <td>{{ article.content }}</td>
+                        <td>{{ article.category.name }}</td>
+                        <td>
+                            {% for tag in article.tags %}
+                                {{ tag.name }}
+                            {% endfor %}
+                        </td>
                         <td>
                             <a class=\"nav-item nav-link text-light bg-dark m-1\" href=\"{{ path('article_show', {'slug': article.slug}) }}\">Voir</a>
                             {% if is_granted('ROLE_AUTHOR') %}

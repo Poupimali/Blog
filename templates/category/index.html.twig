@@ -9,7 +9,7 @@
     {% for category in categories %}
         <div class="container mb-5">
             <a href="{{ path('category_show',{'id': category.id}) }}">
-            <h3>Category : {{ category.name }}</h3>
+            <h5> * Categorie : {{ category.name }}</h5>
             </a>
         </div>
     {% else %}
