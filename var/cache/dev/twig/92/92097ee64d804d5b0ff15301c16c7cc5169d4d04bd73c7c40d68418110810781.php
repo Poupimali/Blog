@@ -149,7 +149,7 @@ class __TwigTemplate_5e75a3d76ecade2e40ff6f2de30fc42d2f585ab556f821168bd39e00921
             </table>
         </div>
     </div>
-<div class=\"container mb-5 col-4 d-flex flex-column justify-content-center\">
+<div class=\"container mb-5 col-4 d-flex flex-column justify-content-center align-items-center\">
     <a class=\"btn text-light bg-dark m-1 col-6\" href=\"";
         // line 42
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_index");
@@ -238,7 +238,7 @@ class __TwigTemplate_5e75a3d76ecade2e40ff6f2de30fc42d2f585ab556f821168bd39e00921
             </table>
         </div>
     </div>
-<div class=\"container mb-5 col-4 d-flex flex-column justify-content-center\">
+<div class=\"container mb-5 col-4 d-flex flex-column justify-content-center align-items-center\">
     <a class=\"btn text-light bg-dark m-1 col-6\" href=\"{{ path('article_index') }}\">Retour à la liste des articles</a>
     {% if is_granted('ROLE_AUTHOR') %}
         <a class=\"btn text-light bg-dark m-1 col-3\" href=\"{{ path('article_edit', {'id': article.id}) }}\">Editer</a>

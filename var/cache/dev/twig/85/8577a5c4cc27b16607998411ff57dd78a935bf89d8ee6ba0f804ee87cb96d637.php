@@ -62,21 +62,70 @@ class __TwigTemplate_8e58ed221562e79ddf60a4ecd6ccfd672111b6a8624f7c8c932b829361a
         // line 11
         $this->loadTemplate("navbar.html.twig", "base.html.twig", 11)->display($context);
         // line 12
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 12, $this->source); })()), "user", [], "any", false, false, false, 12)) {
-            // line 13
-            echo "<h2 class = \"text-center pt-3 pb-3 text-dark\">Bonjour ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 13, $this->source); })()), "user", [], "any", false, false, false, 13), "email", [], "any", false, false, false, 13), "html", null, true);
-            echo " !<h2>
-";
-        }
-        // line 15
-        $this->displayBlock('body', $context, $blocks);
-        // line 18
         echo "
 ";
-        // line 19
+        // line 13
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 13, $this->source); })()), "user", [], "any", false, false, false, 13)) {
+            // line 14
+            echo "<h2 class = \"text-center pt-3 pb-3 text-dark\">Bonjour ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 14, $this->source); })()), "user", [], "any", false, false, false, 14), "email", [], "any", false, false, false, 14), "html", null, true);
+            echo " !<h2>
+        ";
+            // line 15
+            if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 15, $this->source); })()), "debug", [], "any", false, false, false, 15)) {
+                // line 16
+                echo "            <p class = \"text-center text-dark\">Affichage total: ";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 16, $this->source); })()), "session", [], "any", false, false, false, 16), "get", [0 => "total"], "method", false, false, false, 16), "html", null, true);
+                echo "</p>
+            <p class = \"text-center text-dark\">Request method: ";
+                // line 17
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 17, $this->source); })()), "request", [], "any", false, false, false, 17), "method", [], "any", false, false, false, 17), "html", null, true);
+                echo "</p>
+            <p class = \"text-center text-dark\">Application Environment: ";
+                // line 18
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 18, $this->source); })()), "environment", [], "any", false, false, false, 18), "html", null, true);
+                echo "</p>
+        ";
+            }
+            // line 20
+            echo "        ";
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 20, $this->source); })()), "flashes", [], "any", false, false, false, 20));
+            foreach ($context['_seq'] as $context["category"] => $context["messages"]) {
+                // line 21
+                echo "            ";
+                $context['_parent'] = $context;
+                $context['_seq'] = twig_ensure_traversable($context["messages"]);
+                foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
+                    // line 22
+                    echo "                <div class=\"alert alert-";
+                    echo twig_escape_filter($this->env, $context["category"], "html", null, true);
+                    echo "\">
+                    ";
+                    // line 23
+                    echo twig_escape_filter($this->env, $context["message"], "html", null, true);
+                    echo "
+                </div>
+            ";
+                }
+                $_parent = $context['_parent'];
+                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
+                $context = array_intersect_key($context, $_parent) + $_parent;
+                // line 26
+                echo "        ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['category'], $context['messages'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+        }
+        // line 28
+        $this->displayBlock('body', $context, $blocks);
+        // line 31
+        echo "
+";
+        // line 32
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 22
+        // line 35
         echo "</body>
 </html>
 ";
@@ -130,7 +179,7 @@ class __TwigTemplate_8e58ed221562e79ddf60a4ecd6ccfd672111b6a8624f7c8c932b829361a
 
     }
 
-    // line 15
+    // line 28
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -140,7 +189,7 @@ class __TwigTemplate_8e58ed221562e79ddf60a4ecd6ccfd672111b6a8624f7c8c932b829361a
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 16
+        // line 29
         echo "
 ";
         
@@ -151,7 +200,7 @@ class __TwigTemplate_8e58ed221562e79ddf60a4ecd6ccfd672111b6a8624f7c8c932b829361a
 
     }
 
-    // line 19
+    // line 32
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -161,7 +210,7 @@ class __TwigTemplate_8e58ed221562e79ddf60a4ecd6ccfd672111b6a8624f7c8c932b829361a
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 20
+        // line 33
         echo "    ";
         echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackLinkTags("app");
         echo "
@@ -186,7 +235,7 @@ class __TwigTemplate_8e58ed221562e79ddf60a4ecd6ccfd672111b6a8624f7c8c932b829361a
 
     public function getDebugInfo()
     {
-        return array (  165 => 20,  155 => 19,  144 => 16,  134 => 15,  121 => 7,  111 => 6,  92 => 5,  80 => 22,  78 => 19,  75 => 18,  73 => 15,  67 => 13,  65 => 12,  63 => 11,  59 => 9,  57 => 6,  53 => 5,  47 => 1,);
+        return array (  214 => 33,  204 => 32,  193 => 29,  183 => 28,  170 => 7,  160 => 6,  141 => 5,  129 => 35,  127 => 32,  124 => 31,  122 => 28,  115 => 26,  106 => 23,  101 => 22,  96 => 21,  91 => 20,  86 => 18,  82 => 17,  77 => 16,  75 => 15,  70 => 14,  68 => 13,  65 => 12,  63 => 11,  59 => 9,  57 => 6,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -202,8 +251,21 @@ class __TwigTemplate_8e58ed221562e79ddf60a4ecd6ccfd672111b6a8624f7c8c932b829361a
 </head>
 <body>
 {% include 'navbar.html.twig' %}
+
 {% if app.user %}
 <h2 class = \"text-center pt-3 pb-3 text-dark\">Bonjour {{ app.user.email }} !<h2>
+        {% if app.debug %}
+            <p class = \"text-center text-dark\">Affichage total: {{ app.session.get('total') }}</p>
+            <p class = \"text-center text-dark\">Request method: {{ app.request.method }}</p>
+            <p class = \"text-center text-dark\">Application Environment: {{ app.environment }}</p>
+        {% endif %}
+        {% for category, messages in app.flashes %}
+            {% for message in messages %}
+                <div class=\"alert alert-{{ category }}\">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
 {% endif %}
 {% block body %}
 

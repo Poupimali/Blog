@@ -55,6 +55,8 @@ class CategoryController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($data);
             $entityManager->flush();
+
+            $this->addFlash('success', 'La catégorie a bien été ajoutée');
             return $this->redirectToRoute('category_show',
                 [ 'id' => $category->getId()]);
         }
@@ -62,5 +64,46 @@ class CategoryController extends AbstractController
         return $this->render('category/add.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/{id}/edit", name="category_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Category $category
+     * @return Response
+     */
+    public function edit(Request $request, Category $category): Response
+    {
+        $form = $this->createForm(CategoryType::class, $category);
+        $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $category->getName();
+                $this->getDoctrine()->getManager()->flush();
+
+                $this->addFlash('success', 'La catégorie a bien été modifiée.');
+
+                return $this->redirectToRoute('category_show',
+                    [ 'id' => $category->getId()]);
+            }
+
+        return $this->render('category/edit.html.twig', [
+            'category' => $category,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="category_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, Category $category): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($category);
+            $entityManager->flush();
+            $this->addFlash('danger', 'La catégorie a bien été supprimée.');
+        }
+        return $this->redirectToRoute('category_index');
     }
 }

@@ -44,10 +44,16 @@ class srcApp_KernelDevDebugContainerUrlGenerator extends Symfony\Component\Routi
         'category_index' => [[], ['_controller' => 'App\\Controller\\CategoryController::index'], [], [['text', '/category']], [], []],
         'category_show' => [['id'], ['_controller' => 'App\\Controller\\CategoryController::showCategory'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/category']], [], []],
         'add_category' => [[], ['_controller' => 'App\\Controller\\CategoryController::add'], [], [['text', '/add']], [], []],
+        'category_edit' => [['id'], ['_controller' => 'App\\Controller\\CategoryController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true]], [], []],
+        'category_delete' => [['id'], ['_controller' => 'App\\Controller\\CategoryController::delete'], [], [['variable', '/', '[^/]++', 'id', true]], [], []],
         'index' => [[], ['_controller' => 'App\\Controller\\DefaultController::index'], [], [['text', '/']], [], []],
         'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
         'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
-        'tag_show' => [['name'], ['_controller' => 'App\\Controller\\TagController::show'], [], [['variable', '/', '[^/]++', 'name', true], ['text', '/tag']], [], []],
+        'tag_index' => [[], ['_controller' => 'App\\Controller\\TagController::index'], [], [['text', '/tag']], [], []],
+        'tag_show' => [['id'], ['_controller' => 'App\\Controller\\TagController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/tag']], [], []],
+        'tag_new' => [[], ['_controller' => 'App\\Controller\\TagController::new'], [], [['text', '/new']], [], []],
+        'tag_edit' => [['id'], ['_controller' => 'App\\Controller\\TagController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true]], [], []],
+        'tag_delete' => [['id'], ['_controller' => 'App\\Controller\\TagController::delete'], [], [['variable', '/', '[^/]++', 'id', true]], [], []],
     ];
         }
     }

@@ -56,28 +56,36 @@ class __TwigTemplate_ad20eebb33e09497470cf12048085ef9ddee4198b7619e2344345c9657d
         echo "\">Catégories</a>
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"";
         // line 6
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_new");
-        echo "\">Nouvel Article</a>
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tag_index");
+        echo "\">Tags</a>
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"";
         // line 7
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_new");
+        echo "\">Nouvel article</a>
+        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"";
+        // line 8
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_category");
         echo "\">Nouvelle Catégorie</a>
+        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"";
+        // line 9
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tag_new");
+        echo "\">Nouveau Tag</a>
         ";
-        // line 8
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 8, $this->source); })()), "user", [], "any", false, false, false, 8)) {
-            // line 9
+        // line 10
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 10, $this->source); })()), "user", [], "any", false, false, false, 10)) {
+            // line 11
             echo "            <a class=\"nav-item nav-link text-light btn-secondary m-2\" href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             echo "\">Déconnexion</a>
         ";
         } else {
-            // line 11
+            // line 13
             echo "            <a class=\"nav-item nav-link text-light btn-secondary m-2\" href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">Connexion</a>
         ";
         }
-        // line 13
+        // line 15
         echo "    </nav>
  </header>";
         
@@ -100,7 +108,7 @@ class __TwigTemplate_ad20eebb33e09497470cf12048085ef9ddee4198b7619e2344345c9657d
 
     public function getDebugInfo()
     {
-        return array (  81 => 13,  75 => 11,  69 => 9,  67 => 8,  63 => 7,  59 => 6,  55 => 5,  51 => 4,  47 => 3,  43 => 1,);
+        return array (  89 => 15,  83 => 13,  77 => 11,  75 => 10,  71 => 9,  67 => 8,  63 => 7,  59 => 6,  55 => 5,  51 => 4,  47 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -110,8 +118,10 @@ class __TwigTemplate_ad20eebb33e09497470cf12048085ef9ddee4198b7619e2344345c9657d
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('blog_index') }}\">Home</a>
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('article_index') }}\">Articles</a>
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('category_index') }}\">Catégories</a>
-        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('article_new') }}\">Nouvel Article</a>
+        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('tag_index') }}\">Tags</a>
+        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('article_new') }}\">Nouvel article</a>
         <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('add_category') }}\">Nouvelle Catégorie</a>
+        <a class=\"nav-item nav-link text-light bg-info m-2\" href=\"{{ path('tag_new') }}\">Nouveau Tag</a>
         {% if app.user %}
             <a class=\"nav-item nav-link text-light btn-secondary m-2\" href=\"{{ path('app_logout') }}\">Déconnexion</a>
         {% else %}

@@ -33,7 +33,8 @@ class ArticleRepository extends ServiceEntityRepository
         $query = $em->createQuery('SELECT a, c, t 
         FROM App\Entity\Article a 
         INNER JOIN a.category c 
-        INNER JOIN a.tags t');
+        INNER JOIN a.tags t
+        ORDER BY a.id DESC');
 
         return $query->execute();
     }

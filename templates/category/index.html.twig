@@ -5,15 +5,37 @@
 
 {% block body %}
     <h1 class="text-center pt-3 pb-3">Toutes les catégories</h1>
-
-    {% for category in categories %}
-        <div class="container mb-5">
-            <a href="{{ path('category_show',{'id': category.id}) }}">
-            <h5> * Categorie : {{ category.name }}</h5>
-            </a>
+    <div class="row">
+        <div class="container mb-5 col-10">
+            <table class="table my-4">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for category in categories %}
+                <tr>
+                    <td>{{ category.id }}</td>
+                    <td>{{ category.name }}</td>
+                    <td>
+                        <a class="nav-item nav-link text-light bg-dark m-1 col-3 text-center"
+                           href="{{ path('category_show', {'id': category.id}) }}">Voir</a>
+                        {% if is_granted('ROLE_AUTHOR') %}
+                            <a class="nav-item nav-link text-light bg-dark m-1 col-3 text-center"
+                               href="{{ path('category_edit', {'id': category.id}) }}">Editer</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4">Pas de catégorie trouvée</td>
+                </tr>
+                </tbody>
+            </table>
+            {% endfor %}
         </div>
-    {% else %}
-        Aucune catégorie trouvée.
-    {% endfor %}
-
+    </div>
 {% endblock %}

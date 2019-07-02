@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
@@ -22,11 +23,17 @@ class ArticleController extends AbstractController
      * @Route("/", name="article_index", methods={"GET"})
      *
      */
-    public function index(ArticleRepository $articleRepository): Response
+    public function index(ArticleRepository $articleRepository, SessionInterface $session): Response
     {
         $articles = $articleRepository->findAllWithCategoriesAndTags();
 
-        return $this->render('article/index.html.twig', ['articles' => $articles]);
+        if (!$session->has('total')) {
+            $session->set('total', 0); // if total doesn’t exist in session, it is initialized.
+        }
+
+        $total = $session->get('total'); // get actual value in session with ‘total' key.
+
+        return $this->render('article/index.html.twig', ['articles' => $articles, 'total' => $total]);
     }
 
     /**
@@ -52,6 +59,7 @@ class ArticleController extends AbstractController
 
             $entityManager->persist($article);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'article a bien été créé.');
 
             $message = (new \Swift_Message('Ouh lala enfin un nouvel article !'))
                 ->setFrom($this->getParameter('mailer_from'))
@@ -65,8 +73,12 @@ class ArticleController extends AbstractController
                 );
             $mailer->send($message);
 
+            $this->addFlash('success', 'Le message est bien envoyé');
+
             return $this->redirectToRoute('article_index');
         }
+
+
 
 
         return $this->render('article/new.html.twig', [
@@ -103,6 +115,8 @@ class ArticleController extends AbstractController
                 $article->setSlug($slugify->generate($article->getTitle()));
                 $this->getDoctrine()->getManager()->flush();
 
+                $this->addFlash('success', 'L\'article a bien été modifié.');
+
                 return $this->redirectToRoute('article_index', [
                     'slug' => $article->getSlug(),
                 ]);
@@ -126,6 +140,7 @@ class ArticleController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($article);
             $entityManager->flush();
+            $this->addFlash('danger', 'L\'article a bien été supprimé.');
         }
 
         return $this->redirectToRoute('article_index');

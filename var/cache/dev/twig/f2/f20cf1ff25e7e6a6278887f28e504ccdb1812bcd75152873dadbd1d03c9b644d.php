@@ -86,38 +86,71 @@ class __TwigTemplate_f912124179f4609a75a301a7481725d17e65113ca8c17f492b2cf1d9adf
 
         // line 7
         echo "    <h1 class=\"text-center pt-3 pb-3\">Toutes les catégories</h1>
-
-    ";
-        // line 9
+    <div class=\"row\">
+        <div class=\"container mb-5 col-10\">
+            <table class=\"table my-4\">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                ";
+        // line 19
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 9, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 19, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-            // line 10
-            echo "        <div class=\"container mb-5\">
-            <a href=\"";
-            // line 11
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_show", ["id" => twig_get_attribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 11)]), "html", null, true);
-            echo "\">
-            <h5> * Categorie : ";
-            // line 12
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 12), "html", null, true);
-            echo "</h5>
-            </a>
-        </div>
-    ";
+            // line 20
+            echo "                <tr>
+                    <td>";
+            // line 21
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 21), "html", null, true);
+            echo "</td>
+                    <td>";
+            // line 22
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 22), "html", null, true);
+            echo "</td>
+                    <td>
+                        <a class=\"nav-item nav-link text-light bg-dark m-1 col-3 text-center\"
+                           href=\"";
+            // line 25
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_show", ["id" => twig_get_attribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 25)]), "html", null, true);
+            echo "\">Voir</a>
+                        ";
+            // line 26
+            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_AUTHOR")) {
+                // line 27
+                echo "                            <a class=\"nav-item nav-link text-light bg-dark m-1 col-3 text-center\"
+                               href=\"";
+                // line 28
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 28)]), "html", null, true);
+                echo "\">Editer</a>
+                        ";
+            }
+            // line 30
+            echo "                    </td>
+                </tr>
+                ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 16
-            echo "        Aucune catégorie trouvée.
-    ";
+            // line 33
+            echo "                <tr>
+                    <td colspan=\"4\">Pas de catégorie trouvée</td>
+                </tr>
+                </tbody>
+            </table>
+            ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 18
-        echo "
+        // line 39
+        echo "        </div>
+    </div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -139,7 +172,7 @@ class __TwigTemplate_f912124179f4609a75a301a7481725d17e65113ca8c17f492b2cf1d9adf
 
     public function getDebugInfo()
     {
-        return array (  120 => 18,  113 => 16,  104 => 12,  100 => 11,  97 => 10,  92 => 9,  88 => 7,  78 => 6,  59 => 4,  36 => 2,);
+        return array (  152 => 39,  141 => 33,  134 => 30,  129 => 28,  126 => 27,  124 => 26,  120 => 25,  114 => 22,  110 => 21,  107 => 20,  102 => 19,  88 => 7,  78 => 6,  59 => 4,  36 => 2,);
     }
 
     public function getSourceContext()
@@ -151,17 +184,40 @@ class __TwigTemplate_f912124179f4609a75a301a7481725d17e65113ca8c17f492b2cf1d9adf
 
 {% block body %}
     <h1 class=\"text-center pt-3 pb-3\">Toutes les catégories</h1>
-
-    {% for category in categories %}
-        <div class=\"container mb-5\">
-            <a href=\"{{ path('category_show',{'id': category.id}) }}\">
-            <h5> * Categorie : {{ category.name }}</h5>
-            </a>
+    <div class=\"row\">
+        <div class=\"container mb-5 col-10\">
+            <table class=\"table my-4\">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for category in categories %}
+                <tr>
+                    <td>{{ category.id }}</td>
+                    <td>{{ category.name }}</td>
+                    <td>
+                        <a class=\"nav-item nav-link text-light bg-dark m-1 col-3 text-center\"
+                           href=\"{{ path('category_show', {'id': category.id}) }}\">Voir</a>
+                        {% if is_granted('ROLE_AUTHOR') %}
+                            <a class=\"nav-item nav-link text-light bg-dark m-1 col-3 text-center\"
+                               href=\"{{ path('category_edit', {'id': category.id}) }}\">Editer</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan=\"4\">Pas de catégorie trouvée</td>
+                </tr>
+                </tbody>
+            </table>
+            {% endfor %}
         </div>
-    {% else %}
-        Aucune catégorie trouvée.
-    {% endfor %}
-
-{% endblock %}", "category/index.html.twig", "/Users/malika/Desktop/Blog 2/templates/category/index.html.twig");
+    </div>
+{% endblock %}
+", "category/index.html.twig", "/Users/malika/Desktop/Blog 2/templates/category/index.html.twig");
     }
 }

@@ -144,6 +144,22 @@ class __TwigTemplate_e719cbbc46d2bf866b6a8458f9a126f05927bd87943723906a12f17348d
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 24
         echo "    </div>
+    <div class=\"container mb-5 col-4 d-flex flex-column justify-content-center align-items-center\">
+    <a class=\"btn text-light bg-dark m-1 col-6\" href=\"";
+        // line 26
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_index");
+        echo "\">back to list</a>
+
+    <a  class=\"btn text-light bg-dark m-1 col-6\" href=\"";
+        // line 28
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 28, $this->source); })()), "id", [], "any", false, false, false, 28)]), "html", null, true);
+        echo "\">edit</a>
+
+    ";
+        // line 30
+        echo twig_include($this->env, $context, "category/_delete_form.html.twig");
+        echo "
+    </div>
 
 ";
         
@@ -166,7 +182,7 @@ class __TwigTemplate_e719cbbc46d2bf866b6a8458f9a126f05927bd87943723906a12f17348d
 
     public function getDebugInfo()
     {
-        return array (  146 => 24,  135 => 18,  123 => 16,  118 => 15,  110 => 10,  107 => 9,  97 => 8,  79 => 6,  60 => 4,  37 => 2,);
+        return array (  160 => 30,  155 => 28,  150 => 26,  146 => 24,  135 => 18,  123 => 16,  118 => 15,  110 => 10,  107 => 9,  97 => 8,  79 => 6,  60 => 4,  37 => 2,);
     }
 
     public function getSourceContext()
@@ -194,6 +210,13 @@ class __TwigTemplate_e719cbbc46d2bf866b6a8458f9a126f05927bd87943723906a12f17348d
                 </div>
             </div>
         {% endfor %}
+    </div>
+    <div class=\"container mb-5 col-4 d-flex flex-column justify-content-center align-items-center\">
+    <a class=\"btn text-light bg-dark m-1 col-6\" href=\"{{ path('category_index') }}\">back to list</a>
+
+    <a  class=\"btn text-light bg-dark m-1 col-6\" href=\"{{ path('category_edit', {'id': category.id}) }}\">edit</a>
+
+    {{ include('category/_delete_form.html.twig') }}
     </div>
 
 {% endblock %}", "category/show.html.twig", "/Users/malika/Desktop/Blog 2/templates/category/show.html.twig");

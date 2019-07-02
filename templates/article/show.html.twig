@@ -28,9 +28,9 @@
                     <th>Tag</th>
                     <td>
                         {% for tag in article.tags %}
-                        {{ tag.name }}
+                            {{ tag.name }}
                         {% else %}
-                        No tags for this article
+                            No tags for this article
                         {% endfor %}
                     </td>
                 </tr>
@@ -38,14 +38,14 @@
             </table>
         </div>
     </div>
-<div class="container mb-5 col-4 d-flex flex-column justify-content-center">
-    <a class="btn text-light bg-dark m-1 col-6" href="{{ path('article_index') }}">Retour à la liste des articles</a>
-    {% if is_granted('ROLE_AUTHOR') %}
-        <a class="btn text-light bg-dark m-1 col-3" href="{{ path('article_edit', {'id': article.id}) }}">Editer</a>
-        {{ include('article/_delete_form.html.twig') }}
-    {%endif%}
+    <div class="container mb-5 col-4 d-flex flex-column justify-content-center align-items-center">
+        <a class="btn text-light bg-dark m-1 col-6" href="{{ path('article_index') }}">Retour à la liste</a>
+        {% if is_granted('ROLE_AUTHOR') %}
+            <a class="btn text-light bg-dark m-1 col-3" href="{{ path('article_edit', {'id': article.id}) }}">Editer</a>
+            {{ include('article/_delete_form.html.twig') }}
+        {% endif %}
 
-</div>
+    </div>
 
 
 {% endblock %}
