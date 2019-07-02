@@ -106,7 +106,7 @@ class CategoryController extends AbstractController
             // pour chaque article il faut casser le lien avec la catégorie puis le mettre à null
             // attention l'article n'apparaitra plus dans la liste
             foreach ($category->getArticles() as $article){
-                $article->setCategory(null);
+                $article->setCategory('Default');
             }
 
             $entityManager = $this->getDoctrine()->getManager();

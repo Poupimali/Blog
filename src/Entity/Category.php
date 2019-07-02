@@ -86,9 +86,9 @@ class Category
     {
         if ($this->articles->contains($article)) {
             $this->articles->removeElement($article);
-            // mettre le côté propriétaire sur null (à moins qu'il n'ait déjà été modifié)
+            // mettre le côté propriétaire sur Default (à moins qu'il n'ait déjà été modifié)
             if ($article->getCategory() === $this) {
-                $article->setCategory(null);
+                $article->setCategory('Default');
             }
         }
 
