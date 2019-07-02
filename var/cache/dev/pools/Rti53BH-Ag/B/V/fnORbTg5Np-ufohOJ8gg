@@ -14,9 +14,6 @@
                 'inversedBy' => [
                     'articles',
                 ],
-                'nullable' => [
-                    1 => false,
-                ],
             ],
         ],
         [

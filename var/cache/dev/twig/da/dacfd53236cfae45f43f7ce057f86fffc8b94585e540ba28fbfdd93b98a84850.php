@@ -46,9 +46,9 @@ class __TwigTemplate_9772b658e23f0b813c9ad8d36149752fc2f55ef06f5d356784a9a73eb41
         // line 2
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 2, $this->source); })()), 'widget');
         echo "
-<button class=\"btn\">";
+<button class=\"btn btn-info m-1 col-3\">";
         // line 3
-        echo twig_escape_filter($this->env, (((isset($context["button_label"]) || array_key_exists("button_label", $context))) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 3, $this->source); })()), "Save")) : ("Save")), "html", null, true);
+        echo twig_escape_filter($this->env, (((isset($context["button_label"]) || array_key_exists("button_label", $context))) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 3, $this->source); })()), "Sauvegarder")) : ("Sauvegarder")), "html", null, true);
         echo "</button>
 ";
         // line 4
@@ -80,7 +80,7 @@ class __TwigTemplate_9772b658e23f0b813c9ad8d36149752fc2f55ef06f5d356784a9a73eb41
     {
         return new Source("{{ form_start(form) }}
     {{ form_widget(form) }}
-<button class=\"btn\">{{ button_label|default('Save') }}</button>
+<button class=\"btn btn-info m-1 col-3\">{{ button_label|default('Sauvegarder') }}</button>
 {{ form_end(form) }}", "tag/_form.html.twig", "/Users/malika/Desktop/Blog 2/templates/tag/_form.html.twig");
     }
 }

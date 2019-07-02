@@ -105,7 +105,7 @@ class __TwigTemplate_e719cbbc46d2bf866b6a8458f9a126f05927bd87943723906a12f17348d
 
         // line 9
         echo "    <div class=\"container\">
-        <h1 class = \"text-center pt-3 pb-3\">";
+        <h1 class=\"text-center pt-3 pb-3\">";
         // line 10
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 10, $this->source); })()), "name", [], "any", false, false, false, 10), "html", null, true);
         echo "</h1>
@@ -120,18 +120,19 @@ class __TwigTemplate_e719cbbc46d2bf866b6a8458f9a126f05927bd87943723906a12f17348d
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
             // line 16
-            echo "        <a href=\"";
+            echo "            <a href=\"";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_show", ["slug" => twig_get_attribute($this->env, $this->source, $context["article"], "slug", [], "any", false, false, false, 16)]), "html", null, true);
             echo "\"><h4>";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 16), "html", null, true);
-            echo "  -  ";
+            echo " - ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "title", [], "any", false, false, false, 16), "html", null, true);
-            echo "</h4></a>
+            echo "</h4>
+            </a>
         ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 18
+            // line 19
             echo "            <div class=\"container\">
                 <div class=\"alert alert-primary\" role=\"alert\">
                     Nothing to display ! come back later ...
@@ -142,21 +143,21 @@ class __TwigTemplate_e719cbbc46d2bf866b6a8458f9a126f05927bd87943723906a12f17348d
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 24
+        // line 25
         echo "    </div>
     <div class=\"container mb-5 col-4 d-flex flex-column justify-content-center align-items-center\">
-    <a class=\"btn text-light bg-dark m-1 col-6\" href=\"";
-        // line 26
+        <a class=\"btn text-light bg-dark m-1 col-4\" href=\"";
+        // line 27
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_index");
-        echo "\">back to list</a>
+        echo "\">Retour à la liste</a>
 
-    <a  class=\"btn text-light bg-dark m-1 col-6\" href=\"";
-        // line 28
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 28, $this->source); })()), "id", [], "any", false, false, false, 28)]), "html", null, true);
-        echo "\">edit</a>
+        <a class=\"btn text-light bg-dark m-1 col-2\" href=\"";
+        // line 29
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 29, $this->source); })()), "id", [], "any", false, false, false, 29)]), "html", null, true);
+        echo "\">Editer</a>
 
-    ";
-        // line 30
+        ";
+        // line 31
         echo twig_include($this->env, $context, "category/_delete_form.html.twig");
         echo "
     </div>
@@ -182,7 +183,7 @@ class __TwigTemplate_e719cbbc46d2bf866b6a8458f9a126f05927bd87943723906a12f17348d
 
     public function getDebugInfo()
     {
-        return array (  160 => 30,  155 => 28,  150 => 26,  146 => 24,  135 => 18,  123 => 16,  118 => 15,  110 => 10,  107 => 9,  97 => 8,  79 => 6,  60 => 4,  37 => 2,);
+        return array (  161 => 31,  156 => 29,  151 => 27,  147 => 25,  136 => 19,  123 => 16,  118 => 15,  110 => 10,  107 => 9,  97 => 8,  79 => 6,  60 => 4,  37 => 2,);
     }
 
     public function getSourceContext()
@@ -196,13 +197,14 @@ class __TwigTemplate_e719cbbc46d2bf866b6a8458f9a126f05927bd87943723906a12f17348d
 
 {% block body %}
     <div class=\"container\">
-        <h1 class = \"text-center pt-3 pb-3\">{{ category.name }}</h1>
+        <h1 class=\"text-center pt-3 pb-3\">{{ category.name }}</h1>
     </div>
 
     <div class=\"container mb-3 pb-4\">
         <h2>Articles correspondants:</h2>
         {% for article in category.articles %}
-        <a href=\"{{ path('article_show', {'slug': article.slug}) }}\"><h4>{{ article.id }}  -  {{ article.title }}</h4></a>
+            <a href=\"{{ path('article_show', {'slug': article.slug}) }}\"><h4>{{ article.id }} - {{ article.title }}</h4>
+            </a>
         {% else %}
             <div class=\"container\">
                 <div class=\"alert alert-primary\" role=\"alert\">
@@ -212,11 +214,11 @@ class __TwigTemplate_e719cbbc46d2bf866b6a8458f9a126f05927bd87943723906a12f17348d
         {% endfor %}
     </div>
     <div class=\"container mb-5 col-4 d-flex flex-column justify-content-center align-items-center\">
-    <a class=\"btn text-light bg-dark m-1 col-6\" href=\"{{ path('category_index') }}\">back to list</a>
+        <a class=\"btn text-light bg-dark m-1 col-4\" href=\"{{ path('category_index') }}\">Retour à la liste</a>
 
-    <a  class=\"btn text-light bg-dark m-1 col-6\" href=\"{{ path('category_edit', {'id': category.id}) }}\">edit</a>
+        <a class=\"btn text-light bg-dark m-1 col-2\" href=\"{{ path('category_edit', {'id': category.id}) }}\">Editer</a>
 
-    {{ include('category/_delete_form.html.twig') }}
+        {{ include('category/_delete_form.html.twig') }}
     </div>
 
 {% endblock %}", "category/show.html.twig", "/Users/malika/Desktop/Blog 2/templates/category/show.html.twig");

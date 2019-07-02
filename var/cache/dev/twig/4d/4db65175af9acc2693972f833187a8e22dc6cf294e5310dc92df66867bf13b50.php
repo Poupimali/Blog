@@ -85,17 +85,19 @@ class __TwigTemplate_dcfbdd9c57e459fc5b6199d4f51e789466a3d857906e4a96299be9f54d7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 7
-        echo "    <h1>Créer un nouveau tag</h1>
-
-    ";
-        // line 9
+        echo "    <h1 class=\"text-center pt-3 pb-3\">Créer un nouveau tag</h1>
+    <div class=\"row\">
+        <div class=\"container mb-5 col-4\">
+            ";
+        // line 10
         echo twig_include($this->env, $context, "tag/_form.html.twig");
         echo "
-
-    <a href=\"";
+            <a  class=\"btn text-light bg-dark m-1 col-4\" href=\"";
         // line 11
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tag_index");
-        echo "\">back to list</a>
+        echo "\">Retour à la liste</a>
+        </div>
+    </div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -117,7 +119,7 @@ class __TwigTemplate_dcfbdd9c57e459fc5b6199d4f51e789466a3d857906e4a96299be9f54d7
 
     public function getDebugInfo()
     {
-        return array (  97 => 11,  92 => 9,  88 => 7,  78 => 6,  59 => 4,  36 => 2,);
+        return array (  97 => 11,  93 => 10,  88 => 7,  78 => 6,  59 => 4,  36 => 2,);
     }
 
     public function getSourceContext()
@@ -128,11 +130,13 @@ class __TwigTemplate_dcfbdd9c57e459fc5b6199d4f51e789466a3d857906e4a96299be9f54d7
 {% block title %}New Tag{% endblock %}
 
 {% block body %}
-    <h1>Créer un nouveau tag</h1>
-
-    {{ include('tag/_form.html.twig') }}
-
-    <a href=\"{{ path('tag_index') }}\">back to list</a>
+    <h1 class=\"text-center pt-3 pb-3\">Créer un nouveau tag</h1>
+    <div class=\"row\">
+        <div class=\"container mb-5 col-4\">
+            {{ include('tag/_form.html.twig') }}
+            <a  class=\"btn text-light bg-dark m-1 col-4\" href=\"{{ path('tag_index') }}\">Retour à la liste</a>
+        </div>
+    </div>
 {% endblock %}", "tag/new.html.twig", "/Users/malika/Desktop/Blog 2/templates/tag/new.html.twig");
     }
 }

@@ -23,7 +23,7 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager) //methode appellée lors du chargement des Fixtures
     {
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 30; $i++) {
             $article = new Article();
             $faker = Faker\Factory::create('fr_FR');
             $article->setTitle(mb_strtolower($faker->sentence()));

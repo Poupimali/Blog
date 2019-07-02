@@ -88,7 +88,7 @@ class __TwigTemplate_e0b53a93eb0c8206b0906eb7022d7bc7c5252554c417726881356d6a027
         echo "    <h1 class=\"text-center pt-3 pb-3\">Ajouter une catégorie: </h1>
 
     <div class=\"row\">
-        <div class=\"container mb-5 col-3\">
+        <div class=\"container mb-5 col-4\">
             ";
         // line 10
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), 'form_start');
@@ -99,12 +99,16 @@ class __TwigTemplate_e0b53a93eb0c8206b0906eb7022d7bc7c5252554c417726881356d6a027
         echo "
             <button class=\"btn btn-info\">";
         // line 12
-        echo twig_escape_filter($this->env, (((isset($context["button_label"]) || array_key_exists("button_label", $context))) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 12, $this->source); })()), "Save")) : ("Save")), "html", null, true);
+        echo twig_escape_filter($this->env, (((isset($context["button_label"]) || array_key_exists("button_label", $context))) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 12, $this->source); })()), "Sauvegarder")) : ("Sauvegarder")), "html", null, true);
         echo "</button>
             ";
         // line 13
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 13, $this->source); })()), 'form_end');
         echo "
+            <a  class=\"btn text-light bg-dark m-1 col-6\" href=\"";
+        // line 14
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_index");
+        echo "\">Retour à la liste</a>
         </div>
     </div>
 
@@ -129,7 +133,7 @@ class __TwigTemplate_e0b53a93eb0c8206b0906eb7022d7bc7c5252554c417726881356d6a027
 
     public function getDebugInfo()
     {
-        return array (  106 => 13,  102 => 12,  98 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  110 => 14,  106 => 13,  102 => 12,  98 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -142,11 +146,12 @@ class __TwigTemplate_e0b53a93eb0c8206b0906eb7022d7bc7c5252554c417726881356d6a027
     <h1 class=\"text-center pt-3 pb-3\">Ajouter une catégorie: </h1>
 
     <div class=\"row\">
-        <div class=\"container mb-5 col-3\">
+        <div class=\"container mb-5 col-4\">
             {{ form_start(form) }}
             {{ form_row(form.name) }}
-            <button class=\"btn btn-info\">{{  button_label|default('Save') }}</button>
+            <button class=\"btn btn-info\">{{  button_label|default('Sauvegarder') }}</button>
             {{ form_end(form) }}
+            <a  class=\"btn text-light bg-dark m-1 col-6\" href=\"{{ path('category_index') }}\">Retour à la liste</a>
         </div>
     </div>
 

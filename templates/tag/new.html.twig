@@ -4,9 +4,11 @@
 {% block title %}New Tag{% endblock %}
 
 {% block body %}
-    <h1>Créer un nouveau tag</h1>
-
-    {{ include('tag/_form.html.twig') }}
-
-    <a href="{{ path('tag_index') }}">back to list</a>
+    <h1 class="text-center pt-3 pb-3">Créer un nouveau tag</h1>
+    <div class="row">
+        <div class="container mb-5 col-4">
+            {{ include('tag/_form.html.twig') }}
+            <a  class="btn text-light bg-dark m-1 col-4" href="{{ path('tag_index') }}">Retour à la liste</a>
+        </div>
+    </div>
 {% endblock %}

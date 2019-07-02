@@ -86,30 +86,27 @@ class __TwigTemplate_4684326ee53b2678427b2053bb3e1c16c06010b93630d750ead04793942
 
         // line 6
         echo "    <h1 class=\"text-center pt-3 pb-3\">Modifier une catégorie: </h1>
-
-    <div class=\"row\">
-        <div class=\"container mb-5 col-3\">
-            ";
+    <div class=\"container mb-5 col-3\">
+        ";
+        // line 8
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 8, $this->source); })()), 'form_start');
+        echo "
+        ";
+        // line 9
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 9, $this->source); })()), "name", [], "any", false, false, false, 9), 'row');
+        echo "
+        <button class=\"btn btn-info\">";
         // line 10
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), 'form_start');
-        echo "
-            ";
-        // line 11
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 11, $this->source); })()), "name", [], "any", false, false, false, 11), 'row');
-        echo "
-            <button class=\"btn btn-info\">";
-        // line 12
-        echo twig_escape_filter($this->env, (((isset($context["button_label"]) || array_key_exists("button_label", $context))) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 12, $this->source); })()), "Save")) : ("Save")), "html", null, true);
+        echo twig_escape_filter($this->env, (((isset($context["button_label"]) || array_key_exists("button_label", $context))) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 10, $this->source); })()), "Sauvegarder")) : ("Sauvegarder")), "html", null, true);
         echo "</button>
-            ";
-        // line 13
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 13, $this->source); })()), 'form_end');
+        ";
+        // line 11
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 11, $this->source); })()), 'form_end');
         echo "
-            ";
-        // line 14
+        ";
+        // line 12
         echo twig_include($this->env, $context, "category/_delete_form.html.twig", ["button_label" => "Supprimer"]);
         echo "
-        </div>
     </div>
 
 ";
@@ -133,7 +130,7 @@ class __TwigTemplate_4684326ee53b2678427b2053bb3e1c16c06010b93630d750ead04793942
 
     public function getDebugInfo()
     {
-        return array (  110 => 14,  106 => 13,  102 => 12,  98 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  108 => 12,  104 => 11,  100 => 10,  96 => 9,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -144,15 +141,12 @@ class __TwigTemplate_4684326ee53b2678427b2053bb3e1c16c06010b93630d750ead04793942
 
 {% block body %}
     <h1 class=\"text-center pt-3 pb-3\">Modifier une catégorie: </h1>
-
-    <div class=\"row\">
-        <div class=\"container mb-5 col-3\">
-            {{ form_start(form) }}
-            {{ form_row(form.name) }}
-            <button class=\"btn btn-info\">{{  button_label|default('Save') }}</button>
-            {{ form_end(form) }}
-            {{ include('category/_delete_form.html.twig', {'button_label': 'Supprimer'}) }}
-        </div>
+    <div class=\"container mb-5 col-3\">
+        {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        <button class=\"btn btn-info\">{{ button_label|default('Sauvegarder') }}</button>
+        {{ form_end(form) }}
+        {{ include('category/_delete_form.html.twig', {'button_label': 'Supprimer'}) }}
     </div>
 
 {% endblock %}", "category/edit.html.twig", "/Users/malika/Desktop/Blog 2/templates/category/edit.html.twig");

@@ -49,7 +49,7 @@ class __TwigTemplate_271cd66cd89f69dccfd59d1b84dde78b2455817550a4cfd967e38d530ca
         // line 4
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 4, $this->source); })()), "id", [], "any", false, false, false, 4))), "html", null, true);
         echo "\">
-    <button class=\"btn text-light bg-dark m-1 col-3\">Supprimer</button>
+    <button class=\"btn text-light bg-dark m-1 col-12\">Supprimer</button>
 </form>
 ";
         
@@ -81,7 +81,7 @@ class __TwigTemplate_271cd66cd89f69dccfd59d1b84dde78b2455817550a4cfd967e38d530ca
  'de vouloir supprimer cet article ?');\">
     <input type=\"hidden\" name=\"_method\" value=\"DELETE\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ article.id) }}\">
-    <button class=\"btn text-light bg-dark m-1 col-3\">Supprimer</button>
+    <button class=\"btn text-light bg-dark m-1 col-12\">Supprimer</button>
 </form>
 ", "article/_delete_form.html.twig", "/Users/malika/Desktop/Blog 2/templates/article/_delete_form.html.twig");
     }

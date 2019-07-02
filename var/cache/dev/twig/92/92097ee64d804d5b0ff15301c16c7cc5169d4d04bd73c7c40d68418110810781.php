@@ -119,57 +119,64 @@ class __TwigTemplate_5e75a3d76ecade2e40ff6f2de30fc42d2f585ab556f821168bd39e00921
         echo "</td>
                 </tr>
                 <tr>
+                    <th>Catégorie</th>
+                    <td>";
+        // line 29
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 29, $this->source); })()), "category", [], "any", false, false, false, 29), "name", [], "any", false, false, false, 29), "html", null, true);
+        echo "</td>
+                </tr>
+                <tr>
                     <th>Tag</th>
                     <td>
                         ";
-        // line 30
+        // line 34
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 30, $this->source); })()), "tags", [], "any", false, false, false, 30));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 34, $this->source); })()), "tags", [], "any", false, false, false, 34));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["tag"]) {
-            // line 31
-            echo "                        ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["tag"], "name", [], "any", false, false, false, 31), "html", null, true);
+            // line 35
+            echo "                            ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["tag"], "name", [], "any", false, false, false, 35), "html", null, true);
             echo "
                         ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 33
-            echo "                        No tags for this article
+            // line 37
+            echo "                            No tags for this article
                         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tag'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 35
+        // line 39
         echo "                    </td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
-<div class=\"container mb-5 col-4 d-flex flex-column justify-content-center align-items-center\">
-    <a class=\"btn text-light bg-dark m-1 col-6\" href=\"";
-        // line 42
+    <div class=\"container mb-5 col-4 d-flex flex-column justify-content-center align-items-center\">
+        <a class=\"btn text-light bg-dark m-1 col-4\" href=\"";
+        // line 46
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_index");
-        echo "\">Retour à la liste des articles</a>
-    ";
-        // line 43
-        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_AUTHOR")) {
-            // line 44
-            echo "        <a class=\"btn text-light bg-dark m-1 col-3\" href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 44, $this->source); })()), "id", [], "any", false, false, false, 44)]), "html", null, true);
-            echo "\">Editer</a>
+        echo "\">Retour à la liste</a>
         ";
-            // line 45
+        // line 47
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_AUTHOR")) {
+            // line 48
+            echo "            <a class=\"btn text-light bg-dark m-1 col-2\" href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 48, $this->source); })()), "id", [], "any", false, false, false, 48)]), "html", null, true);
+            echo "\">Editer</a>
+            ";
+            // line 49
             echo twig_include($this->env, $context, "article/_delete_form.html.twig");
             echo "
-    ";
+        ";
         }
-        // line 47
+        // line 51
         echo "
-</div>
+    </div>
 
 
 ";
@@ -193,7 +200,7 @@ class __TwigTemplate_5e75a3d76ecade2e40ff6f2de30fc42d2f585ab556f821168bd39e00921
 
     public function getDebugInfo()
     {
-        return array (  171 => 47,  166 => 45,  161 => 44,  159 => 43,  155 => 42,  146 => 35,  139 => 33,  131 => 31,  126 => 30,  118 => 25,  111 => 21,  104 => 17,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  178 => 51,  173 => 49,  168 => 48,  166 => 47,  162 => 46,  153 => 39,  146 => 37,  138 => 35,  133 => 34,  125 => 29,  118 => 25,  111 => 21,  104 => 17,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -225,12 +232,16 @@ class __TwigTemplate_5e75a3d76ecade2e40ff6f2de30fc42d2f585ab556f821168bd39e00921
                     <td>{{ article.content }}</td>
                 </tr>
                 <tr>
+                    <th>Catégorie</th>
+                    <td>{{ article.category.name }}</td>
+                </tr>
+                <tr>
                     <th>Tag</th>
                     <td>
                         {% for tag in article.tags %}
-                        {{ tag.name }}
+                            {{ tag.name }}
                         {% else %}
-                        No tags for this article
+                            No tags for this article
                         {% endfor %}
                     </td>
                 </tr>
@@ -238,14 +249,14 @@ class __TwigTemplate_5e75a3d76ecade2e40ff6f2de30fc42d2f585ab556f821168bd39e00921
             </table>
         </div>
     </div>
-<div class=\"container mb-5 col-4 d-flex flex-column justify-content-center align-items-center\">
-    <a class=\"btn text-light bg-dark m-1 col-6\" href=\"{{ path('article_index') }}\">Retour à la liste des articles</a>
-    {% if is_granted('ROLE_AUTHOR') %}
-        <a class=\"btn text-light bg-dark m-1 col-3\" href=\"{{ path('article_edit', {'id': article.id}) }}\">Editer</a>
-        {{ include('article/_delete_form.html.twig') }}
-    {%endif%}
+    <div class=\"container mb-5 col-4 d-flex flex-column justify-content-center align-items-center\">
+        <a class=\"btn text-light bg-dark m-1 col-4\" href=\"{{ path('article_index') }}\">Retour à la liste</a>
+        {% if is_granted('ROLE_AUTHOR') %}
+            <a class=\"btn text-light bg-dark m-1 col-2\" href=\"{{ path('article_edit', {'id': article.id}) }}\">Editer</a>
+            {{ include('article/_delete_form.html.twig') }}
+        {% endif %}
 
-</div>
+    </div>
 
 
 {% endblock %}

@@ -95,10 +95,20 @@ class CategoryController extends AbstractController
 
     /**
      * @Route("/{id}", name="category_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Category $category
+     * @return Response
      */
     public function delete(Request $request, Category $category): Response
     {
         if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->request->get('_token'))) {
+
+            // pour chaque article il faut casser le lien avec la catégorie puis le mettre à null
+            // attention l'article n'apparaitra plus dans la liste
+            foreach ($category->getArticles() as $article){
+                $article->setCategory(null);
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($category);
             $entityManager->flush();

@@ -85,22 +85,21 @@ class __TwigTemplate_0142ee0b161625dd735891e7f87af05e23a964f7e9cc6c82489cb325b5b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <div class=\"row\">
+        echo "    <h1 class=\"text-center pt-3 pb-3\">Modifier un article</h1>
+    <div class=\"row\">
         <div class=\"container mb-5 col-6\">
-            <h1 class=\"text-center pt-3 pb-3\">Modifier un article</h1>
-
             ";
-        // line 10
+        // line 9
         echo twig_include($this->env, $context, "article/_form.html.twig", ["button_label" => "Mise à jour"]);
         echo "
 
             <a class=\"btn text-light bg-dark m-1 col-4\" href=\"";
-        // line 12
+        // line 11
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_index");
         echo "\">Retour à la liste des articles</a>
 
             ";
-        // line 14
+        // line 13
         echo twig_include($this->env, $context, "article/_delete_form.html.twig", ["button_label" => "Supprimer"]);
         echo "
         </div>
@@ -126,7 +125,7 @@ class __TwigTemplate_0142ee0b161625dd735891e7f87af05e23a964f7e9cc6c82489cb325b5b
 
     public function getDebugInfo()
     {
-        return array (  104 => 14,  99 => 12,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  103 => 13,  98 => 11,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -136,10 +135,9 @@ class __TwigTemplate_0142ee0b161625dd735891e7f87af05e23a964f7e9cc6c82489cb325b5b
 {% block title %}Edit Article{% endblock %}
 
 {% block body %}
+    <h1 class=\"text-center pt-3 pb-3\">Modifier un article</h1>
     <div class=\"row\">
         <div class=\"container mb-5 col-6\">
-            <h1 class=\"text-center pt-3 pb-3\">Modifier un article</h1>
-
             {{ include('article/_form.html.twig', {'button_label': 'Mise à jour'}) }}
 
             <a class=\"btn text-light bg-dark m-1 col-4\" href=\"{{ path('article_index') }}\">Retour à la liste des articles</a>

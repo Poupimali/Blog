@@ -126,12 +126,12 @@ class __TwigTemplate_526e98e240daad5a4e4145011e37cc7b6f607b92c27d98e92bb83267176
         echo "    </div>
 
     <div class=\"container mb-5 col-4 d-flex flex-column justify-content-center align-items-center\">
-        <a class=\"btn text-light bg-dark m-1 col-6\" href=\"";
+        <a class=\"btn text-light bg-dark m-1 col-4\" href=\"";
         // line 23
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tag_index");
         echo "\">Retour à la liste</a>
 
-        <a  class=\"btn text-light bg-dark m-1 col-6\" href=\"";
+        <a  class=\"btn text-light bg-dark m-1 col-2\" href=\"";
         // line 25
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tag_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["tag"]) || array_key_exists("tag", $context) ? $context["tag"] : (function () { throw new RuntimeError('Variable "tag" does not exist.', 25, $this->source); })()), "id", [], "any", false, false, false, 25)]), "html", null, true);
         echo "\">Editer</a>
@@ -189,9 +189,9 @@ class __TwigTemplate_526e98e240daad5a4e4145011e37cc7b6f607b92c27d98e92bb83267176
     </div>
 
     <div class=\"container mb-5 col-4 d-flex flex-column justify-content-center align-items-center\">
-        <a class=\"btn text-light bg-dark m-1 col-6\" href=\"{{ path('tag_index') }}\">Retour à la liste</a>
+        <a class=\"btn text-light bg-dark m-1 col-4\" href=\"{{ path('tag_index') }}\">Retour à la liste</a>
 
-        <a  class=\"btn text-light bg-dark m-1 col-6\" href=\"{{ path('tag_edit', {'id': tag.id}) }}\">Editer</a>
+        <a  class=\"btn text-light bg-dark m-1 col-2\" href=\"{{ path('tag_edit', {'id': tag.id}) }}\">Editer</a>
 
         {{ include('tag/_delete_form.html.twig') }}
     </div>

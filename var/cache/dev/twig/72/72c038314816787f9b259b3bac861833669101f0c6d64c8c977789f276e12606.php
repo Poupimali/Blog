@@ -48,7 +48,7 @@ class __TwigTemplate_caa78646e640c10ede6a45ea177b5db35b77ee4dd2e45df243d85eacc3a
         // line 3
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["tag"]) || array_key_exists("tag", $context) ? $context["tag"] : (function () { throw new RuntimeError('Variable "tag" does not exist.', 3, $this->source); })()), "id", [], "any", false, false, false, 3))), "html", null, true);
         echo "\">
-    <button class=\"btn text-light bg-dark m-1 col-2\">Supprimer</button>
+    <button class=\"btn text-light bg-dark m-1 col-12\">Supprimer</button>
 </form>";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -78,7 +78,7 @@ class __TwigTemplate_caa78646e640c10ede6a45ea177b5db35b77ee4dd2e45df243d85eacc3a
         return new Source("<form method=\"post\" action=\"{{ path('tag_delete', {'id': tag.id}) }}\" onsubmit=\"return confirm('Etes-vous sur.e de vouloir supprimer ce tag ?');\">
     <input type=\"hidden\" name=\"_method\" value=\"DELETE\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ tag.id) }}\">
-    <button class=\"btn text-light bg-dark m-1 col-2\">Supprimer</button>
+    <button class=\"btn text-light bg-dark m-1 col-12\">Supprimer</button>
 </form>", "tag/_delete_form.html.twig", "/Users/malika/Desktop/Blog 2/templates/tag/_delete_form.html.twig");
     }
 }

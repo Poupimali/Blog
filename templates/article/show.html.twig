@@ -25,6 +25,10 @@
                     <td>{{ article.content }}</td>
                 </tr>
                 <tr>
+                    <th>Catégorie</th>
+                    <td>{{ article.category.name }}</td>
+                </tr>
+                <tr>
                     <th>Tag</th>
                     <td>
                         {% for tag in article.tags %}
@@ -39,9 +43,9 @@
         </div>
     </div>
     <div class="container mb-5 col-4 d-flex flex-column justify-content-center align-items-center">
-        <a class="btn text-light bg-dark m-1 col-6" href="{{ path('article_index') }}">Retour à la liste</a>
+        <a class="btn text-light bg-dark m-1 col-4" href="{{ path('article_index') }}">Retour à la liste</a>
         {% if is_granted('ROLE_AUTHOR') %}
-            <a class="btn text-light bg-dark m-1 col-3" href="{{ path('article_edit', {'id': article.id}) }}">Editer</a>
+            <a class="btn text-light bg-dark m-1 col-2" href="{{ path('article_edit', {'id': article.id}) }}">Editer</a>
             {{ include('article/_delete_form.html.twig') }}
         {% endif %}
 

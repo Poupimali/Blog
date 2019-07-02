@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Service\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -44,14 +43,14 @@ class Article
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="articles")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     //inversedBy="article" = c'est celui qui contient la foreign key liée à Category, c'est celui dont il dépend
 
     private $category;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", mappedBy="articles")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", mappedBy="articles", cascade={"remove"})
      */
     private $tags;
 
