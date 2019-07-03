@@ -11,7 +11,7 @@
                     '/new',
                 ],
                 'name' => [
-                    'tag_new',
+                    'new',
                 ],
                 'methods' => [
                     [

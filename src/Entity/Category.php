@@ -26,6 +26,7 @@ class Category
      */
     private $name;
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -50,8 +51,10 @@ class Category
 
     private $articles;
 
+// comment récupérer la catégorie Default pour qu'elle remplace le null
     public function __construct()
     {
+        $this->name = 'Default';
         $this->articles = new ArrayCollection();
     }
 
@@ -86,9 +89,9 @@ class Category
     {
         if ($this->articles->contains($article)) {
             $this->articles->removeElement($article);
-            // mettre le côté propriétaire sur Default (à moins qu'il n'ait déjà été modifié)
+            // mettre le côté propriétaire sur null (à moins qu'il n'ait déjà été modifié)
             if ($article->getCategory() === $this) {
-                $article->setCategory('Default');
+                $article->setCategory(null);
             }
         }
 

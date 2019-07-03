@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -99,14 +100,14 @@ class CategoryController extends AbstractController
      * @param Category $category
      * @return Response
      */
-    public function delete(Request $request, Category $category): Response
+    public function delete(Request $request, Category $category,EntityManagerInterface $em): Response
     {
         if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->request->get('_token'))) {
 
-            // pour chaque article il faut casser le lien avec la catégorie puis le mettre à null
-            // attention l'article n'apparaitra plus dans la liste
+            // pour chaque article il faut casser le lien avec la catégorie puis le remplacer par la cat Default
             foreach ($category->getArticles() as $article){
-                $article->setCategory('Default');
+                $categoryDefault = $em->getRepository(Category::class)->findOneByName("Default");
+                $article->setCategory($categoryDefault);
             }
 
             $entityManager = $this->getDoctrine()->getManager();

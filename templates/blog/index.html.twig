@@ -21,7 +21,7 @@
         <div class="container mb-5">
             {# {{ loop.index }} = l’index de l’itération courant#}
             <a href="{{ path('article_show', {'slug': article.slug}) }}"><h3>{{ loop.index }} / {{ article.title }}</h3></a>
-            <h4>Category : {{ article.category.name }}</h4>
+
             {% for tag in article.tags %}
                 <h5>Tag : {{ tag.name }}</h5>
             {% else %}

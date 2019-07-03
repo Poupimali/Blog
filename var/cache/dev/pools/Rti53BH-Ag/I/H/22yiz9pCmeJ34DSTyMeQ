@@ -13,11 +13,6 @@
                 'mappedBy' => [
                     'articles',
                 ],
-                'cascade' => [
-                    [
-                        'remove',
-                    ],
-                ],
             ],
         ],
         [

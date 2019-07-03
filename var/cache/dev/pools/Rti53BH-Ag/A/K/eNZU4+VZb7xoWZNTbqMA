@@ -13,6 +13,11 @@
                 'inversedBy' => [
                     'tags',
                 ],
+                'cascade' => [
+                    [
+                        'remove',
+                    ],
+                ],
             ],
         ],
         [

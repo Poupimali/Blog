@@ -8,10 +8,10 @@
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/tag/{id}',
+                    '/{id}',
                 ],
                 'name' => [
-                    'tag_show',
+                    'show',
                 ],
             ],
         ],

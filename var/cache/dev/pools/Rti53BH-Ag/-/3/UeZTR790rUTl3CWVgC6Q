@@ -11,7 +11,7 @@
                     '/{id}/edit',
                 ],
                 'name' => [
-                    'tag_edit',
+                    'edit',
                 ],
                 'methods' => [
                     [

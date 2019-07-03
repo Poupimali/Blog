@@ -10,10 +10,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
+/**
+ * @Route("/tag", name="tag_")
+ */
 class TagController extends AbstractController
 {
     /**
-     * @Route("/tag", name="tag_index")
+     * @Route("/", name="index")
      */
     public function index(TagRepository $tagRepository): Response
     {
@@ -23,7 +27,7 @@ class TagController extends AbstractController
     }
 
     /**
-     * @Route("/tag/{id}", name="tag_show")
+     * @Route("/{id}", name="show")
      */
     public function show(Tag $tag): Response
     {
@@ -33,7 +37,7 @@ class TagController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="tag_new", methods={"GET","POST"})
+     * @Route("/new", name="new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -56,7 +60,7 @@ class TagController extends AbstractController
 
 
     /**
-     * @Route("/{id}/edit", name="tag_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Tag $tag): Response
     {
@@ -75,19 +79,17 @@ class TagController extends AbstractController
         ]);
     }
     /**
-     * @Route("/{id}", name="tag_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="delete", methods={"DELETE"})
      */
     public function delete(Request $request, Tag $tag): Response
     {
         if ($this->isCsrfTokenValid('delete'.$tag->getId(), $request->request->get('_token'))) {
-
-
-
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($tag);
             $entityManager->flush();
             $this->addFlash('danger', 'Le tag a bien été supprimé');
         }
+        
         return $this->redirectToRoute('tag_index');
     }
 

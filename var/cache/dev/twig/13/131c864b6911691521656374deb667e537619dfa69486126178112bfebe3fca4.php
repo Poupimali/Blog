@@ -137,10 +137,7 @@ class __TwigTemplate_10808cc194ce8f535eb10c5b97a0aebae36f14656dd5c51932aa87ba86d
             echo " / ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "title", [], "any", false, false, false, 23), "html", null, true);
             echo "</h3></a>
-            <h4>Category : ";
-            // line 24
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "category", [], "any", false, false, false, 24), "name", [], "any", false, false, false, 24), "html", null, true);
-            echo "</h4>
+
             ";
             // line 25
             $context['_parent'] = $context;
@@ -209,7 +206,7 @@ class __TwigTemplate_10808cc194ce8f535eb10c5b97a0aebae36f14656dd5c51932aa87ba86d
 
     public function getDebugInfo()
     {
-        return array (  190 => 35,  183 => 33,  166 => 30,  159 => 28,  151 => 26,  146 => 25,  142 => 24,  133 => 23,  130 => 21,  112 => 20,  103 => 14,  98 => 12,  93 => 11,  88 => 7,  78 => 6,  59 => 4,  36 => 2,);
+        return array (  187 => 35,  180 => 33,  163 => 30,  156 => 28,  148 => 26,  143 => 25,  133 => 23,  130 => 21,  112 => 20,  103 => 14,  98 => 12,  93 => 11,  88 => 7,  78 => 6,  59 => 4,  36 => 2,);
     }
 
     public function getSourceContext()
@@ -237,7 +234,7 @@ class __TwigTemplate_10808cc194ce8f535eb10c5b97a0aebae36f14656dd5c51932aa87ba86d
         <div class=\"container mb-5\">
             {# {{ loop.index }} = l’index de l’itération courant#}
             <a href=\"{{ path('article_show', {'slug': article.slug}) }}\"><h3>{{ loop.index }} / {{ article.title }}</h3></a>
-            <h4>Category : {{ article.category.name }}</h4>
+
             {% for tag in article.tags %}
                 <h5>Tag : {{ tag.name }}</h5>
             {% else %}
