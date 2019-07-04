@@ -12,10 +12,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
+
+/**
+ * @Route("/category")
+ */
 class CategoryController extends AbstractController
 {
     /**
-     * @Route("/category", name="category_index")
+     * @Route("/", name="category_index")
      */
     public function index(CategoryRepository $categoryRepository): Response
     {
@@ -25,7 +29,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("category/{id}", name="category_show")
+     * @Route("/show/{id}", name="category_show")
      */
     public function showCategory(Category $category)
     {
@@ -68,7 +72,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="category_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="category_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Category $category
      * @return Response
@@ -95,7 +99,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="category_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="category_delete", methods={"DELETE"})
      * @param Request $request
      * @param Category $category
      * @return Response

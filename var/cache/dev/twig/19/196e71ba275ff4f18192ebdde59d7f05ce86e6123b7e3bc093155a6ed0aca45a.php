@@ -85,22 +85,19 @@ class __TwigTemplate_29a40a5e6398e89526ea39a15b2ebe2807017b8caa9446be5725fdffdc5
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Editer un Tag</h1>
-
-    ";
-        // line 8
-        echo twig_include($this->env, $context, "tag/_form.html.twig", ["button_label" => "Update"]);
+        echo "
+    <h1 class=\"text-center pt-3 pb-3\">Modifier un Tag: </h1>
+    <div class=\"container mb-5 col-3\">
+        ";
+        // line 9
+        echo twig_include($this->env, $context, "tag/_form.html.twig", ["button_label" => "Sauvegarder"]);
         echo "
 
-    <a href=\"";
-        // line 10
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tag_index");
-        echo "\">back to list</a>
-
-    ";
-        // line 12
+        ";
+        // line 11
         echo twig_include($this->env, $context, "tag/_delete_form.html.twig");
         echo "
+    </div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -122,7 +119,7 @@ class __TwigTemplate_29a40a5e6398e89526ea39a15b2ebe2807017b8caa9446be5725fdffdc5
 
     public function getDebugInfo()
     {
-        return array (  102 => 12,  97 => 10,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  98 => 11,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -132,13 +129,13 @@ class __TwigTemplate_29a40a5e6398e89526ea39a15b2ebe2807017b8caa9446be5725fdffdc5
 {% block title %}Edit Tag{% endblock %}
 
 {% block body %}
-    <h1>Editer un Tag</h1>
 
-    {{ include('tag/_form.html.twig', {'button_label': 'Update'}) }}
+    <h1 class=\"text-center pt-3 pb-3\">Modifier un Tag: </h1>
+    <div class=\"container mb-5 col-3\">
+        {{ include('tag/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
 
-    <a href=\"{{ path('tag_index') }}\">back to list</a>
-
-    {{ include('tag/_delete_form.html.twig') }}
+        {{ include('tag/_delete_form.html.twig') }}
+    </div>
 {% endblock %}", "tag/edit.html.twig", "/Users/malika/Desktop/Blog 2/templates/tag/edit.html.twig");
     }
 }

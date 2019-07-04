@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
  * @Route("/article")
@@ -85,7 +85,7 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}", name="article_show", methods={"GET"})
+     * @Route("/show/{slug}", name="article_show", methods={"GET"})
      */
     public function show(Article $article): Response
     {
@@ -94,8 +94,9 @@ class ArticleController extends AbstractController
         ]);
     }
 
+    //     * @ParamConverter("article", class="App\Entity\Article")
     /**
-     * @Route("/{id}/edit", name="article_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="article_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Article $article
      * @param Slugify $slugify
@@ -129,7 +130,7 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="article_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="article_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Article $article): Response
     {

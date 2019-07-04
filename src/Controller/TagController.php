@@ -12,12 +12,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 
 /**
- * @Route("/tag", name="tag_")
+ * @Route("/tag")
  */
 class TagController extends AbstractController
 {
     /**
-     * @Route("/", name="index")
+     * @Route("/", name="tag_index")
      */
     public function index(TagRepository $tagRepository): Response
     {
@@ -27,7 +27,7 @@ class TagController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="show")
+     * @Route("/show/{id}", name="tag_show")
      */
     public function show(Tag $tag): Response
     {
@@ -37,7 +37,7 @@ class TagController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="new", methods={"GET","POST"})
+     * @Route("/new", name="tag_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -60,7 +60,7 @@ class TagController extends AbstractController
 
 
     /**
-     * @Route("/{id}/edit", name="edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="tag_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Tag $tag): Response
     {
@@ -79,7 +79,7 @@ class TagController extends AbstractController
         ]);
     }
     /**
-     * @Route("/delete/{id}", name="delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="tag_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Tag $tag): Response
     {
@@ -89,7 +89,7 @@ class TagController extends AbstractController
             $entityManager->flush();
             $this->addFlash('danger', 'Le tag a bien été supprimé');
         }
-        
+
         return $this->redirectToRoute('tag_index');
     }
 

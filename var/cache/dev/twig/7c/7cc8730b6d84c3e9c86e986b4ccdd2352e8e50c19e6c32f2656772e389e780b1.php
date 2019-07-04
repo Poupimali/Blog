@@ -91,38 +91,33 @@ class __TwigTemplate_086fe8f46d66a478cb2b61b91fc52e08246eca51a6e94036f7f4d5e9956
             <table class=\"table my-4\">
                 <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Nom</th>
                     <th>actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 ";
-        // line 18
+        // line 17
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["tags"]) || array_key_exists("tags", $context) ? $context["tags"] : (function () { throw new RuntimeError('Variable "tags" does not exist.', 18, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["tags"]) || array_key_exists("tags", $context) ? $context["tags"] : (function () { throw new RuntimeError('Variable "tags" does not exist.', 17, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["tag"]) {
-            // line 19
+            // line 18
             echo "                    <tr>
                         <td>";
-            // line 20
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["tag"], "id", [], "any", false, false, false, 20), "html", null, true);
-            echo "</td>
-                        <td>";
-            // line 21
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["tag"], "name", [], "any", false, false, false, 21), "html", null, true);
+            // line 19
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["tag"], "name", [], "any", false, false, false, 19), "html", null, true);
             echo "</td>
                         <td>
                             <a class=\"nav-item nav-link text-light bg-dark m-1 col-3 text-center\"
                                href=\"";
-            // line 24
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tag_show", ["id" => twig_get_attribute($this->env, $this->source, $context["tag"], "id", [], "any", false, false, false, 24)]), "html", null, true);
+            // line 22
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tag_show", ["id" => twig_get_attribute($this->env, $this->source, $context["tag"], "id", [], "any", false, false, false, 22)]), "html", null, true);
             echo "\">show</a>
                             <a class=\"nav-item nav-link text-light bg-dark m-1 col-3 text-center\"
                                href=\"";
-            // line 26
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tag_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["tag"], "id", [], "any", false, false, false, 26)]), "html", null, true);
+            // line 24
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tag_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["tag"], "id", [], "any", false, false, false, 24)]), "html", null, true);
             echo "\">edit</a>
                         </td>
                     </tr>
@@ -130,7 +125,7 @@ class __TwigTemplate_086fe8f46d66a478cb2b61b91fc52e08246eca51a6e94036f7f4d5e9956
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 30
+            // line 28
             echo "                    <tr>
                         <td colspan=\"3\">no records found</td>
                     </tr>
@@ -139,7 +134,7 @@ class __TwigTemplate_086fe8f46d66a478cb2b61b91fc52e08246eca51a6e94036f7f4d5e9956
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tag'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 34
+        // line 32
         echo "                </tbody>
             </table>
         </div>
@@ -165,7 +160,7 @@ class __TwigTemplate_086fe8f46d66a478cb2b61b91fc52e08246eca51a6e94036f7f4d5e9956
 
     public function getDebugInfo()
     {
-        return array (  143 => 34,  134 => 30,  125 => 26,  120 => 24,  114 => 21,  110 => 20,  107 => 19,  102 => 18,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  138 => 32,  129 => 28,  120 => 24,  115 => 22,  109 => 19,  106 => 18,  101 => 17,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -181,7 +176,6 @@ class __TwigTemplate_086fe8f46d66a478cb2b61b91fc52e08246eca51a6e94036f7f4d5e9956
             <table class=\"table my-4\">
                 <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Nom</th>
                     <th>actions</th>
                 </tr>
@@ -189,7 +183,6 @@ class __TwigTemplate_086fe8f46d66a478cb2b61b91fc52e08246eca51a6e94036f7f4d5e9956
                 <tbody>
                 {% for tag in tags %}
                     <tr>
-                        <td>{{ tag.id }}</td>
                         <td>{{ tag.name }}</td>
                         <td>
                             <a class=\"nav-item nav-link text-light bg-dark m-1 col-3 text-center\"

@@ -9,7 +9,6 @@
             <table class="table my-4">
                 <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Titre</th>
                     <th>Contenu</th>
                     <th>Catégorie</th>
@@ -20,7 +19,6 @@
                 <tbody>
                 {% for article in articles %}
                     <tr>
-                        <td>{{ article.id }}</td>
                         <td>{{ article.title }}</td>
                         <td>{{ article.content }}</td>
                         <td>{{ article.category.name }}</td>

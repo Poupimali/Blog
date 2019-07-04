@@ -91,53 +91,48 @@ class __TwigTemplate_f912124179f4609a75a301a7481725d17e65113ca8c17f492b2cf1d9adf
             <table class=\"table my-4\">
                 <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Name</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 ";
-        // line 19
+        // line 18
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 19, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 18, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-            // line 20
+            // line 19
             echo "                <tr>
                     <td>";
-            // line 21
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 21), "html", null, true);
-            echo "</td>
-                    <td>";
-            // line 22
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 22), "html", null, true);
+            // line 20
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 20), "html", null, true);
             echo "</td>
                     <td>
                         <a class=\"nav-item nav-link text-light bg-dark m-1 col-3 text-center\"
                            href=\"";
-            // line 25
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_show", ["id" => twig_get_attribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 25)]), "html", null, true);
+            // line 23
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_show", ["id" => twig_get_attribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 23)]), "html", null, true);
             echo "\">Voir</a>
                         ";
-            // line 26
+            // line 24
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_AUTHOR")) {
-                // line 27
+                // line 25
                 echo "                            <a class=\"nav-item nav-link text-light bg-dark m-1 col-3 text-center\"
                                href=\"";
-                // line 28
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 28)]), "html", null, true);
+                // line 26
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 26)]), "html", null, true);
                 echo "\">Editer</a>
                         ";
             }
-            // line 30
+            // line 28
             echo "                    </td>
                 </tr>
                 ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 33
+            // line 31
             echo "                <tr>
                     <td colspan=\"4\">Pas de catégorie trouvée</td>
                 </tr>
@@ -148,7 +143,7 @@ class __TwigTemplate_f912124179f4609a75a301a7481725d17e65113ca8c17f492b2cf1d9adf
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 39
+        // line 37
         echo "        </div>
     </div>
 ";
@@ -172,7 +167,7 @@ class __TwigTemplate_f912124179f4609a75a301a7481725d17e65113ca8c17f492b2cf1d9adf
 
     public function getDebugInfo()
     {
-        return array (  152 => 39,  141 => 33,  134 => 30,  129 => 28,  126 => 27,  124 => 26,  120 => 25,  114 => 22,  110 => 21,  107 => 20,  102 => 19,  88 => 7,  78 => 6,  59 => 4,  36 => 2,);
+        return array (  147 => 37,  136 => 31,  129 => 28,  124 => 26,  121 => 25,  119 => 24,  115 => 23,  109 => 20,  106 => 19,  101 => 18,  88 => 7,  78 => 6,  59 => 4,  36 => 2,);
     }
 
     public function getSourceContext()
@@ -189,7 +184,6 @@ class __TwigTemplate_f912124179f4609a75a301a7481725d17e65113ca8c17f492b2cf1d9adf
             <table class=\"table my-4\">
                 <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Name</th>
                     <th>Actions</th>
                 </tr>
@@ -197,7 +191,6 @@ class __TwigTemplate_f912124179f4609a75a301a7481725d17e65113ca8c17f492b2cf1d9adf
                 <tbody>
                 {% for category in categories %}
                 <tr>
-                    <td>{{ category.id }}</td>
                     <td>{{ category.name }}</td>
                     <td>
                         <a class=\"nav-item nav-link text-light bg-dark m-1 col-3 text-center\"

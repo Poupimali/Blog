@@ -3,11 +3,11 @@
 {% block title %}Edit Tag{% endblock %}
 
 {% block body %}
-    <h1>Editer un Tag</h1>
 
-    {{ include('tag/_form.html.twig', {'button_label': 'Update'}) }}
+    <h1 class="text-center pt-3 pb-3">Modifier un Tag: </h1>
+    <div class="container mb-5 col-3">
+        {{ include('tag/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
 
-    <a href="{{ path('tag_index') }}">back to list</a>
-
-    {{ include('tag/_delete_form.html.twig') }}
+        {{ include('tag/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

@@ -8,7 +8,7 @@
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/{id}/edit',
+                    '/edit/{id}',
                 ],
                 'name' => [
                     'category_edit',

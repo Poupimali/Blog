@@ -11,7 +11,7 @@
                     '/delete/{id}',
                 ],
                 'name' => [
-                    'delete',
+                    'tag_delete',
                 ],
                 'methods' => [
                     [

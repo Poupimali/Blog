@@ -8,7 +8,7 @@
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/{slug}',
+                    '/show/{slug}',
                 ],
                 'name' => [
                     'article_show',
