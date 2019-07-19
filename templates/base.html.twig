@@ -11,7 +11,7 @@
 {% include 'navbar.html.twig' %}
 
 {% if app.user %}
-<h2 class = "text-center pt-3 pb-3 text-dark">Bonjour {{ app.user.email }} !<h2>
+<h2 class = "text-center pt-3 pb-3 text-dark">Bonjour {{ app.user.email }} !</h2>
         {% if app.debug %}
             <p class = "text-center text-dark">Affichage total: {{ app.session.get('total') }}</p>
             <p class = "text-center text-dark">Request method: {{ app.request.method }}</p>
@@ -31,6 +31,7 @@
 
 {% block javascripts %}
     {{ encore_entry_link_tags('app') }}
+    <script src="https://kit.fontawesome.com/f62deca48c.js"></script>
 {% endblock %}
 </body>
 </html>

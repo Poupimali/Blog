@@ -152,31 +152,64 @@ class __TwigTemplate_5e75a3d76ecade2e40ff6f2de30fc42d2f585ab556f821168bd39e00921
         // line 39
         echo "                    </td>
                 </tr>
+                <tr>
+                    <th>Mettre en favori</th>
+                    <td>
+                        <a onclick=\"addToFavorite()\">
+                            ";
+        // line 45
+        echo (((isset($context["isFavorite"]) || array_key_exists("isFavorite", $context) ? $context["isFavorite"] : (function () { throw new RuntimeError('Variable "isFavorite" does not exist.', 45, $this->source); })())) ? ("<i id=\"favorite\" class=\"fas fa-star\"></i>") : ("<i id=\"favorite\" class=\"far fa-star\"></i>"));
+        // line 46
+        echo "</a>
+
+                    </td>
+                </tr>
                 </tbody>
             </table>
+
         </div>
     </div>
     <div class=\"container mb-5 col-4 d-flex flex-column justify-content-center align-items-center\">
         <a class=\"btn text-light bg-dark m-1 col-4\" href=\"";
-        // line 46
+        // line 56
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_index");
         echo "\">Retour à la liste</a>
         ";
-        // line 47
+        // line 57
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_AUTHOR")) {
-            // line 48
+            // line 58
             echo "            <a class=\"btn text-light bg-dark m-1 col-2\" href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 48, $this->source); })()), "id", [], "any", false, false, false, 48)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 58, $this->source); })()), "id", [], "any", false, false, false, 58)]), "html", null, true);
             echo "\">Editer</a>
             ";
-            // line 49
+            // line 59
             echo twig_include($this->env, $context, "article/_delete_form.html.twig");
             echo "
         ";
         }
-        // line 51
+        // line 61
         echo "
     </div>
+    <script>
+        function addToFavorite() {
+            fetch('";
+        // line 65
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_favorite", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 65, $this->source); })()), "id", [], "any", false, false, false, 65)]), "html", null, true);
+        echo "')
+                .then(response => response.json())
+                .then(json => {
+                    let favoriteElt = document.getElementById('favorite');
+                    if (json.isFavorite) {
+                        favoriteElt.classList.remove('far');
+                        favoriteElt.classList.add('fas');
+                    }
+                    else {
+                        favoriteElt.classList.remove('fas');
+                        favoriteElt.classList.add('far');
+                    }
+                });
+        }
+    </script>
 
 
 ";
@@ -200,7 +233,7 @@ class __TwigTemplate_5e75a3d76ecade2e40ff6f2de30fc42d2f585ab556f821168bd39e00921
 
     public function getDebugInfo()
     {
-        return array (  178 => 51,  173 => 49,  168 => 48,  166 => 47,  162 => 46,  153 => 39,  146 => 37,  138 => 35,  133 => 34,  125 => 29,  118 => 25,  111 => 21,  104 => 17,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  197 => 65,  191 => 61,  186 => 59,  181 => 58,  179 => 57,  175 => 56,  163 => 46,  161 => 45,  153 => 39,  146 => 37,  138 => 35,  133 => 34,  125 => 29,  118 => 25,  111 => 21,  104 => 17,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -245,8 +278,18 @@ class __TwigTemplate_5e75a3d76ecade2e40ff6f2de30fc42d2f585ab556f821168bd39e00921
                         {% endfor %}
                     </td>
                 </tr>
+                <tr>
+                    <th>Mettre en favori</th>
+                    <td>
+                        <a onclick=\"addToFavorite()\">
+                            {{ isFavorite ? '<i id=\"favorite\" class=\"fas fa-star\"></i>' :
+                            '<i id=\"favorite\" class=\"far fa-star\"></i>' }}</a>
+
+                    </td>
+                </tr>
                 </tbody>
             </table>
+
         </div>
     </div>
     <div class=\"container mb-5 col-4 d-flex flex-column justify-content-center align-items-center\">
@@ -257,6 +300,23 @@ class __TwigTemplate_5e75a3d76ecade2e40ff6f2de30fc42d2f585ab556f821168bd39e00921
         {% endif %}
 
     </div>
+    <script>
+        function addToFavorite() {
+            fetch('{{ path('article_favorite', {'id': article.id}) }}')
+                .then(response => response.json())
+                .then(json => {
+                    let favoriteElt = document.getElementById('favorite');
+                    if (json.isFavorite) {
+                        favoriteElt.classList.remove('far');
+                        favoriteElt.classList.add('fas');
+                    }
+                    else {
+                        favoriteElt.classList.remove('fas');
+                        favoriteElt.classList.add('far');
+                    }
+                });
+        }
+    </script>
 
 
 {% endblock %}

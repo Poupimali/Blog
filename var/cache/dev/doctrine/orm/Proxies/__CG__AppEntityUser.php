@@ -64,10 +64,10 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'articles'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'articles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'favorites'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'articles'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'articles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'favorites'];
     }
 
     /**
@@ -318,6 +318,50 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeArticle', [$article]);
 
         return parent::removeArticle($article);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getFavorites(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFavorites', []);
+
+        return parent::getFavorites();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addFavorite(\App\Entity\Article $favorite): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addFavorite', [$favorite]);
+
+        return parent::addFavorite($favorite);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeFavorite(\App\Entity\Article $favorite): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeFavorite', [$favorite]);
+
+        return parent::removeFavorite($favorite);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function isFavorite(\App\Entity\Article $article): bool
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isFavorite', [$article]);
+
+        return parent::isFavorite($article);
     }
 
 }

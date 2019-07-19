@@ -38,8 +38,18 @@
                         {% endfor %}
                     </td>
                 </tr>
+                <tr>
+                    <th>Mettre en favori</th>
+                    <td>
+                        <a onclick="addToFavorite()">
+                            {{ isFavorite ? '<i id="favorite" class="fas fa-star"></i>' :
+                            '<i id="favorite" class="far fa-star"></i>' }}</a>
+
+                    </td>
+                </tr>
                 </tbody>
             </table>
+
         </div>
     </div>
     <div class="container mb-5 col-4 d-flex flex-column justify-content-center align-items-center">
@@ -50,6 +60,23 @@
         {% endif %}
 
     </div>
+    <script>
+        function addToFavorite() {
+            fetch('{{ path('article_favorite', {'id': article.id}) }}')
+                .then(response => response.json())
+                .then(json => {
+                    let favoriteElt = document.getElementById('favorite');
+                    if (json.isFavorite) {
+                        favoriteElt.classList.remove('far');
+                        favoriteElt.classList.add('fas');
+                    }
+                    else {
+                        favoriteElt.classList.remove('fas');
+                        favoriteElt.classList.add('far');
+                    }
+                });
+        }
+    </script>
 
 
 {% endblock %}

@@ -69,7 +69,7 @@ class __TwigTemplate_8e58ed221562e79ddf60a4ecd6ccfd672111b6a8624f7c8c932b829361a
             // line 14
             echo "<h2 class = \"text-center pt-3 pb-3 text-dark\">Bonjour ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 14, $this->source); })()), "user", [], "any", false, false, false, 14), "email", [], "any", false, false, false, 14), "html", null, true);
-            echo " !<h2>
+            echo " !</h2>
         ";
             // line 15
             if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 15, $this->source); })()), "debug", [], "any", false, false, false, 15)) {
@@ -125,7 +125,7 @@ class __TwigTemplate_8e58ed221562e79ddf60a4ecd6ccfd672111b6a8624f7c8c932b829361a
 ";
         // line 32
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 35
+        // line 36
         echo "</body>
 </html>
 ";
@@ -214,6 +214,7 @@ class __TwigTemplate_8e58ed221562e79ddf60a4ecd6ccfd672111b6a8624f7c8c932b829361a
         echo "    ";
         echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackLinkTags("app");
         echo "
+    <script src=\"https://kit.fontawesome.com/f62deca48c.js\"></script>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -235,7 +236,7 @@ class __TwigTemplate_8e58ed221562e79ddf60a4ecd6ccfd672111b6a8624f7c8c932b829361a
 
     public function getDebugInfo()
     {
-        return array (  214 => 33,  204 => 32,  193 => 29,  183 => 28,  170 => 7,  160 => 6,  141 => 5,  129 => 35,  127 => 32,  124 => 31,  122 => 28,  115 => 26,  106 => 23,  101 => 22,  96 => 21,  91 => 20,  86 => 18,  82 => 17,  77 => 16,  75 => 15,  70 => 14,  68 => 13,  65 => 12,  63 => 11,  59 => 9,  57 => 6,  53 => 5,  47 => 1,);
+        return array (  214 => 33,  204 => 32,  193 => 29,  183 => 28,  170 => 7,  160 => 6,  141 => 5,  129 => 36,  127 => 32,  124 => 31,  122 => 28,  115 => 26,  106 => 23,  101 => 22,  96 => 21,  91 => 20,  86 => 18,  82 => 17,  77 => 16,  75 => 15,  70 => 14,  68 => 13,  65 => 12,  63 => 11,  59 => 9,  57 => 6,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -253,7 +254,7 @@ class __TwigTemplate_8e58ed221562e79ddf60a4ecd6ccfd672111b6a8624f7c8c932b829361a
 {% include 'navbar.html.twig' %}
 
 {% if app.user %}
-<h2 class = \"text-center pt-3 pb-3 text-dark\">Bonjour {{ app.user.email }} !<h2>
+<h2 class = \"text-center pt-3 pb-3 text-dark\">Bonjour {{ app.user.email }} !</h2>
         {% if app.debug %}
             <p class = \"text-center text-dark\">Affichage total: {{ app.session.get('total') }}</p>
             <p class = \"text-center text-dark\">Request method: {{ app.request.method }}</p>
@@ -273,6 +274,7 @@ class __TwigTemplate_8e58ed221562e79ddf60a4ecd6ccfd672111b6a8624f7c8c932b829361a
 
 {% block javascripts %}
     {{ encore_entry_link_tags('app') }}
+    <script src=\"https://kit.fontawesome.com/f62deca48c.js\"></script>
 {% endblock %}
 </body>
 </html>
